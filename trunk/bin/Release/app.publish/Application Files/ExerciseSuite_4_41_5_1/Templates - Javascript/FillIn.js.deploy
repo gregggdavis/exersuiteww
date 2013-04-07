@@ -1,0 +1,440 @@
+
+// **** NO NEED TO MODIFY ANYTHING BELOW THIS POINT *******
+
+function Is ()
+{   // convert all characters to lowercase to simplify testing
+    var agt=navigator.userAgent.toLowerCase()
+
+    // *** BROWSER VERSION ***
+    this.major = parseInt(navigator.appVersion)
+
+    this.nav  = ((agt.indexOf('mozilla')!=-1) && ((agt.indexOf('spoofer')==-1)
+                && (agt.indexOf('compatible') == -1)))
+    this.nav4 = (this.nav && (this.major == 4))
+    this.nav4up = this.nav && (this.major >= 4)
+    this.nav5up = this.nav && (this.major >= 5)
+
+    this.ie   = (agt.indexOf("msie") != -1)
+    this.ie4  = (this.ie && (this.major == 4))
+    this.ie4up  = this.ie  && (this.major >= 4)
+}
+var is = new Is();
+
+var LowerString = '';
+var UpperString = '';
+var platform = 'win';
+
+if (navigator.appVersion.indexOf('Mac') != -1) {
+   platform = 'mac';
+}
+if ((navigator.appVersion.indexOf('4.') != -1)&&(navigator.appName.indexOf('Explorer') != -1)){
+   platform = 'win';
+}
+
+var Correct = 'Correct. '
+var Incorrect = 'Incorrect guesses have been blanked out.'
+var GiveHint = 'A correct letter has been added.'
+var YourScoreIs = 'Your score is'
+var CaseSensitive = 'false'
+QuestionList = new Array();
+AnswerList = new Array();
+var WinLowerString='abcdefghijklmnopqrstuvwxyz';
+var WinUpperString='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var MacLowerString='abcdefghijklmnopqrstuvwxyz';
+var MacUpperString='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+for (i = 0; i < OrigQuestions.length; i++) {
+  QuestionList[i] = unescape(OrigQuestions[i][1]);
+}
+for (i = 0; i < OrigAnswers.length; i++) {
+  AnswerList[i] = unescape(OrigAnswers[i]);
+}
+
+// Replace <inputX> with real <input  ...>
+var iTotalInputNum = 0;
+for (i = 0;  i < OrigQuestions.length;  i++) {
+  for (j = 0;  j < OrigQuestions[i][0];  j++) {
+    //QuestionList[i] = QuestionList[i].replace('<input' + j + '>', '<input type="text" size="' + AnswerList[iTotalInputNum].length + '">');
+    QuestionList[i] = QuestionList[i].replace('<input' + j + '>', '<input id="inputAnswer' + iTotalInputNum + '" type="text" size="' + AnswerList[iTotalInputNum].length + '">');
+    iTotalInputNum++;
+  }
+}
+
+if (platform == 'win') {
+  LowerString = unescape(WinLowerString);
+  UpperString = unescape(WinUpperString);
+} else {
+  LowerString = unescape(MacLowerString);
+  UpperString = unescape(MacUpperString);
+}
+
+
+function ConvertCase(InString, Direction)
+{
+  var FromString = '';
+  var ToString = '';
+
+  if (Direction == 0){
+    FromString = UpperString;
+    ToString = LowerString;
+  } else {
+    FromString = LowerString;
+    ToString = UpperString;
+  }
+
+  var i = 0;
+  j = 0;
+  var OutString = '';
+  for (i=0; i<InString.length; i++){
+    if (FromString.indexOf(InString.charAt(i)) > -1){
+      j = FromString.indexOf(InString.charAt(i));
+      OutString += ToString.charAt(j);
+    } else {   
+      OutString += InString.charAt(i);
+    }
+  }
+  return OutString;
+}
+
+
+function isNetscape6()
+{
+  var clozevar = "cloze0";
+
+  if (is.ie) {
+    return false;
+  }
+
+  if ((document.forms[clozevar].elements.length > 0)
+  &&  (document.forms[clozevar].elements[0].value == "Hint")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+function getClozeElements(iElementNum)
+{
+  var clozevar = "cloze0";
+
+  var iBrowserOffsetIndex = 0;
+  if ((document.forms[clozevar].elements.length > 0)
+  &&  (document.forms[clozevar].elements[0].value == "Hint")) {
+    iBrowserOffsetIndex = 1;
+    if ((giCurrentItem > 0)
+    &&  (document.forms["cloze" + giCurrentItem])
+    &&  (document.forms["cloze" + giCurrentItem].elements.length > 0)) {
+      clozevar = "cloze" + giCurrentItem;
+      iBrowserOffsetIndex = 0;
+    }
+  }
+
+  return document.forms[clozevar].elements[iElementNum + iBrowserOffsetIndex];
+}
+
+
+function IsAnswerCorrect(iAnswerNum, iElementNum)
+{
+  var InString = TrimString(getClozeElements(iElementNum).value);
+  var Answer   = AnswerList[iAnswerNum];
+
+  if (CaseSensitive == 'false') {
+    InString = ConvertCase(InString, 1);
+    Answer = ConvertCase(Answer, 1);
+  }
+
+  return(InString == Answer);
+}
+
+
+function CheckAllAnswers()
+{
+  var Feedback = '';
+  var IsWrong = 0;
+  var iItemNumber = 0;
+  var Score = 0;
+  var NumberCorrect = 0;
+  var Tries = AnswerList.length;
+
+  if (bOnePerPage) {
+    if (QuestionList.length > 0) { 
+      Tries = OrigQuestions[giCurrentItem][0];
+      var iTotalAnswersBeforeThis = 0;
+      for (i = 0;  i < giCurrentItem;  i++) {
+        iTotalAnswersBeforeThis += OrigQuestions[i][0];
+      }
+      for (iInput = 0;  iInput < OrigQuestions[giCurrentItem][0];  iInput++) {
+        if (IsAnswerCorrect(iTotalAnswersBeforeThis + iInput, iInput)) {
+          getClozeElements(iInput).readOnly          = true;
+          getClozeElements(iInput).style.fontWeight  = "bold";
+          getClozeElements(iInput).style.borderStyle = "none";
+          NumberCorrect++;
+        } else {
+          IsWrong = 1;
+          getClozeElements(iInput).value = '';
+        }
+        iItemNumber++;
+      }
+    }
+  } else {
+
+    for (iQues = 0;  iQues < OrigQuestions.length;  iQues++) {
+      for (iInput = 0;  iInput < OrigQuestions[iQues][0];  iInput++) {
+        if (IsAnswerCorrect(iItemNumber, iQues+iItemNumber)) {
+          getClozeElements(iQues + iItemNumber).readOnly          = true;
+          getClozeElements(iQues + iItemNumber).style.fontWeight  = "bold";
+          getClozeElements(iQues + iItemNumber).style.borderStyle = "none";
+          NumberCorrect++;
+        } else {
+          IsWrong = 1;
+          getClozeElements(iQues + iItemNumber).value = '';
+        }
+        iItemNumber++;
+      }
+    }
+  }
+
+  if (Tries > 0) {
+    Score = Math.floor((NumberCorrect*100)/Tries);
+  }
+
+  if ((Tries < 1) || (IsWrong == 1)) {
+    Feedback = Incorrect;
+    Feedback += '\n\r' + YourScoreIs + ' ' + Score + '%.';
+  } else {
+    Feedback = Correct;
+    Feedback += ' ' + YourScoreIs + ' ' + Score + '%.'+ '\n\r';
+    if (bOnePerPage) {
+      document.buttonform.elements['nextques'].disabled = false;
+    }
+  }
+
+  document.buttonform.elements['evaluation'].value = Feedback;
+}
+
+function TrimString(InString)
+{
+    var x = 0;
+
+    if (InString.length != 0) {
+        while ((escape(InString.charAt(InString.length - 1)) == '%20') || (escape(InString.charAt(InString.length - 1)) == '%0A') || (escape(InString.charAt(InString.length - 1)) == '%0D')){
+            InString = InString.substring(0, InString.length - 1);
+        }
+        while ((escape(InString.charAt(0)) == '%20') || (escape(InString.charAt(0)) == '%0A') || (escape(InString.charAt(0)) == '%0D')){
+            InString = InString.substring(1, InString.length);
+        }
+        while (InString.indexOf('  ') != -1) {
+            x = InString.indexOf('  ');
+            InString = InString.substring(0, x) + InString.substring(x+1, InString.length );
+        }
+        return InString;
+    } else {
+        return '';
+    }
+}
+
+function Cheat(CurrentQuestion)
+{
+  if (bOnePerPage) {
+    CurrentQuestion = giCurrentItem;
+  }
+  var iTotalAnswersBeforeThis = 0;
+  for (i = 0;  i < CurrentQuestion;  i++) {
+    iTotalAnswersBeforeThis += OrigQuestions[i][0];
+  }
+  var bShouldGetNextChar = false;
+  var iCurrentInput = 0;
+  for (iInput = 0;  iInput < OrigQuestions[CurrentQuestion][0];  iInput++) {
+    var bIsCorrect = false;
+    if (bOnePerPage) {
+      bIsCorrect = IsAnswerCorrect(iTotalAnswersBeforeThis + iInput, iInput);
+    } else {
+      bIsCorrect = IsAnswerCorrect(iTotalAnswersBeforeThis + iInput, iTotalAnswersBeforeThis + iInput + CurrentQuestion);
+    }
+    if ( ! bIsCorrect) {
+      bShouldGetNextChar = true;
+      iCurrentInput = iInput;
+      break;
+    }
+  }
+  if (bShouldGetNextChar) {
+    if (bOnePerPage) {
+      CorrectBits = CheckBeginning(getClozeElements(iCurrentInput).value, AnswerList[iTotalAnswersBeforeThis + iCurrentInput]);
+      getClozeElements(iCurrentInput).value = CorrectBits;
+    } else {
+      CorrectBits = CheckBeginning(getClozeElements(iTotalAnswersBeforeThis + iCurrentInput + CurrentQuestion).value, AnswerList[iTotalAnswersBeforeThis + iCurrentInput]);
+      getClozeElements(iTotalAnswersBeforeThis + iCurrentInput + CurrentQuestion).value = CorrectBits;
+    }
+  }
+}
+
+
+function CheckBeginning(Guess, Answer)
+{
+  var OutString = '';
+  var i = 0;
+  var UpperGuess = '';
+  var UpperAnswer = '';
+
+  if (CaseSensitive == 'false') {
+    UpperGuess = ConvertCase(Guess, 1);
+    UpperAnswer = ConvertCase(Answer, 1);
+  } else {
+    UpperGuess = Guess;
+    UpperAnswer = Answer;
+  }
+
+  if (UpperGuess != UpperAnswer) {
+    while (UpperGuess.charAt(i) == UpperAnswer.charAt(i)) {
+      OutString += Guess.charAt(i);
+      i++;
+    }
+    OutString += Answer.charAt(i);
+  } else {
+    OutString = Answer;
+  }
+  return OutString;
+}
+
+
+function ResetEverything()
+{
+  var iItemNumber = 0;
+  if (bOnePerPage) {
+    if (QuestionList.length > 0) {
+      for (iInput = 0;  iInput < OrigQuestions[giCurrentItem][0];  iInput++) {
+        getClozeElements(iInput).value = '';
+        getClozeElements(iInput).readOnly          = false;
+        getClozeElements(iInput).style.fontWeight  = "normal";
+        getClozeElements(iInput).style.borderStyle = "";
+        iItemNumber++;
+      }
+      document.buttonform.elements['nextques'].disabled = true;
+    }
+  } else {
+    for (iQues = 0;  iQues < OrigQuestions.length;  iQues++) {
+      for (iInput = 0;  iInput < OrigQuestions[iQues][0];  iInput++) {
+        getClozeElements(iQues + iItemNumber).value = '';
+        getClozeElements(iQues + iItemNumber).readOnly          = false;
+        getClozeElements(iQues + iItemNumber).style.fontWeight  = "normal";
+        getClozeElements(iQues + iItemNumber).style.borderStyle = "";
+        iItemNumber++;
+      }
+    }
+  }
+  document.buttonform.elements['evaluation'].value = '';
+}
+
+
+function writeSingleQuestionAnswer(index)
+{
+  document.write('<tr><tr><td align="right" valign="top" width="20"><font size="2">');
+  if (bShowQuestionNumbers == true) {
+    document.write((index+1) + '.');
+  }
+  document.write('</font></td>');
+  document.write('<td align="left" valign="top"><font size="2">');
+  document.write(QuestionList[index]);
+  document.write('</font><br /><br /></td>');
+  document.write('<td><input type="button" value="Hint" onclick="Cheat(' + index + ')"></td>');
+  document.write('</tr>');
+}
+
+
+function writeBaseQuestionAnswer()
+{
+  var index = 0;
+
+  document.write('<tr><tr><td align="right" valign="top" width="20"><font size="2"><div id="divItemNumber">');
+  document.write('</div></font></td>');
+  document.write('<td align="left" valign="top"><font size="2"><div id="divItemQuestion">');
+  document.write('</div></font><br /><br /></td>');
+  document.write('<td><input id="cbHint" type="button" value="Hint" onclick="Cheat()"></td>');
+  document.write('</tr>');
+}
+
+
+function replaceQuestionAnswer(index)
+{
+  if (bShowQuestionNumbers == true) {
+    document.getElementById('divItemNumber').innerHTML = (index + 1) + '.';
+  }
+  if (isNetscape6()) {
+  //alert ("NETSCAPE");
+    document.getElementById('divItemQuestion').innerHTML = '<form name="cloze' + index + '">' + QuestionList[index] + '</form>';
+  } else {
+  //alert ("IE");
+    document.getElementById('divItemQuestion').innerHTML = QuestionList[index];
+  }
+}
+
+
+function gotoNextQues()
+{
+  if (giCurrentItem < (QuestionList.length-1)) {
+    giCurrentItem++;
+    replaceQuestionAnswer(giCurrentItem);
+    ResetEverything();
+  } else {
+    document.buttonform.elements['evaluation'].value = "Congratulations, you have completed the exercise.";
+    document.buttonform.elements['nextques'].disabled     = true;
+    document.buttonform.elements['checkanswers'].disabled = true;
+    document.buttonform.elements['reset'].disabled        = true;
+  }
+}
+
+
+document.write('<div align="center">');
+document.write('<form name="cloze0">');
+if (PossibleAnswers.length > 0) {
+    document.write('<table border="0" cellspacing="1" cellpadding="17" bgcolor="gray"><tr><td align="center" valign="middle" nowrap bgcolor="white"><font size="2">');
+    document.write(PossibleAnswers);
+    document.write('</font></td></tr></table>');
+    document.write('<br />');
+}
+document.write('<table width="440" border="0" cellspacing="0" cellpadding="0"><tr><td>');
+if (iTotalPageWidth <= 0) {
+  iTotalPageWidth = 450;
+}
+document.write('<table width="' + iTotalPageWidth + '" border="0" cellspacing="0" cellpadding="3">');
+
+
+var giCurrentItem = 0;
+
+if (bOnePerPage) {
+  if (QuestionList.length > 0) { 
+    writeBaseQuestionAnswer();
+    replaceQuestionAnswer(giCurrentItem);
+  }
+} else {
+  for (giCurrentItem = 0;  giCurrentItem < QuestionList.length;  giCurrentItem++) { 
+      writeSingleQuestionAnswer(giCurrentItem);
+  }
+}
+
+document.write('</table>');
+document.write('</form>');
+
+document.write('<form name="buttonform"><table cellspacing="5">');
+document.write('<tr><td align="center" valign="middle">');
+
+if (iResultsWidth <= 0) {
+  iResultsWidth = 47;
+}
+if (iResultsHeight <= 0) {
+  iResultsHeight = 6;
+}
+
+document.write('<input type="button" name="checkanswers" value="Check Answers" onclick="CheckAllAnswers()">');
+document.write('<input type="button" name="reset" value="Reset" onClick="ResetEverything()">');
+
+if (bOnePerPage) {
+  document.write('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="nextques" disabled type="button" value="Next Question =&gt;" onclick="gotoNextQues()"></input>');
+}
+
+document.write('<br /><br /><textarea rows="' + iResultsHeight + '" cols="' + iResultsWidth + '" name="evaluation"></textarea>');
+document.write('</td></tr></table></form>');
+document.write('</div>');
+
+
