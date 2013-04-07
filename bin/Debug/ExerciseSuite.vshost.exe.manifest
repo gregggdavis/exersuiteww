@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity name="ExerciseSuite.exe" version="4.41.5.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ExerciseSuite" version="1.0.4835.23817" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ExerciseSuite.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExerciseSuite.exe" size="94208">
+      <assemblyIdentity name="ExerciseSuite" version="1.0.4835.23817" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>n9003ywSCdVXnvjqT87Dx5M97WQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Leadit.ExtendedDataGrid.dll" size="49152">
+      <assemblyIdentity name="Leadit.ExtendedDataGrid" version="0.1.2.2" publicKeyToken="C4013185431B6E4D" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>7L4TRCwT+efibOkPNu7u65Bcylo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="App.ico" size="1078">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>GM7OUb4teOfGVJg9lxgqFUWHPYk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ExerciseSuite.exe.config" size="144">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>cpzNzlRjZspwKGLNlX6RAlU3880=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\DragAndDropData-Blank.js" size="216">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>LrXvEupSMhVtCsl1X3pRVxksJjI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\DragAndDropData-GC01EX-Unit01-Page02.js" size="689">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>nNCOMXr3Raq8KdQ0De3FdF/+EXw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\FillInData-Blank.js" size="506">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>eNsK+IY5YM8O546A+P/kHGSCwBY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\FillInData-NE01-E-Unit2.js" size="1627">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>S+q8mjs0N3DzECx2nauAetX3g0k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\MatchingData-Blank.js" size="418">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>D9NP7AZeZcPsFEms0KSe08r+em8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\MatchingData-MT02-E-Unit2-Dialog1.js" size="1052">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>33aoJSvYQ4rB54h7MyMQxciFpFs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\MultipleChoiceData-Blank.js" size="647">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>ilBBzBUGEspffGP1Xh/t6w3+BJ8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\MultipleChoiceData-MT02-E-Unit4-Dialog1.js" size="6822">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>iKPzn1qSI+N6Np3dNQQCpnNOqaA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\SentenceComboData-Blank.js" size="631">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>LGin76hyNHnQHupoeHRVkrAvrY0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" size="6000">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>4CbJm3LOu5CGHTpWnDe9JYQMwek=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-BW01-EXU02-J.htm" size="1683">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>qQ6vrPpAf0fNrdnAkY8LbTIURIM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-BW01-EXU05-J.htm" size="1451">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>nyUaG/B4wIeX2wINIYsxi9qC+Go=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-GC01-EXU02-E.htm" size="2179">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>WRhHQ+dqQzyooY7g4NFVAzxPK3E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-GC01-EXU03-E.htm" size="2584">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>bOEwyRC23l8X9wdOwov5Q3hEyuk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-GC01-EXU04-E.htm" size="2126">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Vm9tajTicv2cJHb7AdVRo64tAfk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-WR01_l01_u01_01.html" size="3941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>tLlLtP3LuGrnLpb0/Ogylbs3Hhg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-WR01_l01_u01_02.html" size="3541">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>OZjY6NsNXIC+ujHm6Fq1+w3qCsQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\DragAndDrop.js" size="22831">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>3xcw5P0w7FmfMNtN03AaJRNiNw8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\DragAndDropData.js" size="214">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>L54PlQdNyMVu7qNp5Ie3xdz7Cfk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\FillIn.js" size="14474">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>BuC0DSsSQoDNxtRS6zMQGqRBXJU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\FillInData.js" size="506">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>eNsK+IY5YM8O546A+P/kHGSCwBY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\Matching.js" size="4129">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>tjRe/ACKnnOPBNQZc7DgsC7GAvs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\MatchingData.js" size="418">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>D9NP7AZeZcPsFEms0KSe08r+em8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\MultipleChoice.js" size="8665">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>B+sdkZWF7OhrR7kd18tTJkuuKf8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\MultipleChoiceData.js" size="617">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>HlsP0RtAVYP1ErjWi8XDaP2RfJo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\oldDragAndDrop.js" size="22094">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>XgnA3nqj5WKbwSsdKKCGj6lc35k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\SentenceCombo.js" size="10104">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>N0OeXVaRkepN5RGbZfSiJCV1RNI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Javascript\SentenceComboData.js" size="631">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>LGin76hyNHnQHupoeHRVkrAvrY0=</dsig:DigestValue>
+    </hash>
+  </file>
+</asmv1:assembly>

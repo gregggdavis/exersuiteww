@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7FEFDD4-A240-4FBA-AEA4-EB05568D30E9}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>ExerciseSuite</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ExerciseSuite</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>4.41.5.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4E48545223B73BDCEE1A8C2FD5C5E75129746EF7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BrowserApp_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Leadit.ExtendedDataGrid">
+      <HintPath>.\Leadit.ExtendedDataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CQuiz.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CQuizDragDrop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CQuizFillIn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CQuizMatching.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CQuizMultipleChoice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CQuizSentenceCombo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="App.ico" />
+    <Content Include="Samples - Quizzes\DragAndDropData-Blank.js" />
+    <Content Include="Samples - Quizzes\DragAndDropData-GC01EX-Unit01-Page02.js" />
+    <Content Include="Samples - Quizzes\FillInData-Blank.js" />
+    <Content Include="Samples - Quizzes\FillInData-NE01-E-Unit2.js" />
+    <Content Include="Samples - Quizzes\MatchingData-Blank.js" />
+    <Content Include="Samples - Quizzes\MatchingData-MT02-E-Unit2-Dialog1.js" />
+    <Content Include="Samples - Quizzes\MultipleChoiceData-Blank.js" />
+    <Content Include="Samples - Quizzes\MultipleChoiceData-MT02-E-Unit4-Dialog1.js" />
+    <Content Include="Samples - Quizzes\SentenceComboData-Blank.js" />
+    <Content Include="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" />
+    <Content Include="Templates - Html\template-BW01-EXU02-J.htm" />
+    <Content Include="Templates - Html\template-BW01-EXU05-J.htm" />
+    <Content Include="Templates - Html\template-GC01-EXU02-E.htm" />
+    <Content Include="Templates - Html\template-GC01-EXU03-E.htm" />
+    <Content Include="Templates - Html\template-GC01-EXU04-E.htm" />
+    <Content Include="Templates - Html\template-WR01_l01_u01_01.html" />
+    <Content Include="Templates - Html\template-WR01_l01_u01_02.html" />
+    <Content Include="Templates - Javascript\DragAndDrop.js" />
+    <Content Include="Templates - Javascript\DragAndDropData.js" />
+    <Content Include="Templates - Javascript\FillIn.js" />
+    <Content Include="Templates - Javascript\FillInData.js" />
+    <Content Include="Templates - Javascript\Matching.js" />
+    <Content Include="Templates - Javascript\MatchingData.js" />
+    <Content Include="Templates - Javascript\MultipleChoice.js" />
+    <Content Include="Templates - Javascript\MultipleChoiceData.js" />
+    <Content Include="Templates - Javascript\oldDragAndDrop.js" />
+    <Content Include="Templates - Javascript\SentenceCombo.js" />
+    <Content Include="Templates - Javascript\SentenceComboData.js" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooser.resx">
+      <DependentUpon>FormChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProperties.resx">
+      <DependentUpon>FormProperties.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>
