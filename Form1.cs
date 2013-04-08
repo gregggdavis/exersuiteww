@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
 using System.IO;
+using System.Reflection;
 //using mshtml;
 using System.Text.RegularExpressions;
 
@@ -148,7 +149,7 @@ namespace BrowserApp
 			//
 			// TODO: Add any constructor code after InitializeComponent call
 			//
-
+            this.Text += " " + GetShortVersionInfo();
 
             cQuiz = new CQuiz(ref dataGridQuestions, ref dTable);
             buttonPreview.Text = "Render data for :  " + cQuiz.GetQuizType();
@@ -1243,7 +1244,7 @@ namespace BrowserApp
             this.Controls.Add(this.panel1);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
-            this.Text = "Exercise Suite 4.41.5.3";
+            this.Text = "Exercise Suite";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.formExit_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuestions)).EndInit();
             this.tabControlData.ResumeLayout(false);
@@ -1346,6 +1347,22 @@ namespace BrowserApp
         ////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////
 
+
+        private static string GetShortVersionInfo()
+        {
+            try {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                AssemblyName assemblyname = assembly.GetName();
+
+                string strVersion = "Version " + assemblyname.Version.Major.ToString() + "." +
+                    assemblyname.Version.Minor.ToString() + "." +
+                    assemblyname.Version.Build.ToString() + "." +
+                    assemblyname.Version.Revision.ToString() + " (.NET 4.0 - VS2010)";
+                return strVersion;
+            } catch {
+                return "";
+            }
+        }
 
         /// <summary>
         ///
