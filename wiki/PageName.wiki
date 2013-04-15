@@ -2,13 +2,10 @@
 
 = Introduction =
 
-Exercise Suite for WW - Use the newest code here under the tag/branch of *Scheduler - VS2010*
+Exercise Suite for WW - Use the newest code here under the *Trunk*
 
 = Details =
 
 This program compiles on Windows 7 with:
  * Microsoft C# .NET Visual Studio 2010
   ** .NET Framework 4.0
- * DevExpress Universal components 12.2.7
- * MS SQL Server 2005
-  ** Backup of DB is stored locally on WW main office server
