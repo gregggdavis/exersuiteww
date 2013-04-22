@@ -161,10 +161,8 @@ namespace BrowserApp
             string sRows      = sJavascriptData.Substring(iRowsBegin + sRowsMatch.Length, iRowsEnd - (iRowsBegin + sRowsMatch.Length));
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTab = tabData.Controls.GetEnumerator();
-            ieTab.MoveNext();
-            ieTab.MoveNext();
-            IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
+
             ieTabPage.MoveNext();
             ieTabPage.MoveNext();
             ieTabPage.MoveNext();
@@ -240,10 +238,8 @@ namespace BrowserApp
 
 
                 // Get Options to write
-                IEnumerator ieTab = tabData.Controls.GetEnumerator();
-                ieTab.MoveNext();
-                ieTab.MoveNext();
-                IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
+
                 ieTabPage.MoveNext();
                 ieTabPage.MoveNext();
                 ieTabPage.MoveNext();
