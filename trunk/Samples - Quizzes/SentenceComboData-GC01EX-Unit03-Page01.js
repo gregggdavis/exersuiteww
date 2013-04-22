@@ -140,7 +140,7 @@ aHeight[10]=7;
 //WIDTHEND
 //HEIGHTEND
 
-bOnePerPage=true;
+bOnePerPage=false;
 
 bMouseOverPlaceRight=false;
 
