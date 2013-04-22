@@ -140,12 +140,14 @@ namespace BrowserApp
             string sShowQuestionNumbers = GetLastMatchedString(sJavascriptData, "bShowQuestionNumbers=", ";");
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTab = tabData.Controls.GetEnumerator();
-            ieTab.MoveNext();
-            ieTab.MoveNext();
-            IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
+
             ieTabPage.MoveNext();
             ieTabPage.MoveNext();
+
+            //GAD - Assigning Enumerator and Iterating through via Move next can be removed and replaced with just something like this foreach control:
+            //((CheckBox)tabData.Controls.Find("checkBoxScShowNumbers", false)[0]).Checked = sShowQuestionNumbers.Equals("true");
+
             ((CheckBox)ieTabPage.Current).Checked = sShowQuestionNumbers.Equals("true");
             ieTabPage.MoveNext();
             ((CheckBox)ieTabPage.Current).Checked = sMouseOverRight.Equals("true");
@@ -243,10 +245,8 @@ namespace BrowserApp
                 sReturnJavascript = sReturnJavascript.Insert(iHeadersEnd, sHeaderLines + "\r\n" + sQuestionLines + "\r\n" + sAnswerLines + "\r\n" + sColsLines + "\r\n" + sRowsLines + "\r\n");
 
                 // Get Options to write
-                IEnumerator ieTab = tabData.Controls.GetEnumerator();
-                ieTab.MoveNext();
-                ieTab.MoveNext();
-                IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
+
                 ieTabPage.MoveNext();
                 ieTabPage.MoveNext();
                 string sShowQuestionNumbers = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";

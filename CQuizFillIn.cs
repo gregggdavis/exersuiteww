@@ -124,10 +124,8 @@ namespace BrowserApp
             string sPageWidth = GetLastMatchedString(sJavascriptData, "iTotalPageWidth=", ";");
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTab = tabData.Controls.GetEnumerator();
-            ieTab.MoveNext();
-            ieTab.MoveNext();
-            IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsFi", false)[0]).Controls.GetEnumerator();
+
             ieTabPage.MoveNext();
             ((TextBox)ieTabPage.Current).Text = sPageWidth;
             ieTabPage.MoveNext();
@@ -236,10 +234,7 @@ namespace BrowserApp
                 sReturnJavascript = sReturnJavascript.Insert(iAnswersEnd, sAnswerLines + "\r\n");
 
                 // Set Options on Js Options Tab Page
-                IEnumerator ieTab = tabData.Controls.GetEnumerator();
-                ieTab.MoveNext();
-                ieTab.MoveNext();
-                IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsFi", false)[0]).Controls.GetEnumerator();
 
                 ieTabPage.MoveNext();
                 string sPageWidth = ((TextBox)ieTabPage.Current).Text;

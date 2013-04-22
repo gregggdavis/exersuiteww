@@ -178,15 +178,13 @@ namespace BrowserApp
 
             string sArrangement = GetLastMatchedString(sJavascriptData, "bOnePerPage=", ";");
 
-            string sFeedbackDisplayInPopup=GetLastMatchedString(sJavascriptData, "bFeedbackDisplayInPopup=", ";");
+            string sFeedbackDisplayInPopup  =GetLastMatchedString(sJavascriptData, "bFeedbackDisplayInPopup=", ";");
             string sFeedbackDisplayInResults=GetLastMatchedString(sJavascriptData, "bFeedbackDisplayInResults=", ";");
-            string sCheckAnswersButton    =GetLastMatchedString(sJavascriptData, "bCheckAnswersButton=", ";");
+            string sCheckAnswersButton      =GetLastMatchedString(sJavascriptData, "bCheckAnswersButton=", ";");
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTab = tabData.Controls.GetEnumerator();
-            ieTab.MoveNext();
-            ieTab.MoveNext();
-            IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
+
             ieTabPage.MoveNext();
             ((CheckBox)ieTabPage.Current).Checked = sCheckAnswersButton.Equals("true");
             ieTabPage.MoveNext();
@@ -347,10 +345,8 @@ namespace BrowserApp
                 string sOnePerPage = "false";
 
                 // Get Options to write
-                IEnumerator ieTab = tabData.Controls.GetEnumerator();
-                ieTab.MoveNext();
-                ieTab.MoveNext();
-                IEnumerator ieTabPage = ((TabPage)ieTab.Current).Controls.GetEnumerator();
+                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
+
                 ieTabPage.MoveNext();
                 string sCheckAnswersButton       = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
                 ieTabPage.MoveNext();
