@@ -399,20 +399,22 @@ namespace BrowserApp
             // 
             this.menuNew.Index = 0;
             this.menuNew.Shortcut = System.Windows.Forms.Shortcut.CtrlN;
-            this.menuNew.Text = "New";
+            this.menuNew.Text = "New Quiz";
             this.menuNew.Click += new System.EventHandler(this.menuNew_Click);
             // 
             // menuOpen
             // 
             this.menuOpen.Index = 1;
             this.menuOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO;
-            this.menuOpen.Text = "Open";
+            this.menuOpen.Text = "Open Js or Html";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
             // menuClose
             // 
+            this.menuClose.Enabled = false;
             this.menuClose.Index = 2;
             this.menuClose.Text = "Close";
+            this.menuClose.Visible = false;
             this.menuClose.Click += new System.EventHandler(this.menuClose_Click);
             // 
             // menuItem1
@@ -422,15 +424,17 @@ namespace BrowserApp
             // 
             // menuSave
             // 
+            this.menuSave.Enabled = false;
             this.menuSave.Index = 4;
             this.menuSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
-            this.menuSave.Text = "Save";
+            this.menuSave.Text = "Save (old)";
+            this.menuSave.Visible = false;
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
             // menuSaveAs
             // 
             this.menuSaveAs.Index = 5;
-            this.menuSaveAs.Text = "Save As...";
+            this.menuSaveAs.Text = "Save Js and Html";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // menuItem4
