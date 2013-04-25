@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zjjS/iJN69cDMddyTofta5vUgoI=</dsig:DigestValue>
+        <dsig:DigestValue>zdjaQo2w/8z5Pn8Q/ynJMKIgCwg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -84,13 +84,184 @@
       <dsig:DigestValue>cpzNzlRjZspwKGLNlX6RAlU3880=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Samples - Quizzes\DragAndDropData-Blank.js" size="216">
+  <file name="Never Open - Templates - Html\template-BW01-EXU02-J.htm" size="1683">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LrXvEupSMhVtCsl1X3pRVxksJjI=</dsig:DigestValue>
+      <dsig:DigestValue>qQ6vrPpAf0fNrdnAkY8LbTIURIM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\template-BW01-EXU05-J.htm" size="1451">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>nyUaG/B4wIeX2wINIYsxi9qC+Go=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\template-GC01-EXU02-E.htm" size="2179">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>WRhHQ+dqQzyooY7g4NFVAzxPK3E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\template-GC01-EXU03-E.htm" size="2584">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>bOEwyRC23l8X9wdOwov5Q3hEyuk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\template-GC01-EXU04-E.htm" size="2126">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Vm9tajTicv2cJHb7AdVRo64tAfk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\template-WR01_l01_u01_01.html" size="3941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>tLlLtP3LuGrnLpb0/Ogylbs3Hhg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\template-WR01_l01_u01_02.html" size="3541">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>OZjY6NsNXIC+ujHm6Fq1+w3qCsQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\WhalesWeb.com - BW01-J Business Writing Fundamentals 1.html" size="5114">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>3FbPe1pPSQChJRJm6PUwCJS15Bw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Html\WhalesWeb.com - BW02-J Business Writing Fundamentals 2.html" size="4047">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>GxygXp8RY5ezS42EqrCYDEes7/M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\DragAndDrop.js" size="22831">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>3xcw5P0w7FmfMNtN03AaJRNiNw8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\DragAndDropData.js" size="214">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>L54PlQdNyMVu7qNp5Ie3xdz7Cfk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\FillIn.js" size="16149">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>RJ4LBZI2POh/dzXSafu006rOdgo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\FillInData.js" size="527">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>bDG35JsE5M2Nvcjm0rL3JiWwZGE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\Matching.js" size="4129">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>tjRe/ACKnnOPBNQZc7DgsC7GAvs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\MatchingData.js" size="418">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>D9NP7AZeZcPsFEms0KSe08r+em8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\MultipleChoice.js" size="8665">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>B+sdkZWF7OhrR7kd18tTJkuuKf8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\MultipleChoiceData.js" size="617">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>HlsP0RtAVYP1ErjWi8XDaP2RfJo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\oldDragAndDrop.js" size="22094">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>XgnA3nqj5WKbwSsdKKCGj6lc35k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\SentenceCombo.js" size="10104">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>N0OeXVaRkepN5RGbZfSiJCV1RNI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Never Open - Templates - Javascript\SentenceComboData.js" size="631">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>LGin76hyNHnQHupoeHRVkrAvrY0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Samples - Quizzes\DragAndDropData-GC01EX-Unit01-Page02.js" size="689">
@@ -102,15 +273,6 @@
       <dsig:DigestValue>nNCOMXr3Raq8KdQ0De3FdF/+EXw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Samples - Quizzes\FillInData-Blank.js" size="527">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bDG35JsE5M2Nvcjm0rL3JiWwZGE=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Samples - Quizzes\FillInData-NE01-E-Unit2.js" size="1649">
     <hash>
       <dsig:Transforms>
@@ -118,15 +280,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>xtu5wihr+VT0b7mpNY9AtRYNbgo=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Samples - Quizzes\MatchingData-Blank.js" size="418">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>D9NP7AZeZcPsFEms0KSe08r+em8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Samples - Quizzes\MatchingData-MT02-E-Unit2-Dialog1.js" size="1052">
@@ -138,31 +291,13 @@
       <dsig:DigestValue>33aoJSvYQ4rB54h7MyMQxciFpFs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Samples - Quizzes\MultipleChoiceData-Blank.js" size="647">
+  <file name="Samples - Quizzes\MultipleChoiceData-MT02-E-Unit4-Dialog1.js" size="6826">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ilBBzBUGEspffGP1Xh/t6w3+BJ8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Samples - Quizzes\MultipleChoiceData-MT02-E-Unit4-Dialog1.js" size="6822">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>iKPzn1qSI+N6Np3dNQQCpnNOqaA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Samples - Quizzes\SentenceComboData-Blank.js" size="631">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LGin76hyNHnQHupoeHRVkrAvrY0=</dsig:DigestValue>
+      <dsig:DigestValue>Vg6b8aANoAp0Ct21tAE4MCOOLK8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" size="6001">
@@ -172,195 +307,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>sxPQP2aQwaXlsxUkshOhLyjhgVQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-BW01-EXU02-J.htm" size="1683">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>qQ6vrPpAf0fNrdnAkY8LbTIURIM=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-BW01-EXU05-J.htm" size="1451">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>nyUaG/B4wIeX2wINIYsxi9qC+Go=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-exercise.html" size="4047">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>GxygXp8RY5ezS42EqrCYDEes7/M=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-GC01-EXU02-E.htm" size="2179">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WRhHQ+dqQzyooY7g4NFVAzxPK3E=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-GC01-EXU03-E.htm" size="2584">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bOEwyRC23l8X9wdOwov5Q3hEyuk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-GC01-EXU04-E.htm" size="2126">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Vm9tajTicv2cJHb7AdVRo64tAfk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-mouseover.html" size="5114">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3FbPe1pPSQChJRJm6PUwCJS15Bw=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-WR01_l01_u01_01.html" size="3941">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>tLlLtP3LuGrnLpb0/Ogylbs3Hhg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\template-WR01_l01_u01_02.html" size="3541">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>OZjY6NsNXIC+ujHm6Fq1+w3qCsQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Html\WhalesWeb.com - BW02-J Business Writing Fundamentals 2.html" size="4047">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>GxygXp8RY5ezS42EqrCYDEes7/M=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\DragAndDrop.js" size="22831">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3xcw5P0w7FmfMNtN03AaJRNiNw8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\DragAndDropData.js" size="214">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>L54PlQdNyMVu7qNp5Ie3xdz7Cfk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\FillIn.js" size="16139">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>6kS7N1TgvorRXnwin0Glw8cMFTA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\FillInData.js" size="527">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>bDG35JsE5M2Nvcjm0rL3JiWwZGE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\Matching.js" size="4129">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>tjRe/ACKnnOPBNQZc7DgsC7GAvs=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\MatchingData.js" size="418">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>D9NP7AZeZcPsFEms0KSe08r+em8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\MultipleChoice.js" size="8665">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>B+sdkZWF7OhrR7kd18tTJkuuKf8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\MultipleChoiceData.js" size="617">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>HlsP0RtAVYP1ErjWi8XDaP2RfJo=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\oldDragAndDrop.js" size="22094">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>XgnA3nqj5WKbwSsdKKCGj6lc35k=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\SentenceCombo.js" size="10104">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>N0OeXVaRkepN5RGbZfSiJCV1RNI=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Templates - Javascript\SentenceComboData.js" size="631">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>LGin76hyNHnQHupoeHRVkrAvrY0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
