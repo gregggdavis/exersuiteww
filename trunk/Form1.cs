@@ -31,8 +31,8 @@ namespace BrowserApp
         private string  sFlashObjectTemplate = "<br /><object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0\" height=\"HHH1\" width=\"WWW1\"><param name=\"movie\" value=\"NNN1\"><param name=\"quality\" value=\"best\"><param name=\"play\" value=\"true\"><embed height=\"HHH2\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" src=\"NNN2\" type=\"application/x-shockwave-flash\" width=\"WWW2\" quality=\"best\" play=\"true\"></object><br />";
 
         private string  sHtmlTemplate          = "";
-        private string  sJsQuizBasePath        = Environment.CurrentDirectory + "\\Templates - Javascript\\";
-        private string  sHtmlTemplatesBasePath = Environment.CurrentDirectory + "\\Templates - Html\\";
+        private string  sJsQuizBasePath        = Environment.CurrentDirectory + "\\Never Open - Templates - Javascript\\";
+        private string  sHtmlTemplatesBasePath = Environment.CurrentDirectory + "\\Never Open - Templates - Html\\";
         private string  sRegistryKeyLocation   = "Software\\WhalesWeb\\ExerciseSuite";
         private string  sJsFileSavedAsName   = "";
         private string  sHtmlFileSavedAsName = "";
@@ -207,7 +207,7 @@ namespace BrowserApp
             textBoxMaResultsCols.Text = "47";
             textBoxMaResultsRows.Text = "8";
 
-            DisplayQuizChooser();
+            //DisplayQuizChooser();
         }
 
 
@@ -437,7 +437,7 @@ namespace BrowserApp
             // menuSaveAs
             // 
             this.menuSaveAs.Index = 5;
-            this.menuSaveAs.Text = "Save Js and Html";
+            this.menuSaveAs.Text = "Save Html";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // menuItem4
@@ -1961,7 +1961,8 @@ namespace BrowserApp
         /// </summary>
         private void menuSaveAs_Click(object sender, System.EventArgs e)
         {
-            PromptSaveFile("JS");
+            // Not needed right now since easier for user to understand always just saving everything in the html
+            //PromptSaveFile("JS");
             PromptSaveFile("HTML");
         }
 
