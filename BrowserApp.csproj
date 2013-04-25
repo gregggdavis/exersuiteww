@@ -145,42 +145,37 @@
       <SubType>Form</SubType>
     </Compile>
     <Content Include="App.ico" />
-    <Content Include="Samples - Quizzes\DragAndDropData-Blank.js" />
+    <Content Include="Never Open - Templates - Html\WhalesWeb.com - BW01-J Business Writing Fundamentals 1.html" />
+    <Content Include="Never Open - Templates - Javascript\DragAndDrop.js" />
+    <Content Include="Never Open - Templates - Javascript\DragAndDropData.js" />
+    <Content Include="Never Open - Templates - Javascript\FillIn.js" />
+    <Content Include="Never Open - Templates - Javascript\FillInData.js" />
+    <Content Include="Never Open - Templates - Javascript\Matching.js" />
+    <Content Include="Never Open - Templates - Javascript\MatchingData.js" />
+    <Content Include="Never Open - Templates - Javascript\MultipleChoice.js" />
+    <Content Include="Never Open - Templates - Javascript\MultipleChoiceData.js" />
+    <Content Include="Never Open - Templates - Javascript\oldDragAndDrop.js" />
+    <Content Include="Never Open - Templates - Javascript\SentenceCombo.js" />
+    <Content Include="Never Open - Templates - Javascript\SentenceComboData.js" />
     <Content Include="Samples - Quizzes\DragAndDropData-GC01EX-Unit01-Page02.js" />
-    <Content Include="Samples - Quizzes\FillInData-Blank.js" />
     <Content Include="Samples - Quizzes\FillInData-NE01-E-Unit2.js" />
-    <Content Include="Samples - Quizzes\MatchingData-Blank.js" />
     <Content Include="Samples - Quizzes\MatchingData-MT02-E-Unit2-Dialog1.js" />
-    <Content Include="Samples - Quizzes\MultipleChoiceData-Blank.js" />
     <Content Include="Samples - Quizzes\MultipleChoiceData-MT02-E-Unit4-Dialog1.js" />
-    <Content Include="Samples - Quizzes\SentenceComboData-Blank.js" />
     <Content Include="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" />
-    <Content Include="Templates - Html\template-BW01-EXU02-J.htm" />
-    <Content Include="Templates - Html\template-BW01-EXU05-J.htm" />
-    <Content Include="Templates - Html\template-exercise.html" />
-    <Content Include="Templates - Html\template-GC01-EXU02-E.htm" />
-    <Content Include="Templates - Html\template-GC01-EXU03-E.htm" />
-    <Content Include="Templates - Html\template-GC01-EXU04-E.htm" />
-    <Content Include="Templates - Html\template-mouseover.html" />
-    <Content Include="Templates - Html\template-WR01_l01_u01_01.html" />
-    <Content Include="Templates - Html\template-WR01_l01_u01_02.html" />
-    <Content Include="Templates - Html\WhalesWeb.com - BW02-J Business Writing Fundamentals 2.html" />
-    <Content Include="Templates - Javascript\DragAndDrop.js" />
-    <Content Include="Templates - Javascript\DragAndDropData.js" />
-    <Content Include="Templates - Javascript\FillIn.js" />
-    <Content Include="Templates - Javascript\FillInData.js" />
-    <Content Include="Templates - Javascript\Matching.js" />
-    <Content Include="Templates - Javascript\MatchingData.js" />
-    <Content Include="Templates - Javascript\MultipleChoice.js" />
-    <Content Include="Templates - Javascript\MultipleChoiceData.js" />
-    <Content Include="Templates - Javascript\oldDragAndDrop.js" />
-    <Content Include="Templates - Javascript\SentenceCombo.js" />
-    <Content Include="Templates - Javascript\SentenceComboData.js" />
+    <Content Include="Never Open - Templates - Html\template-BW01-EXU02-J.htm" />
+    <Content Include="Never Open - Templates - Html\template-BW01-EXU05-J.htm" />
+    <Content Include="Never Open - Templates - Html\template-GC01-EXU02-E.htm" />
+    <Content Include="Never Open - Templates - Html\template-GC01-EXU03-E.htm" />
+    <Content Include="Never Open - Templates - Html\template-GC01-EXU04-E.htm" />
+    <Content Include="Never Open - Templates - Html\template-WR01_l01_u01_01.html" />
+    <Content Include="Never Open - Templates - Html\template-WR01_l01_u01_02.html" />
+    <Content Include="Never Open - Templates - Html\WhalesWeb.com - BW02-J Business Writing Fundamentals 2.html" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChooser.resx">
       <DependentUpon>FormChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProperties.resx">
       <DependentUpon>FormProperties.cs</DependentUpon>
