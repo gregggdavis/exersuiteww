@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="ExerciseSuite" version="1.0.4834.23254" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="ExerciseSuite" version="1.0.4834.23276" language="neutral" processorArchitecture="msil" />
     <commandLine file="ExerciseSuite.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExerciseSuite.exe" size="90112">
-      <assemblyIdentity name="ExerciseSuite" version="1.0.4834.23254" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="ExerciseSuite" version="1.0.4834.23276" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VIJBJJEZZtjHpM9WgEdZrr+0ApU=</dsig:DigestValue>
+        <dsig:DigestValue>bdo6LiZkGbiN1T98g3YnY1RDmnA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

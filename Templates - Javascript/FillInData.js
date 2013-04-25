@@ -4,6 +4,7 @@ var iResultsWidth=47;
 var iResultsHeight=6;
 var iTotalPageWidth=450;
 var bShowQuestionNumbers=false;
+var bTypeQuiz=false;
 var numQues=0;
 //SIZEVARSBEGIN
 //SIZEVARSEND

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
-  <asmv1:assemblyIdentity name="ExerciseSuite.exe" version="4.41.5.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="ExerciseSuite.exe" version="4.41.5.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>blMNgms5ojjiZCFMOltQv2KGFNc=</dsig:DigestValue>
+        <dsig:DigestValue>/FJNPmLKcxG/TjlSoOsLMCqsUfY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -102,22 +102,22 @@
       <dsig:DigestValue>nNCOMXr3Raq8KdQ0De3FdF/+EXw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Samples - Quizzes\FillInData-Blank.js" size="506">
+  <file name="Samples - Quizzes\FillInData-Blank.js" size="527">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>eNsK+IY5YM8O546A+P/kHGSCwBY=</dsig:DigestValue>
+      <dsig:DigestValue>bDG35JsE5M2Nvcjm0rL3JiWwZGE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Samples - Quizzes\FillInData-NE01-E-Unit2.js" size="1627">
+  <file name="Samples - Quizzes\FillInData-NE01-E-Unit2.js" size="1649">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>S+q8mjs0N3DzECx2nauAetX3g0k=</dsig:DigestValue>
+      <dsig:DigestValue>xtu5wihr+VT0b7mpNY9AtRYNbgo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Samples - Quizzes\MatchingData-Blank.js" size="418">
@@ -165,13 +165,13 @@
       <dsig:DigestValue>LGin76hyNHnQHupoeHRVkrAvrY0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" size="6000">
+  <file name="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" size="6001">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4CbJm3LOu5CGHTpWnDe9JYQMwek=</dsig:DigestValue>
+      <dsig:DigestValue>sxPQP2aQwaXlsxUkshOhLyjhgVQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Templates - Html\template-BW01-EXU02-J.htm" size="1683">
@@ -190,6 +190,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>nyUaG/B4wIeX2wINIYsxi9qC+Go=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-exercise.html" size="4047">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>GxygXp8RY5ezS42EqrCYDEes7/M=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Templates - Html\template-GC01-EXU02-E.htm" size="2179">
@@ -217,6 +226,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>Vm9tajTicv2cJHb7AdVRo64tAfk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Templates - Html\template-mouseover.html" size="5114">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>3FbPe1pPSQChJRJm6PUwCJS15Bw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Templates - Html\template-WR01_l01_u01_01.html" size="3941">
@@ -255,22 +273,22 @@
       <dsig:DigestValue>L54PlQdNyMVu7qNp5Ie3xdz7Cfk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Templates - Javascript\FillIn.js" size="14062">
+  <file name="Templates - Javascript\FillIn.js" size="15017">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>770SNBqgqQ+8Mw0iWW+ybDFs4gI=</dsig:DigestValue>
+      <dsig:DigestValue>+VSYmmKixpc6bEmIoPgK0Hok0mo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Templates - Javascript\FillInData.js" size="506">
+  <file name="Templates - Javascript\FillInData.js" size="527">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>eNsK+IY5YM8O546A+P/kHGSCwBY=</dsig:DigestValue>
+      <dsig:DigestValue>bDG35JsE5M2Nvcjm0rL3JiWwZGE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Templates - Javascript\Matching.js" size="4129">

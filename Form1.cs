@@ -133,6 +133,7 @@ namespace BrowserApp
         private System.Windows.Forms.CheckBox checkBoxMcCheckAnswersButton;
         private Splitter splitter1;
         private WebBrowser webBrowserInput;
+        private CheckBox checkBoxFiTypeQuiz;
         private IContainer components;
 
 
@@ -284,6 +285,7 @@ namespace BrowserApp
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxDdCardFontSize = new System.Windows.Forms.ComboBox();
             this.tabPageJsOptionsFi = new System.Windows.Forms.TabPage();
+            this.checkBoxFiTypeQuiz = new System.Windows.Forms.CheckBox();
             this.textBoxFiPageWidth = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -790,6 +792,7 @@ namespace BrowserApp
             // 
             // tabPageJsOptionsFi
             // 
+            this.tabPageJsOptionsFi.Controls.Add(this.checkBoxFiTypeQuiz);
             this.tabPageJsOptionsFi.Controls.Add(this.textBoxFiPageWidth);
             this.tabPageJsOptionsFi.Controls.Add(this.label29);
             this.tabPageJsOptionsFi.Controls.Add(this.label28);
@@ -809,6 +812,15 @@ namespace BrowserApp
             this.tabPageJsOptionsFi.Size = new System.Drawing.Size(864, 266);
             this.tabPageJsOptionsFi.TabIndex = 3;
             this.tabPageJsOptionsFi.Text = "Exercise Options";
+            // 
+            // checkBoxFiTypeQuiz
+            // 
+            this.checkBoxFiTypeQuiz.Location = new System.Drawing.Point(34, 232);
+            this.checkBoxFiTypeQuiz.Name = "checkBoxFiTypeQuiz";
+            this.checkBoxFiTypeQuiz.Size = new System.Drawing.Size(675, 22);
+            this.checkBoxFiTypeQuiz.TabIndex = 7;
+            this.checkBoxFiTypeQuiz.Text = "Quiz (hides Hint button and only allows Check Answers button after all questions " +
+    "attempted)";
             // 
             // textBoxFiPageWidth
             // 
@@ -1237,6 +1249,7 @@ namespace BrowserApp
             this.webBrowserInput.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.webBrowserInput.Location = new System.Drawing.Point(0, 321);
             this.webBrowserInput.Name = "webBrowserInput";
+            this.webBrowserInput.ScriptErrorsSuppressed = true;
             this.webBrowserInput.Size = new System.Drawing.Size(872, 336);
             this.webBrowserInput.TabIndex = 0;
             // 
