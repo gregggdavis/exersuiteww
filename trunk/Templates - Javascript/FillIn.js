@@ -55,7 +55,7 @@ var iTotalInputNum = 0;
 for (i = 0;  i < OrigQuestions.length;  i++) {
   for (j = 0;  j < OrigQuestions[i][0];  j++) {
     //QuestionList[i] = QuestionList[i].replace('<input' + j + '>', '<input type="text" size="' + AnswerList[iTotalInputNum].length + '">');
-    QuestionList[i] = QuestionList[i].replace('<input' + j + '>', '<input type="text" style="display:inline;" size="' + AnswerList[iTotalInputNum].length + '" onkeypress="TextEntered()"><span id="staticAnswer' + iTotalInputNum + '" style="display:none;font-weight:bold;">' + AnswerList[iTotalInputNum] + '</span>');
+    QuestionList[i] = QuestionList[i].replace('<input' + j + '>', '<input type="text" style="display:inline;" size="' + AnswerList[iTotalInputNum].length + '" onkeyup="TextEntered()"><span id="staticAnswer' + iTotalInputNum + '" style="display:none;font-weight:bold;">' + AnswerList[iTotalInputNum] + '</span>');
     iTotalInputNum++;
   }
 }
@@ -148,9 +148,47 @@ function IsAnswerCorrect(iAnswerNum, iElementNum)
 }
 
 
+function TextEnteredInAllInputs()
+{
+  // modeled from CheckAllAnswers
+  var bAllHaveText = true;
+  var iItemNumber = 0;
+
+  if (bOnePerPage) {
+    if (QuestionList.length > 0) { 
+      var iTotalAnswersBeforeThis = 0;
+      for (i = 0;  i < giCurrentItem;  i++) {
+        iTotalAnswersBeforeThis += OrigQuestions[i][0];
+      }
+      for (iInput = 0;  iInput < OrigQuestions[giCurrentItem][0];  iInput++) {
+        //alert(getClozeElements(iInput).value.length);
+        if (getClozeElements(iInput).value.length < 1) {
+          bAllHaveText = false;
+          return bAllHaveText;
+        }
+        //iItemNumber++;
+      }
+    }
+  } else {
+
+    for (iQues = 0;  iQues < OrigQuestions.length;  iQues++) {
+      for (iInput = 0;  iInput < OrigQuestions[iQues][0];  iInput++) {
+        //alert(getClozeElements(iQues + iItemNumber).value.length);
+        if (getClozeElements(iQues + iItemNumber).value.length < 1) {
+          bAllHaveText = false;
+          return bAllHaveText;
+        }
+        iItemNumber++;
+      }
+    }
+  }
+  return bAllHaveText;
+}
+
+
 function TextEntered()
 {
-  if ((bTypeQuiz == true) && (document.buttonform.elements['checkanswers'].disabled == true)) {
+  if ((bTypeQuiz == true) && (document.buttonform.elements['checkanswers'].disabled == true) && TextEnteredInAllInputs()) {
     document.buttonform.elements['checkanswers'].disabled = false;
   }
 }
@@ -181,7 +219,7 @@ function CheckAllAnswers()
           IsWrong = 1;
           getClozeElements(iInput).value = '';
         }
-        iItemNumber++;
+        //iItemNumber++;
       }
     }
   } else {
