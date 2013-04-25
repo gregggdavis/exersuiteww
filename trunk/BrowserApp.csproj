@@ -39,7 +39,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>4.41.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -100,9 +100,6 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Accessibility">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="Leadit.ExtendedDataGrid">
       <HintPath>.\Leadit.ExtendedDataGrid.dll</HintPath>
     </Reference>
@@ -160,9 +157,11 @@
     <Content Include="Samples - Quizzes\SentenceComboData-GC01EX-Unit03-Page01.js" />
     <Content Include="Templates - Html\template-BW01-EXU02-J.htm" />
     <Content Include="Templates - Html\template-BW01-EXU05-J.htm" />
+    <Content Include="Templates - Html\template-exercise.html" />
     <Content Include="Templates - Html\template-GC01-EXU02-E.htm" />
     <Content Include="Templates - Html\template-GC01-EXU03-E.htm" />
     <Content Include="Templates - Html\template-GC01-EXU04-E.htm" />
+    <Content Include="Templates - Html\template-mouseover.html" />
     <Content Include="Templates - Html\template-WR01_l01_u01_01.html" />
     <Content Include="Templates - Html\template-WR01_l01_u01_02.html" />
     <Content Include="Templates - Javascript\DragAndDrop.js" />
