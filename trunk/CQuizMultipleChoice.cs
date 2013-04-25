@@ -150,7 +150,8 @@ namespace BrowserApp
                 for (int iChoice = 0;  iChoice < Convert.ToInt32(sNumChoices);  iChoice++) {
                     sNextChoice[iChoice]   = GetLastMatchedString(sJavascriptData, "questions[" + i.ToString() + "][" + (iChoice+1).ToString() + "]=\"", "\"");
 
-                    sNextFeedback[iChoice] = GetLastMatchedString(sJavascriptData, "feedback[" + i.ToString() + "][" + (iChoice).ToString() + "]=\"", "\"");
+                    // Need to include the semicolon in the search below because otherwise you sometimes end prematurley due to any \\\" (quote) in the feedback
+                    sNextFeedback[iChoice] = GetLastMatchedString(sJavascriptData, "feedback[" + i.ToString() + "][" + (iChoice).ToString() + "]=\"", "\";");
 
                     if (sNextChoice[iChoice] == sNextAnswer) {
                         sNextAnswerPosition = Convert.ToString(Convert.ToChar('a' + iChoice));
@@ -160,6 +161,9 @@ namespace BrowserApp
                 DataRow drNewData = dTableCurrent.NewRow();
                 drNewData["Column1"] = sNextQuestion;
                 drNewData["Column2"] = sNextChoice[0];
+                // Actually for some odd reason (because it's not displayed in html, but in the alert and input text box?)...
+                //...Feedback needs to be opposite of the others
+                sNextFeedback[0] = sNextFeedback[0].Replace("\\\"", "&quot;");
                 drNewData["Column3"] = sNextFeedback[0];
                 drNewData["Column4"] = sNextAnswerPosition;
                 dTableCurrent.Rows.Add(drNewData);
@@ -168,6 +172,9 @@ namespace BrowserApp
                     drNewData = dTableCurrent.NewRow();
                     drNewData["Column1"] = "";
                     drNewData["Column2"] = sNextChoice[iChoice];
+                    // Actually for some odd reason (because it's not displayed in html, but in the alert and input text box?)...
+                    //...Feedback needs to be opposite of the others
+                    sNextFeedback[iChoice] = sNextFeedback[iChoice].Replace("\\\"", "&quot;");
                     drNewData["Column3"] = sNextFeedback[iChoice];
                     drNewData["Column4"] = "";
                     dTableCurrent.Rows.Add(drNewData);
@@ -326,7 +333,10 @@ namespace BrowserApp
                         sTempFeedbackLine = sTempFeedbackLine.Replace("NNN", row.ToString());
                         sTempFeedbackLine = sTempFeedbackLine.Replace("PPP", i.ToString());
                         if (sFinalFeedback[row][i] != null) {
-                            sFinalFeedback[row][i] = sFinalFeedback[row][i].Replace("\"", "&quot;");
+                            //sFinalFeedback[row][i] = sFinalFeedback[row][i].Replace("\"", "&quot;");
+                            // Actually for some odd reason (because it's not displayed in html, but in the alert and input text box?)...
+                            //...Feedback needs to be opposite of the others
+                            sFinalFeedback[row][i] = sFinalFeedback[row][i].Replace("&quot;", "\\\"");
                         }
                         sTempFeedbackLine = sTempFeedbackLine.Replace("FFF", sFinalFeedback[row][i]);
                         sFeedbackLines = sFeedbackLines + sTempFeedbackLine;

@@ -87,7 +87,7 @@ answers[9]="both a and b above.";
 
 //feedback[][]="";
 //FEEDBACKBEGIN
-feedback[0][0]="feedback-people from your company who will attend the conference.";
+feedback[0][0]="feedback-people from your \"company\" who will attend the conference.";
 feedback[0][1]="feedback-lobbyists who will represent your company at the conference.";
 feedback[0][2]="feedback-lawyers in Europe who represent companies at conferences.";
 feedback[0][3]="feedback-none of the above.";
