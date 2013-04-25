@@ -348,6 +348,7 @@ namespace BrowserApp
             // 
             // dataGridQuestions
             // 
+            this.dataGridQuestions.AllowSorting = false;
             this.dataGridQuestions.AlternatingBackColor = System.Drawing.Color.Gainsboro;
             this.dataGridQuestions.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridQuestions.BackgroundColor = System.Drawing.SystemColors.Control;

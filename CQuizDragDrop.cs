@@ -40,6 +40,7 @@ namespace BrowserApp {
             DataGridTableStyle dgdtblStyle = new DataGridTableStyle();
             dgdtblStyle.RowHeadersVisible  = false;
             dgdtblStyle.MappingName = dTableCurrent.TableName;
+            dgdtblStyle.AllowSorting = false;
 
 
 
