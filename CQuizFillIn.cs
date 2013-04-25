@@ -122,10 +122,25 @@ namespace BrowserApp
             string sRows    = GetLastMatchedString(sJavascriptData, "iResultsHeight=", ";");
             string sShowQuestionNumbers = GetLastMatchedString(sJavascriptData, "bShowQuestionNumbers=", ";");
             string sPageWidth = GetLastMatchedString(sJavascriptData, "iTotalPageWidth=", ";");
+            string sTypeQuiz = GetLastMatchedString(sJavascriptData, "bTypeQuiz=", ";");
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsFi", false)[0]).Controls.GetEnumerator();
+            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsFi", false)[0]).Controls.GetEnumerator();
 
+            // The better way to do assignments from javascript options to form elements
+            // Should be done this way for all the quiz option pages and for html data tab
+            Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsFi", false)[0].Controls;
+
+            ((TextBox)ocTabPageJsOptions.Find("textBoxFiResultsCols", false)[0]).Text = sColumns;
+            ((TextBox)ocTabPageJsOptions.Find("textBoxFiResultsRows", false)[0]).Text = sRows;
+            ((RadioButton)ocTabPageJsOptions.Find("radioButtonFiQuestionAll", false)[0]).Checked = sArrangement.Equals("true");
+            ((RadioButton)ocTabPageJsOptions.Find("radioButtonFiQuestionOne", false)[0]).Checked = sArrangement.Equals("false");
+            ((TextBox)ocTabPageJsOptions.Find("textBoxJsOptionsFiChoices", false)[0]).Text = sChoices;
+            ((TextBox)ocTabPageJsOptions.Find("textBoxFiPageWidth", false)[0]).Text = sPageWidth;
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxFiShowNumbers", false)[0]).Checked = sShowQuestionNumbers.Equals("true");
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxFiTypeQuiz", false)[0]).Checked = sTypeQuiz.Equals("true");
+
+            /*
             ieTabPage.MoveNext();
             ((TextBox)ieTabPage.Current).Text = sPageWidth;
             ieTabPage.MoveNext();
@@ -140,7 +155,8 @@ namespace BrowserApp
             ieTabPage.MoveNext();
             ieTabPage.MoveNext();
             ieTabPage.MoveNext();
-            if (sArrangement.Equals("true")) {
+            if (sArrangement.Equals("true"))
+            {
                 ((RadioButton)ieTabPage.Current).Checked = true;
                 ieTabPage.MoveNext();
                 ((RadioButton)ieTabPage.Current).Checked = false;
@@ -152,6 +168,10 @@ namespace BrowserApp
             ieTabPage.MoveNext();
             ieTabPage.MoveNext();
             ((TextBox)ieTabPage.Current).Text = sChoices;
+
+            //Not really set up yet so maybe need to change movenexts
+            ((CheckBox)ieTabPage.Current).Checked = sTypeQuiz.Equals("true");
+            */
 
         }
 
@@ -234,8 +254,22 @@ namespace BrowserApp
                 sReturnJavascript = sReturnJavascript.Insert(iAnswersEnd, sAnswerLines + "\r\n");
 
                 // Set Options on Js Options Tab Page
-                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsFi", false)[0]).Controls.GetEnumerator();
+                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsFi", false)[0]).Controls.GetEnumerator();
 
+                // The better way to do assignments from javascript options to form elements
+                // Should be done this way for all the quiz option pages and for html data tab
+                Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsFi", false)[0].Controls;
+
+                string sNumCols = ((TextBox)ocTabPageJsOptions.Find("textBoxFiResultsCols", false)[0]).Text;
+                string sNumRows = ((TextBox)ocTabPageJsOptions.Find("textBoxFiResultsRows", false)[0]).Text;
+                //string sOnePerPage = !((RadioButton)ocTabPageJsOptions.Find("radioButtonFiQuestionAll", false)[0]).Checked ? "false" : "true";
+                string sOnePerPage = ((RadioButton)ocTabPageJsOptions.Find("radioButtonFiQuestionOne", false)[0]).Checked ? "true" : "false";
+                string sChoices = ((TextBox)ocTabPageJsOptions.Find("textBoxJsOptionsFiChoices", false)[0]).Text;
+                string sPageWidth = ((TextBox)ocTabPageJsOptions.Find("textBoxFiPageWidth", false)[0]).Text;
+                string sShowQuestionNumbers = ((CheckBox)ocTabPageJsOptions.Find("checkBoxFiShowNumbers", false)[0]).Checked ? "true" : "false";
+                string sTypeQuiz = ((CheckBox)ocTabPageJsOptions.Find("checkBoxFiTypeQuiz", false)[0]).Checked ? "true" : "false";
+
+                /*
                 ieTabPage.MoveNext();
                 string sPageWidth = ((TextBox)ieTabPage.Current).Text;
                 ieTabPage.MoveNext();
@@ -260,6 +294,10 @@ namespace BrowserApp
                 ieTabPage.MoveNext();
                 string sChoices = ((TextBox)ieTabPage.Current).Text;
 
+                //Not really set up yet so maybe need to change movenexts
+                string sTypeQuiz = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
+                */
+
                 // Format for textbox - <br>, <br/>, <br /> all become \r\n
                 sChoices = sChoices.Replace("\r\n", "<br />");
                 sChoices = sChoices.Replace("\"", "&quot;");
@@ -275,6 +313,7 @@ namespace BrowserApp
                 sReturnJavascript += "\r\niResultsHeight=" + sNumRows + ";\r\n";
                 sReturnJavascript += "\r\nbShowQuestionNumbers=" + sShowQuestionNumbers + ";\r\n";
                 sReturnJavascript += "\r\niTotalPageWidth=" + sPageWidth + ";\r\n";
+                sReturnJavascript += "\r\nbTypeQuiz=" + sTypeQuiz + ";\r\n";
             }
             return (sReturnJavascript);
         }
