@@ -39,7 +39,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>4.41.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -164,6 +164,7 @@
     <Content Include="Templates - Html\template-mouseover.html" />
     <Content Include="Templates - Html\template-WR01_l01_u01_01.html" />
     <Content Include="Templates - Html\template-WR01_l01_u01_02.html" />
+    <Content Include="Templates - Html\WhalesWeb.com - BW02-J Business Writing Fundamentals 2.html" />
     <Content Include="Templates - Javascript\DragAndDrop.js" />
     <Content Include="Templates - Javascript\DragAndDropData.js" />
     <Content Include="Templates - Javascript\FillIn.js" />
