@@ -132,7 +132,7 @@ namespace BrowserApp
         private System.Windows.Forms.CheckBox checkBoxMcFeedbackInResults;
         private System.Windows.Forms.CheckBox checkBoxMcCheckAnswersButton;
         private Splitter splitter1;
-        private WebBrowser webBrowserInput;
+        public WebBrowser webBrowserInput;
         private CheckBox checkBoxFiTypeQuiz;
         private IContainer components;
 
@@ -449,7 +449,7 @@ namespace BrowserApp
             // 
             this.menuProperties.Index = 7;
             this.menuProperties.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
-            this.menuProperties.Text = "Set Default Directories";
+            this.menuProperties.Text = "Properties";
             this.menuProperties.Click += new System.EventHandler(this.menuProperties_Click);
             // 
             // menuItem5
@@ -508,7 +508,7 @@ namespace BrowserApp
             this.tabPageJsData.Name = "tabPageJsData";
             this.tabPageJsData.Size = new System.Drawing.Size(864, 266);
             this.tabPageJsData.TabIndex = 0;
-            this.tabPageJsData.Text = "Exercise Data (.js)";
+            this.tabPageJsData.Text = "Exercise Data";
             // 
             // tabPageJsOptionsNone
             // 
@@ -1985,6 +1985,8 @@ namespace BrowserApp
                 keyWrite.SetValue("JsQuizBasePath", sJsQuizBasePath);
                 sHtmlTemplatesBasePath = dlgProperties.textBoxHtmlTemplatesPath.Text;
                 keyWrite.SetValue("HtmlTemplatesBasePath", sHtmlTemplatesBasePath);
+
+                webBrowserInput.ScriptErrorsSuppressed = !dlgProperties.checkBoxShowJavascriptErrors.Checked;
             }
             dlgProperties.Dispose();
         }
