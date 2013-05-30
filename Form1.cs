@@ -1257,6 +1257,7 @@ namespace BrowserApp
             this.Name = "Form1";
             this.Text = "Exercise Suite";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.formExit_Click);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuestions)).EndInit();
             this.tabControlData.ResumeLayout(false);
             this.tabPageJsData.ResumeLayout(false);
@@ -1778,11 +1779,11 @@ namespace BrowserApp
                     SaveFile(sHtmlFileSavedAsName, CreateHtml());
                     drResultSaveHtml = DialogResult.OK;
                 }
-
+                
                 //drResultSaveJs   = PromptSaveFile("JS");
                 //drResultSaveHtml = PromptSaveFile("HTML");
             }
-
+            DataChanged = false;
             return ((drResultSaveAll != DialogResult.Cancel)
                 &&  ((drResultSaveJs != DialogResult.Cancel) || (drResultSaveHtml != DialogResult.Cancel)));
         }
@@ -2017,6 +2018,21 @@ namespace BrowserApp
 
             } else {
                 RegistrySave();
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!PromptForSaveChanges())
+            {
+
+                e.Cancel = true;
+
+            }
+            else
+            {
+                RegistrySave();
+                e.Cancel = false;
             }
         }
 

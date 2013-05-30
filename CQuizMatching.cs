@@ -58,7 +58,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
             gtbc1.HeaderText = "Beginning Phrase";
             gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            
+            gtbc1.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc1.DataPropertyName = "Column1";
             //gtbc1.ValueType = typeof(string);
             gtbc1.Width = 400;
@@ -68,6 +68,7 @@ namespace BrowserApp
             
             DataGridViewTextBoxColumn gtbc2 = new DataGridViewTextBoxColumn();
             gtbc2.HeaderText = "Position (a...z)";
+            gtbc2.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc2.DataPropertyName = "Column2";
             gtbc2.Width = 100;
             gtbc2.DefaultCellStyle.NullValue = "<insert letter>";
@@ -76,6 +77,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
             gtbc3.HeaderText = "Ending Phrase";
             gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            gtbc3.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc3.DataPropertyName = "Column3";
             //gtbc1.ValueType = typeof(string);
             gtbc3.Width = 400;
@@ -114,6 +116,11 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
                 ||  (e.KeyChar == '\b')) 
             {
                 e.Handled = false;
+                TextBox t = sender as TextBox;
+                if (t != null)
+                {
+                    t.Text = "";
+                }
                 //DataGridColumnStyle dgc = dataGridQuestions.TableStyles[0].GridColumnStyles[1];
                 //dataGridQuestions.EndEdit(dgc, 0, false);
             } 

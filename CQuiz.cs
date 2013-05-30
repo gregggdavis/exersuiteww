@@ -45,7 +45,8 @@ namespace BrowserApp
             dataGridCurrentMain = dataGridCurrent;
             InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
             dataGridCurrent.CellValueChanged += new DataGridViewCellEventHandler(dataGridCurrent_CellValueChanged);
-            
+            dataGridCurrent.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(dataGridCurrent_EditingControlShowing);
+        
             dataGridCurrent.KeyDown += new KeyEventHandler(dataGridCurrent_KeyDown);
 		}
 
@@ -107,6 +108,24 @@ namespace BrowserApp
     object sender, DataGridViewCellEventArgs e)
         {
             // Update the balance column whenever the value of any cell changes.
+            OnChanged(true);
+        }
+
+        private void dataGridCurrent_EditingControlShowing(
+    object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            // Update the balance column whenever the value of any cell changes.
+            TextBox txtBox = e.Control as TextBox;
+            if (txtBox != null)
+            {
+                // Handle the TextChanged event.
+                txtBox.TextChanged += new EventHandler(txtBox_TextChanged);
+            }
+            
+        }
+
+        void txtBox_TextChanged(object sender, EventArgs e)
+        {
             OnChanged(true);
         }
 

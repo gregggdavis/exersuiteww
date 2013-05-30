@@ -57,7 +57,7 @@ namespace BrowserApp {
             DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
             gtbc1.HeaderText = "Beginning Phrase";
             gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc1.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc1.DataPropertyName = "Column1";
             //gtbc1.ValueType = typeof(string);
             gtbc1.Width = 450;
@@ -75,6 +75,7 @@ namespace BrowserApp {
             //dgdtblStyle.GridColumnStyles.Add(tbc1);
             DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
             gtbc3.HeaderText = "Ending Phrase";
+            gtbc3.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             gtbc3.DataPropertyName = "Column2";
             //gtbc1.ValueType = typeof(string);

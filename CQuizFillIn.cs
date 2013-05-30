@@ -55,7 +55,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
             gtbc1.HeaderText = "Phrase (use '<input0>, <input1>, etc' to denote multiple Fill-In boxes)";
             gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc1.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc1.DataPropertyName = "Column1";
             //gtbc1.ValueType = typeof(string);
             gtbc1.Width = 600;
@@ -78,6 +78,7 @@ namespace BrowserApp
             gtbc2.HeaderText = "Answer (use semicolon \";\" to deliminate)";
             gtbc2.DataPropertyName = "Column2";
             gtbc2.Width = 300;
+            gtbc2.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc2.DefaultCellStyle.NullValue = "<type answer here>";
             dataGridCurrent.Columns.Add(gtbc2);
 
