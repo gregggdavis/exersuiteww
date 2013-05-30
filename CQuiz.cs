@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace BrowserApp
 {
@@ -9,22 +10,43 @@ namespace BrowserApp
 	/// </summary>
 	public class CQuiz
 	{
-
+        protected DataGridView dataGridCurrentMain;
         protected string sCurrentJsQuizType = "None";
+        private bool _DataChanged = false;
+        public bool DataChanged
+        {
+            set
+            {
+                _DataChanged = value;
+            }
+            get
+            {
+                return _DataChanged;
+            }
 
-
+        }
+        public delegate void ChangedEventHandler(bool changed);
+        public event ChangedEventHandler Changed;
+        protected virtual void OnChanged(bool changed)
+        {
+            if (Changed != null)
+                Changed(changed);
+        }
         /// <summary>
         ///
         /// </summary>
-        public CQuiz(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent)
+        public CQuiz(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
 		{
 			//
 			// TODO: Add constructor logic here
 			//
 
             sCurrentJsQuizType = "None";
-
+            dataGridCurrentMain = dataGridCurrent;
             InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
+            dataGridCurrent.CellValueChanged += new DataGridViewCellEventHandler(dataGridCurrent_CellValueChanged);
+            
+            dataGridCurrent.KeyDown += new KeyEventHandler(dataGridCurrent_KeyDown);
 		}
 
 
@@ -71,13 +93,41 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public virtual void InitializeGrid(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent)
+        public virtual void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
-            dataGridCurrent.AllowSorting = false;
+            foreach(DataGridViewColumn column in dataGridCurrent.Columns)
+            {
+                dataGridCurrent.Columns[column.Name].SortMode = DataGridViewColumnSortMode.Automatic;
+            }
             dataGridCurrent.Visible = false;
+            
         }
 
+        private void dataGridCurrent_CellValueChanged(
+    object sender, DataGridViewCellEventArgs e)
+        {
+            // Update the balance column whenever the value of any cell changes.
+            OnChanged(true);
+        }
 
+        private void dataGridCurrent_KeyDown(
+    object sender, KeyEventArgs e)
+        {
+            // Update the balance column whenever the value of any cell changes.
+            if(e.KeyData  ==  Keys.Delete)
+            {
+                if (dataGridCurrentMain.SelectedCells.Count > 0)
+                {
+                    int selectedIndex = dataGridCurrentMain.SelectedCells[0].RowIndex;
+
+                    dataGridCurrentMain.Rows.RemoveAt(selectedIndex);
+                    
+                }
+                OnChanged(true);
+            }
+        }
+
+       
 
         /// <summary>
         /// Keypress handler for date values.
@@ -92,7 +142,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public virtual void FillGridWithJavascriptData(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
+        public virtual void FillGridWithJavascriptData(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
         {
             InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
         }
@@ -101,7 +151,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public virtual string ParseGridAndCreateJavascriptData(DataGrid dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData) {
+        public virtual string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData) {
             string sReturnJavascript = sJsDataTemplate;
             return (sReturnJavascript);
         }

@@ -12,7 +12,7 @@ namespace BrowserApp {
     /// </summary>
     public class CQuizDragAndDrop : CQuiz {
 
-        public CQuizDragAndDrop(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
+        public CQuizDragAndDrop(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
         {
             //
             // TODO: Add constructor logic here
@@ -20,7 +20,7 @@ namespace BrowserApp {
 
             sCurrentJsQuizType = "DragAndDrop";
 
-            InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
+            //InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
         }
 
 
@@ -28,12 +28,14 @@ namespace BrowserApp {
         /// <summary>
         ///
         /// </summary>
-        public override void InitializeGrid(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent)
+        public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
-
-            dataGridCurrent.DataSource = dTableCurrent;
-            dataGridCurrent.TableStyles.Clear();
+            dataGridCurrent.Columns.Clear();
+            dataGridCurrent.RowTemplate.Height = 35;
+            
+            
+            //dataGridCurrent.TableStyles.Clear();
 
             // Add a GridTableStyle and set the MappingName 
             // to the name of the DataTable.
@@ -42,39 +44,61 @@ namespace BrowserApp {
             dgdtblStyle.MappingName = dTableCurrent.TableName;
             dgdtblStyle.AllowSorting = false;
 
-
-
+            dataGridCurrent.RowHeadersVisible = false;
+            
             for (int i = 0;  i < 2;  i++) {
                 dTableCurrent.Columns.Add("Column" + (i+1).ToString(), System.Type.GetType("System.String"));
+                
             }
 
             // Add a GridColumnStyle and set the MappingName 
             // to the name of a DataColumn in the DataTable. 
             // Set the HeaderText and Width properties. 
-            ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc1.MappingName = "Column1";
-            tbc1.TextBox.Multiline = true;
-            tbc1.MinimumHeight = 35;
-            tbc1.HeaderText = "Beginning Phrase";
-            tbc1.Width = 450;
-            tbc1.NullText = "<type phrase here>";
+            DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
+            gtbc1.HeaderText = "Beginning Phrase";
+            gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            dgdtblStyle.GridColumnStyles.Add(tbc1);
+            gtbc1.DataPropertyName = "Column1";
+            //gtbc1.ValueType = typeof(string);
+            gtbc1.Width = 450;
+            gtbc1.DefaultCellStyle.NullValue = "<type phrase here>";
+            dataGridCurrent.Columns.Add(gtbc1);
 
-            ExtendedDataGridMultiLineTextBoxColumn tbc2 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc2.MappingName = "Column2";
-            tbc2.HeaderText = "Ending Phrase";
-            tbc2.TextBox.Multiline = true;
-            tbc2.MinimumHeight = 35;
-            tbc2.Width = 450;
-            tbc2.NullText = "<type phrase here>";
+            //ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
+            //tbc1.MappingName = "Column1";
+            //tbc1.TextBox.Multiline = true;
+            //tbc1.MinimumHeight = 35;
+            //tbc1.HeaderText = "Beginning Phrase";
+            //tbc1.Width = 450;
+            //tbc1.NullText = "<type phrase here>";
 
-            dgdtblStyle.GridColumnStyles.Add(tbc2);
+            //dgdtblStyle.GridColumnStyles.Add(tbc1);
+            DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
+            gtbc3.HeaderText = "Ending Phrase";
+            gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            gtbc3.DataPropertyName = "Column2";
+            //gtbc1.ValueType = typeof(string);
+            gtbc3.Width = 450;
+            gtbc3.DefaultCellStyle.NullValue = "<type phrase here>";
+            dataGridCurrent.Columns.Add(gtbc3);
 
-            
+            //ExtendedDataGridMultiLineTextBoxColumn tbc2 = new ExtendedDataGridMultiLineTextBoxColumn();
+            //tbc2.MappingName = "Column2";
+            //tbc2.HeaderText = "Ending Phrase";
+            //tbc2.TextBox.Multiline = true;
+            //tbc2.MinimumHeight = 35;
+            //tbc2.Width = 450;
+            //tbc2.NullText = "<type phrase here>";
+
+            //dgdtblStyle.GridColumnStyles.Add(tbc2);
+
+            foreach (DataGridViewColumn column in dataGridCurrent.Columns)
+            {
+                dataGridCurrent.Columns[column.Name].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             // Add the DataGridTableStyle instance to the GridTableStylesCollection. 
-            dataGridCurrent.TableStyles.Add(dgdtblStyle);
-
+            //dataGridCurrent.TableStyles.Add(dgdtblStyle);
+            dataGridCurrent.DataSource = dTableCurrent;
             dataGridCurrent.Visible = true;
         }
 
@@ -82,7 +106,7 @@ namespace BrowserApp {
         /// <summary>
         ///
         /// </summary>
-        public override void FillGridWithJavascriptData(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
+        public override void FillGridWithJavascriptData(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
         {
             string sMatchAnswersLength = "answers[";
             int    iAnswersLength = sJavascriptData.LastIndexOf(sMatchAnswersLength);
@@ -124,7 +148,7 @@ namespace BrowserApp {
         /// <summary>
         ///
         /// </summary>
-        public override string ParseGridAndCreateJavascriptData(DataGrid dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
+        public override string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
         {
             string sReturnJavascript = sJsDataTemplate;
 
@@ -140,8 +164,8 @@ namespace BrowserApp {
 
                 for (int row = 0;  row < cm.Count;  row++) {
 
-                    string sQuestion = dataGridCurrent[row, 0].ToString();
-                    string sAnswer   = dataGridCurrent[row, 1].ToString();
+                    string sQuestion = dataGridCurrent[0, row].Value.ToString();
+                    string sAnswer   = dataGridCurrent[1, row].Value.ToString();
 
                     if ((sQuestion.Length > 0) && (sAnswer.Length > 0)) {
 

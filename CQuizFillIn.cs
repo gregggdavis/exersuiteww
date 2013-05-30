@@ -14,7 +14,7 @@ namespace BrowserApp
 	public class CQuizFillIn : CQuiz
 
 	{
-		public CQuizFillIn(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
+		public CQuizFillIn(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
 		{
 			//
 			// TODO: Add constructor logic here
@@ -30,12 +30,13 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override void InitializeGrid(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent)
+        public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
-
-            dataGridCurrent.DataSource = dTableCurrent;
-            dataGridCurrent.TableStyles.Clear();
+            dataGridCurrent.Columns.Clear();
+            dataGridCurrent.RowTemplate.Height = 52;
+            
+            //dataGridCurrent.TableStyles.Clear();
 
             // Add a GridTableStyle and set the MappingName 
             // to the name of the DataTable.
@@ -44,37 +45,57 @@ namespace BrowserApp
             dgdtblStyle.MappingName = dTableCurrent.TableName;
             dgdtblStyle.AllowSorting = false;
 
-
+            dataGridCurrent.RowHeadersVisible = false;
+            
 
             for (int i = 0;  i < 2;  i++) {
                 dTableCurrent.Columns.Add("Column" + (i+1).ToString(), System.Type.GetType("System.String"));
             }
 
+            DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
+            gtbc1.HeaderText = "Phrase (use '<input0>, <input1>, etc' to denote multiple Fill-In boxes)";
+            gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            gtbc1.DataPropertyName = "Column1";
+            //gtbc1.ValueType = typeof(string);
+            gtbc1.Width = 600;
+            gtbc1.DefaultCellStyle.NullValue = "<type phrase here>";
+            dataGridCurrent.Columns.Add(gtbc1);
+
             // Add a GridColumnStyle and set the MappingName 
             // to the name of a DataColumn in the DataTable. 
             // Set the HeaderText and Width properties. 
-            ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc1.MappingName = "Column1";
-            tbc1.TextBox.Multiline = true;
-            tbc1.MinimumHeight = 52;
-            tbc1.HeaderText = "Phrase (use '<input0>, <input1>, etc' to denote multiple Fill-In boxes)";
-            tbc1.Width = 600;
-            tbc1.NullText = "<type phrase here>";
+            //ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
+            //tbc1.MappingName = "Column1";
+            //tbc1.TextBox.Multiline = true;
+            //tbc1.MinimumHeight = 52;
+            //tbc1.HeaderText = "Phrase (use '<input0>, <input1>, etc' to denote multiple Fill-In boxes)";
+            //tbc1.Width = 600;
+            //tbc1.NullText = "<type phrase here>";
 
-            dgdtblStyle.GridColumnStyles.Add(tbc1);
+            //dgdtblStyle.GridColumnStyles.Add(tbc1);
+            DataGridViewTextBoxColumn gtbc2 = new DataGridViewTextBoxColumn();
+            gtbc2.HeaderText = "Answer (use semicolon \";\" to deliminate)";
+            gtbc2.DataPropertyName = "Column2";
+            gtbc2.Width = 300;
+            gtbc2.DefaultCellStyle.NullValue = "<type answer here>";
+            dataGridCurrent.Columns.Add(gtbc2);
 
-            DataGridTextBoxColumn tbc2 = new DataGridTextBoxColumn();
-            tbc2.MappingName = "Column2";
-            tbc2.HeaderText = "Answer (use semicolon \";\" to deliminate)";
-            tbc2.Width = 230;
-            tbc2.NullText = "<type answer here>";
+            //DataGridTextBoxColumn tbc2 = new DataGridTextBoxColumn();
+            //tbc2.MappingName = "Column2";
+            //tbc2.HeaderText = "Answer (use semicolon \";\" to deliminate)";
+            //tbc2.Width = 230;
+            //tbc2.NullText = "<type answer here>";
 
-            dgdtblStyle.GridColumnStyles.Add(tbc2);
+            //dgdtblStyle.GridColumnStyles.Add(tbc2);
 
-            
+            foreach (DataGridViewColumn column in dataGridCurrent.Columns)
+            {
+                dataGridCurrent.Columns[column.Name].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             // Add the DataGridTableStyle instance to the GridTableStylesCollection. 
-            dataGridCurrent.TableStyles.Add(dgdtblStyle);
-
+            //dataGridCurrent.TableStyles.Add(dgdtblStyle);
+            dataGridCurrent.DataSource = dTableCurrent;
             dataGridCurrent.Visible = true;
         }
 
@@ -83,7 +104,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override void FillGridWithJavascriptData(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
+        public override void FillGridWithJavascriptData(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
         {
             int iAnswerCount = 0;
 
@@ -180,7 +201,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override string ParseGridAndCreateJavascriptData(DataGrid dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
+        public override string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
         {
             string sReturnJavascript = sJsDataTemplate;
 
@@ -200,8 +221,8 @@ namespace BrowserApp
 
                 for (int row = 0;  row < cm.Count;  row++) {
 
-                    string sQuestion = dataGridCurrent[row, 0].ToString();
-                    string sAnswer   = dataGridCurrent[row, 1].ToString();
+                    string sQuestion = dataGridCurrent[0,row].Value.ToString();
+                    string sAnswer   = dataGridCurrent[1,row].Value.ToString();
 
                     if ((sQuestion.Length > 0) && (sAnswer.Length > 0)) {
 

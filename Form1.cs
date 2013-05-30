@@ -19,7 +19,7 @@ namespace BrowserApp
 	/// </summary>
 	public class Form1 : System.Windows.Forms.Form
     {
-        private System.Windows.Forms.DataGrid dataGridQuestions;
+        private System.Windows.Forms.DataGridView dataGridQuestions;
         private DataTable dTable;
         private System.Windows.Forms.Button buttonPreview;
 
@@ -235,7 +235,7 @@ namespace BrowserApp
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            this.dataGridQuestions = new System.Windows.Forms.DataGrid();
+            this.dataGridQuestions = new System.Windows.Forms.DataGridView();
             this.buttonPreview = new System.Windows.Forms.Button();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuFile = new System.Windows.Forms.MenuItem();
@@ -348,20 +348,13 @@ namespace BrowserApp
             // 
             // dataGridQuestions
             // 
-            this.dataGridQuestions.AllowSorting = false;
-            this.dataGridQuestions.AlternatingBackColor = System.Drawing.Color.Gainsboro;
-            this.dataGridQuestions.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridQuestions.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridQuestions.CaptionVisible = false;
-            this.dataGridQuestions.DataMember = "";
             this.dataGridQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridQuestions.HeaderForeColor = System.Drawing.SystemColors.ControlText;
             this.dataGridQuestions.Location = new System.Drawing.Point(0, 0);
             this.dataGridQuestions.Name = "dataGridQuestions";
-            this.dataGridQuestions.PreferredColumnWidth = 260;
             this.dataGridQuestions.RowHeadersVisible = false;
-            this.dataGridQuestions.Size = new System.Drawing.Size(864, 266);
+            this.dataGridQuestions.Size = new System.Drawing.Size(906, 230);
             this.dataGridQuestions.TabIndex = 1;
             // 
             // buttonPreview
@@ -369,9 +362,9 @@ namespace BrowserApp
             this.buttonPreview.BackColor = System.Drawing.SystemColors.Control;
             this.buttonPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPreview.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonPreview.Location = new System.Drawing.Point(365, 282);
+            this.buttonPreview.Location = new System.Drawing.Point(303, 253);
             this.buttonPreview.Name = "buttonPreview";
-            this.buttonPreview.Size = new System.Drawing.Size(293, 27);
+            this.buttonPreview.Size = new System.Drawing.Size(244, 24);
             this.buttonPreview.TabIndex = 1;
             this.buttonPreview.Text = "Render data for:  None";
             this.buttonPreview.UseVisualStyleBackColor = false;
@@ -466,18 +459,18 @@ namespace BrowserApp
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 14);
+            this.label1.Location = new System.Drawing.Point(24, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 18);
+            this.label1.Size = new System.Drawing.Size(120, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Html Template:";
             // 
             // comboBoxHtmlTemplate
             // 
             this.comboBoxHtmlTemplate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHtmlTemplate.Location = new System.Drawing.Point(173, 9);
+            this.comboBoxHtmlTemplate.Location = new System.Drawing.Point(144, 8);
             this.comboBoxHtmlTemplate.Name = "comboBoxHtmlTemplate";
-            this.comboBoxHtmlTemplate.Size = new System.Drawing.Size(360, 25);
+            this.comboBoxHtmlTemplate.Size = new System.Drawing.Size(300, 21);
             this.comboBoxHtmlTemplate.TabIndex = 1;
             this.comboBoxHtmlTemplate.SelectedIndexChanged += new System.EventHandler(this.comboBoxHtmlTemplate_SelectedIndexChanged);
             // 
@@ -497,7 +490,7 @@ namespace BrowserApp
             this.tabControlData.Location = new System.Drawing.Point(0, 0);
             this.tabControlData.Name = "tabControlData";
             this.tabControlData.SelectedIndex = 0;
-            this.tabControlData.Size = new System.Drawing.Size(872, 295);
+            this.tabControlData.Size = new System.Drawing.Size(914, 256);
             this.tabControlData.TabIndex = 0;
             // 
             // tabPageJsData
@@ -506,7 +499,7 @@ namespace BrowserApp
             this.tabPageJsData.Controls.Add(this.dataGridQuestions);
             this.tabPageJsData.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsData.Name = "tabPageJsData";
-            this.tabPageJsData.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsData.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsData.TabIndex = 0;
             this.tabPageJsData.Text = "Exercise Data";
             // 
@@ -514,7 +507,7 @@ namespace BrowserApp
             // 
             this.tabPageJsOptionsNone.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsOptionsNone.Name = "tabPageJsOptionsNone";
-            this.tabPageJsOptionsNone.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsOptionsNone.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsOptionsNone.TabIndex = 4;
             this.tabPageJsOptionsNone.Text = "Exercise Options";
             // 
@@ -534,57 +527,57 @@ namespace BrowserApp
             this.tabPageJsOptionsMc.Controls.Add(this.label22);
             this.tabPageJsOptionsMc.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsOptionsMc.Name = "tabPageJsOptionsMc";
-            this.tabPageJsOptionsMc.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsOptionsMc.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsOptionsMc.TabIndex = 6;
             this.tabPageJsOptionsMc.Text = "Exercise Options";
             // 
             // checkBoxMcCheckAnswersButton
             // 
-            this.checkBoxMcCheckAnswersButton.Location = new System.Drawing.Point(34, 217);
+            this.checkBoxMcCheckAnswersButton.Location = new System.Drawing.Point(28, 188);
             this.checkBoxMcCheckAnswersButton.Name = "checkBoxMcCheckAnswersButton";
-            this.checkBoxMcCheckAnswersButton.Size = new System.Drawing.Size(216, 18);
+            this.checkBoxMcCheckAnswersButton.Size = new System.Drawing.Size(180, 16);
             this.checkBoxMcCheckAnswersButton.TabIndex = 22;
             this.checkBoxMcCheckAnswersButton.Text = "Display Check Answers Button";
             // 
             // checkBoxMcFeedbackInResults
             // 
-            this.checkBoxMcFeedbackInResults.Location = new System.Drawing.Point(34, 194);
+            this.checkBoxMcFeedbackInResults.Location = new System.Drawing.Point(28, 168);
             this.checkBoxMcFeedbackInResults.Name = "checkBoxMcFeedbackInResults";
-            this.checkBoxMcFeedbackInResults.Size = new System.Drawing.Size(216, 18);
+            this.checkBoxMcFeedbackInResults.Size = new System.Drawing.Size(180, 16);
             this.checkBoxMcFeedbackInResults.TabIndex = 21;
             this.checkBoxMcFeedbackInResults.Text = "Display Feedback in Results";
             // 
             // label33
             // 
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(34, 143);
+            this.label33.Location = new System.Drawing.Point(28, 124);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(163, 19);
+            this.label33.Size = new System.Drawing.Size(136, 16);
             this.label33.TabIndex = 20;
             this.label33.Text = "Feedback:";
             // 
             // checkBoxMcFeedbackInPopup
             // 
-            this.checkBoxMcFeedbackInPopup.Location = new System.Drawing.Point(34, 171);
+            this.checkBoxMcFeedbackInPopup.Location = new System.Drawing.Point(28, 148);
             this.checkBoxMcFeedbackInPopup.Name = "checkBoxMcFeedbackInPopup";
-            this.checkBoxMcFeedbackInPopup.Size = new System.Drawing.Size(216, 18);
+            this.checkBoxMcFeedbackInPopup.Size = new System.Drawing.Size(180, 16);
             this.checkBoxMcFeedbackInPopup.TabIndex = 19;
             this.checkBoxMcFeedbackInPopup.Text = "Display Feedback in Popup";
             // 
             // radioButtonMcQuestionOne
             // 
-            this.radioButtonMcQuestionOne.Location = new System.Drawing.Point(245, 78);
+            this.radioButtonMcQuestionOne.Location = new System.Drawing.Point(204, 68);
             this.radioButtonMcQuestionOne.Name = "radioButtonMcQuestionOne";
-            this.radioButtonMcQuestionOne.Size = new System.Drawing.Size(192, 24);
+            this.radioButtonMcQuestionOne.Size = new System.Drawing.Size(160, 20);
             this.radioButtonMcQuestionOne.TabIndex = 11;
             this.radioButtonMcQuestionOne.Text = "One Question per page";
             // 
             // radioButtonMcQuestionAll
             // 
             this.radioButtonMcQuestionAll.Checked = true;
-            this.radioButtonMcQuestionAll.Location = new System.Drawing.Point(245, 51);
+            this.radioButtonMcQuestionAll.Location = new System.Drawing.Point(204, 44);
             this.radioButtonMcQuestionAll.Name = "radioButtonMcQuestionAll";
-            this.radioButtonMcQuestionAll.Size = new System.Drawing.Size(192, 23);
+            this.radioButtonMcQuestionAll.Size = new System.Drawing.Size(160, 20);
             this.radioButtonMcQuestionAll.TabIndex = 10;
             this.radioButtonMcQuestionAll.TabStop = true;
             this.radioButtonMcQuestionAll.Text = "All Questions on one page";
@@ -592,48 +585,48 @@ namespace BrowserApp
             // label23
             // 
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(245, 23);
+            this.label23.Location = new System.Drawing.Point(204, 20);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(192, 19);
+            this.label23.Size = new System.Drawing.Size(160, 16);
             this.label23.TabIndex = 9;
             this.label23.Text = "Question Arrangment:";
             // 
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(34, 23);
+            this.label20.Location = new System.Drawing.Point(28, 20);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(163, 19);
+            this.label20.Size = new System.Drawing.Size(136, 16);
             this.label20.TabIndex = 7;
             this.label20.Text = "Results TextBox:";
             // 
             // label21
             // 
-            this.label21.Location = new System.Drawing.Point(38, 55);
+            this.label21.Location = new System.Drawing.Point(32, 48);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 19);
+            this.label21.Size = new System.Drawing.Size(72, 16);
             this.label21.TabIndex = 6;
             this.label21.Text = "Columns:";
             // 
             // textBoxMtResultsCols
             // 
-            this.textBoxMtResultsCols.Location = new System.Drawing.Point(125, 51);
+            this.textBoxMtResultsCols.Location = new System.Drawing.Point(104, 44);
             this.textBoxMtResultsCols.Name = "textBoxMtResultsCols";
-            this.textBoxMtResultsCols.Size = new System.Drawing.Size(72, 22);
+            this.textBoxMtResultsCols.Size = new System.Drawing.Size(60, 20);
             this.textBoxMtResultsCols.TabIndex = 3;
             // 
             // textBoxMtResultsRows
             // 
-            this.textBoxMtResultsRows.Location = new System.Drawing.Point(125, 78);
+            this.textBoxMtResultsRows.Location = new System.Drawing.Point(104, 68);
             this.textBoxMtResultsRows.Name = "textBoxMtResultsRows";
-            this.textBoxMtResultsRows.Size = new System.Drawing.Size(72, 22);
+            this.textBoxMtResultsRows.Size = new System.Drawing.Size(60, 20);
             this.textBoxMtResultsRows.TabIndex = 5;
             // 
             // label22
             // 
-            this.label22.Location = new System.Drawing.Point(38, 83);
+            this.label22.Location = new System.Drawing.Point(32, 72);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(87, 19);
+            this.label22.Size = new System.Drawing.Size(72, 16);
             this.label22.TabIndex = 4;
             this.label22.Text = "Rows:";
             // 
@@ -646,46 +639,46 @@ namespace BrowserApp
             this.tabPageJsOptionsMa.Controls.Add(this.label18);
             this.tabPageJsOptionsMa.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsOptionsMa.Name = "tabPageJsOptionsMa";
-            this.tabPageJsOptionsMa.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsOptionsMa.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsOptionsMa.TabIndex = 5;
             this.tabPageJsOptionsMa.Text = "Exercise Options";
             // 
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(34, 23);
+            this.label19.Location = new System.Drawing.Point(28, 20);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(163, 19);
+            this.label19.Size = new System.Drawing.Size(136, 16);
             this.label19.TabIndex = 2;
             this.label19.Text = "Results TextBox:";
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(38, 55);
+            this.label17.Location = new System.Drawing.Point(32, 48);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(87, 19);
+            this.label17.Size = new System.Drawing.Size(72, 16);
             this.label17.TabIndex = 1;
             this.label17.Text = "Columns:";
             // 
             // textBoxMaResultsCols
             // 
-            this.textBoxMaResultsCols.Location = new System.Drawing.Point(125, 51);
+            this.textBoxMaResultsCols.Location = new System.Drawing.Point(104, 44);
             this.textBoxMaResultsCols.Name = "textBoxMaResultsCols";
-            this.textBoxMaResultsCols.Size = new System.Drawing.Size(72, 22);
+            this.textBoxMaResultsCols.Size = new System.Drawing.Size(60, 20);
             this.textBoxMaResultsCols.TabIndex = 0;
             // 
             // textBoxMaResultsRows
             // 
-            this.textBoxMaResultsRows.Location = new System.Drawing.Point(125, 78);
+            this.textBoxMaResultsRows.Location = new System.Drawing.Point(104, 68);
             this.textBoxMaResultsRows.Name = "textBoxMaResultsRows";
-            this.textBoxMaResultsRows.Size = new System.Drawing.Size(72, 22);
+            this.textBoxMaResultsRows.Size = new System.Drawing.Size(60, 20);
             this.textBoxMaResultsRows.TabIndex = 1;
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(38, 83);
+            this.label18.Location = new System.Drawing.Point(32, 72);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(87, 19);
+            this.label18.Size = new System.Drawing.Size(72, 16);
             this.label18.TabIndex = 0;
             this.label18.Text = "Rows:";
             // 
@@ -700,58 +693,58 @@ namespace BrowserApp
             this.tabPageJsOptionsSc.Controls.Add(this.label30);
             this.tabPageJsOptionsSc.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsOptionsSc.Name = "tabPageJsOptionsSc";
-            this.tabPageJsOptionsSc.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsOptionsSc.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsOptionsSc.TabIndex = 7;
             this.tabPageJsOptionsSc.Text = "Exercise Options";
             // 
             // label32
             // 
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(29, 152);
+            this.label32.Location = new System.Drawing.Point(24, 132);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(163, 19);
+            this.label32.Size = new System.Drawing.Size(136, 16);
             this.label32.TabIndex = 18;
             this.label32.Text = "Other:";
             // 
             // checkBoxScShowNumbers
             // 
-            this.checkBoxScShowNumbers.Location = new System.Drawing.Point(29, 180);
+            this.checkBoxScShowNumbers.Location = new System.Drawing.Point(24, 156);
             this.checkBoxScShowNumbers.Name = "checkBoxScShowNumbers";
-            this.checkBoxScShowNumbers.Size = new System.Drawing.Size(216, 18);
+            this.checkBoxScShowNumbers.Size = new System.Drawing.Size(180, 16);
             this.checkBoxScShowNumbers.TabIndex = 17;
             this.checkBoxScShowNumbers.Text = "Display Question Numbers";
             // 
             // checkBoxScMouseoverRight
             // 
-            this.checkBoxScMouseoverRight.Location = new System.Drawing.Point(29, 46);
+            this.checkBoxScMouseoverRight.Location = new System.Drawing.Point(24, 40);
             this.checkBoxScMouseoverRight.Name = "checkBoxScMouseoverRight";
-            this.checkBoxScMouseoverRight.Size = new System.Drawing.Size(182, 23);
+            this.checkBoxScMouseoverRight.Size = new System.Drawing.Size(152, 20);
             this.checkBoxScMouseoverRight.TabIndex = 16;
             this.checkBoxScMouseoverRight.Text = "To the Right";
             // 
             // label31
             // 
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(29, 23);
+            this.label31.Location = new System.Drawing.Point(24, 20);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(182, 19);
+            this.label31.Size = new System.Drawing.Size(152, 16);
             this.label31.TabIndex = 15;
             this.label31.Text = "Mouseover Position:";
             // 
             // radioButtonScQuestionOne
             // 
-            this.radioButtonScQuestionOne.Location = new System.Drawing.Point(245, 78);
+            this.radioButtonScQuestionOne.Location = new System.Drawing.Point(204, 68);
             this.radioButtonScQuestionOne.Name = "radioButtonScQuestionOne";
-            this.radioButtonScQuestionOne.Size = new System.Drawing.Size(192, 24);
+            this.radioButtonScQuestionOne.Size = new System.Drawing.Size(160, 20);
             this.radioButtonScQuestionOne.TabIndex = 14;
             this.radioButtonScQuestionOne.Text = "One Question per page";
             // 
             // radioButtonScQuestionAll
             // 
             this.radioButtonScQuestionAll.Checked = true;
-            this.radioButtonScQuestionAll.Location = new System.Drawing.Point(245, 51);
+            this.radioButtonScQuestionAll.Location = new System.Drawing.Point(204, 44);
             this.radioButtonScQuestionAll.Name = "radioButtonScQuestionAll";
-            this.radioButtonScQuestionAll.Size = new System.Drawing.Size(192, 23);
+            this.radioButtonScQuestionAll.Size = new System.Drawing.Size(160, 20);
             this.radioButtonScQuestionAll.TabIndex = 13;
             this.radioButtonScQuestionAll.TabStop = true;
             this.radioButtonScQuestionAll.Text = "All Questions on one page";
@@ -759,9 +752,9 @@ namespace BrowserApp
             // label30
             // 
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(245, 23);
+            this.label30.Location = new System.Drawing.Point(204, 20);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(192, 19);
+            this.label30.Size = new System.Drawing.Size(160, 16);
             this.label30.TabIndex = 12;
             this.label30.Text = "Question Arrangment:";
             // 
@@ -771,24 +764,24 @@ namespace BrowserApp
             this.tabPageJsOptionsDd.Controls.Add(this.comboBoxDdCardFontSize);
             this.tabPageJsOptionsDd.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsOptionsDd.Name = "tabPageJsOptionsDd";
-            this.tabPageJsOptionsDd.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsOptionsDd.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsOptionsDd.TabIndex = 2;
             this.tabPageJsOptionsDd.Text = "Exercise Options";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(48, 28);
+            this.label3.Location = new System.Drawing.Point(40, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 18);
+            this.label3.Size = new System.Drawing.Size(112, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Card Font Size:";
             // 
             // comboBoxDdCardFontSize
             // 
             this.comboBoxDdCardFontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDdCardFontSize.Location = new System.Drawing.Point(192, 23);
+            this.comboBoxDdCardFontSize.Location = new System.Drawing.Point(160, 20);
             this.comboBoxDdCardFontSize.Name = "comboBoxDdCardFontSize";
-            this.comboBoxDdCardFontSize.Size = new System.Drawing.Size(134, 24);
+            this.comboBoxDdCardFontSize.Size = new System.Drawing.Size(112, 21);
             this.comboBoxDdCardFontSize.TabIndex = 1;
             // 
             // tabPageJsOptionsFi
@@ -810,130 +803,130 @@ namespace BrowserApp
             this.tabPageJsOptionsFi.Controls.Add(this.label16);
             this.tabPageJsOptionsFi.Location = new System.Drawing.Point(4, 4);
             this.tabPageJsOptionsFi.Name = "tabPageJsOptionsFi";
-            this.tabPageJsOptionsFi.Size = new System.Drawing.Size(864, 266);
+            this.tabPageJsOptionsFi.Size = new System.Drawing.Size(906, 230);
             this.tabPageJsOptionsFi.TabIndex = 3;
             this.tabPageJsOptionsFi.Text = "Exercise Options";
             // 
             // checkBoxFiTypeQuiz
             // 
-            this.checkBoxFiTypeQuiz.Location = new System.Drawing.Point(34, 232);
+            this.checkBoxFiTypeQuiz.Location = new System.Drawing.Point(28, 201);
             this.checkBoxFiTypeQuiz.Name = "checkBoxFiTypeQuiz";
-            this.checkBoxFiTypeQuiz.Size = new System.Drawing.Size(675, 22);
+            this.checkBoxFiTypeQuiz.Size = new System.Drawing.Size(563, 19);
             this.checkBoxFiTypeQuiz.TabIndex = 7;
             this.checkBoxFiTypeQuiz.Text = "Quiz (hides Hint button and only allows Check Answers button after all questions " +
     "attempted)";
             // 
             // textBoxFiPageWidth
             // 
-            this.textBoxFiPageWidth.Location = new System.Drawing.Point(178, 175);
+            this.textBoxFiPageWidth.Location = new System.Drawing.Point(148, 152);
             this.textBoxFiPageWidth.Name = "textBoxFiPageWidth";
-            this.textBoxFiPageWidth.Size = new System.Drawing.Size(72, 22);
+            this.textBoxFiPageWidth.Size = new System.Drawing.Size(60, 20);
             this.textBoxFiPageWidth.TabIndex = 5;
             // 
             // label29
             // 
-            this.label29.Location = new System.Drawing.Point(34, 180);
+            this.label29.Location = new System.Drawing.Point(28, 156);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(144, 18);
+            this.label29.Size = new System.Drawing.Size(120, 16);
             this.label29.TabIndex = 16;
             this.label29.Text = "Main Page Width:";
             // 
             // label28
             // 
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(34, 152);
+            this.label28.Location = new System.Drawing.Point(28, 132);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(163, 19);
+            this.label28.Size = new System.Drawing.Size(136, 16);
             this.label28.TabIndex = 14;
             this.label28.Text = "Other:";
             // 
             // checkBoxFiShowNumbers
             // 
-            this.checkBoxFiShowNumbers.Location = new System.Drawing.Point(34, 208);
+            this.checkBoxFiShowNumbers.Location = new System.Drawing.Point(28, 180);
             this.checkBoxFiShowNumbers.Name = "checkBoxFiShowNumbers";
-            this.checkBoxFiShowNumbers.Size = new System.Drawing.Size(216, 18);
+            this.checkBoxFiShowNumbers.Size = new System.Drawing.Size(180, 16);
             this.checkBoxFiShowNumbers.TabIndex = 6;
             this.checkBoxFiShowNumbers.Text = "Display Question Numbers";
             // 
             // textBoxFiResultsCols
             // 
-            this.textBoxFiResultsCols.Location = new System.Drawing.Point(125, 51);
+            this.textBoxFiResultsCols.Location = new System.Drawing.Point(104, 44);
             this.textBoxFiResultsCols.Name = "textBoxFiResultsCols";
-            this.textBoxFiResultsCols.Size = new System.Drawing.Size(72, 22);
+            this.textBoxFiResultsCols.Size = new System.Drawing.Size(60, 20);
             this.textBoxFiResultsCols.TabIndex = 0;
             // 
             // textBoxFiResultsRows
             // 
-            this.textBoxFiResultsRows.Location = new System.Drawing.Point(125, 78);
+            this.textBoxFiResultsRows.Location = new System.Drawing.Point(104, 68);
             this.textBoxFiResultsRows.Name = "textBoxFiResultsRows";
-            this.textBoxFiResultsRows.Size = new System.Drawing.Size(72, 22);
+            this.textBoxFiResultsRows.Size = new System.Drawing.Size(60, 20);
             this.textBoxFiResultsRows.TabIndex = 1;
             // 
             // label26
             // 
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(34, 23);
+            this.label26.Location = new System.Drawing.Point(28, 20);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(163, 19);
+            this.label26.Size = new System.Drawing.Size(136, 16);
             this.label26.TabIndex = 12;
             this.label26.Text = "Results TextBox:";
             // 
             // label27
             // 
-            this.label27.Location = new System.Drawing.Point(38, 55);
+            this.label27.Location = new System.Drawing.Point(32, 48);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(87, 19);
+            this.label27.Size = new System.Drawing.Size(72, 16);
             this.label27.TabIndex = 11;
             this.label27.Text = "Columns:";
             // 
             // label25
             // 
-            this.label25.Location = new System.Drawing.Point(38, 83);
+            this.label25.Location = new System.Drawing.Point(32, 72);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(87, 19);
+            this.label25.Size = new System.Drawing.Size(72, 16);
             this.label25.TabIndex = 9;
             this.label25.Text = "Rows:";
             // 
             // radioButtonFiQuestionOne
             // 
-            this.radioButtonFiQuestionOne.Location = new System.Drawing.Point(245, 78);
+            this.radioButtonFiQuestionOne.Location = new System.Drawing.Point(204, 68);
             this.radioButtonFiQuestionOne.Name = "radioButtonFiQuestionOne";
-            this.radioButtonFiQuestionOne.Size = new System.Drawing.Size(192, 24);
+            this.radioButtonFiQuestionOne.Size = new System.Drawing.Size(160, 20);
             this.radioButtonFiQuestionOne.TabIndex = 3;
             this.radioButtonFiQuestionOne.Text = "One Question per page";
             // 
             // radioButtonFiQuestionAll
             // 
-            this.radioButtonFiQuestionAll.Location = new System.Drawing.Point(245, 51);
+            this.radioButtonFiQuestionAll.Location = new System.Drawing.Point(204, 44);
             this.radioButtonFiQuestionAll.Name = "radioButtonFiQuestionAll";
-            this.radioButtonFiQuestionAll.Size = new System.Drawing.Size(192, 23);
+            this.radioButtonFiQuestionAll.Size = new System.Drawing.Size(160, 20);
             this.radioButtonFiQuestionAll.TabIndex = 2;
             this.radioButtonFiQuestionAll.Text = "All Questions on one page";
             // 
             // label24
             // 
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label24.Location = new System.Drawing.Point(245, 23);
+            this.label24.Location = new System.Drawing.Point(204, 20);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(192, 19);
+            this.label24.Size = new System.Drawing.Size(160, 16);
             this.label24.TabIndex = 2;
             this.label24.Text = "Question Arrangment:";
             // 
             // textBoxJsOptionsFiChoices
             // 
             this.textBoxJsOptionsFiChoices.AcceptsReturn = true;
-            this.textBoxJsOptionsFiChoices.Location = new System.Drawing.Point(494, 46);
+            this.textBoxJsOptionsFiChoices.Location = new System.Drawing.Point(412, 40);
             this.textBoxJsOptionsFiChoices.Multiline = true;
             this.textBoxJsOptionsFiChoices.Name = "textBoxJsOptionsFiChoices";
-            this.textBoxJsOptionsFiChoices.Size = new System.Drawing.Size(356, 111);
+            this.textBoxJsOptionsFiChoices.Size = new System.Drawing.Size(296, 96);
             this.textBoxJsOptionsFiChoices.TabIndex = 4;
             // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(494, 18);
+            this.label16.Location = new System.Drawing.Point(412, 16);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(168, 19);
+            this.label16.Size = new System.Drawing.Size(140, 16);
             this.label16.TabIndex = 0;
             this.label16.Text = "Possible Answers:";
             // 
@@ -961,24 +954,24 @@ namespace BrowserApp
             this.tabPageHtmlData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageHtmlData.Location = new System.Drawing.Point(4, 4);
             this.tabPageHtmlData.Name = "tabPageHtmlData";
-            this.tabPageHtmlData.Size = new System.Drawing.Size(864, 266);
+            this.tabPageHtmlData.Size = new System.Drawing.Size(906, 230);
             this.tabPageHtmlData.TabIndex = 1;
             this.tabPageHtmlData.Text = "Html Data";
             // 
             // textBoxNextPageText
             // 
             this.textBoxNextPageText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNextPageText.Location = new System.Drawing.Point(173, 235);
+            this.textBoxNextPageText.Location = new System.Drawing.Point(144, 204);
             this.textBoxNextPageText.Name = "textBoxNextPageText";
-            this.textBoxNextPageText.Size = new System.Drawing.Size(360, 23);
+            this.textBoxNextPageText.Size = new System.Drawing.Size(300, 20);
             this.textBoxNextPageText.TabIndex = 15;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(29, 240);
+            this.label9.Location = new System.Drawing.Point(24, 208);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 18);
+            this.label9.Size = new System.Drawing.Size(120, 16);
             this.label9.TabIndex = 14;
             this.label9.Text = "Next Page Text: ";
             // 
@@ -986,103 +979,103 @@ namespace BrowserApp
             // 
             this.textBoxInstructionsText.AcceptsReturn = true;
             this.textBoxInstructionsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInstructionsText.Location = new System.Drawing.Point(173, 148);
+            this.textBoxInstructionsText.Location = new System.Drawing.Point(144, 128);
             this.textBoxInstructionsText.Multiline = true;
             this.textBoxInstructionsText.Name = "textBoxInstructionsText";
-            this.textBoxInstructionsText.Size = new System.Drawing.Size(360, 83);
+            this.textBoxInstructionsText.Size = new System.Drawing.Size(300, 72);
             this.textBoxInstructionsText.TabIndex = 13;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(29, 152);
+            this.label8.Location = new System.Drawing.Point(24, 132);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 19);
+            this.label8.Size = new System.Drawing.Size(120, 16);
             this.label8.TabIndex = 12;
             this.label8.Text = "Instructions Text: ";
             // 
             // textBoxInstructionsTitle
             // 
             this.textBoxInstructionsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInstructionsTitle.Location = new System.Drawing.Point(173, 120);
+            this.textBoxInstructionsTitle.Location = new System.Drawing.Point(144, 104);
             this.textBoxInstructionsTitle.Name = "textBoxInstructionsTitle";
-            this.textBoxInstructionsTitle.Size = new System.Drawing.Size(360, 23);
+            this.textBoxInstructionsTitle.Size = new System.Drawing.Size(300, 20);
             this.textBoxInstructionsTitle.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(29, 125);
+            this.label7.Location = new System.Drawing.Point(24, 108);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 18);
+            this.label7.Size = new System.Drawing.Size(120, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Instructions Title: ";
             // 
             // textBoxPageTitle
             // 
             this.textBoxPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPageTitle.Location = new System.Drawing.Point(173, 92);
+            this.textBoxPageTitle.Location = new System.Drawing.Point(144, 80);
             this.textBoxPageTitle.Name = "textBoxPageTitle";
-            this.textBoxPageTitle.Size = new System.Drawing.Size(360, 23);
+            this.textBoxPageTitle.Size = new System.Drawing.Size(300, 20);
             this.textBoxPageTitle.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 97);
+            this.label6.Location = new System.Drawing.Point(24, 84);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 18);
+            this.label6.Size = new System.Drawing.Size(120, 16);
             this.label6.TabIndex = 8;
             this.label6.Text = "Exercise Target: ";
             // 
             // textBoxPageNumber
             // 
             this.textBoxPageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPageNumber.Location = new System.Drawing.Point(398, 65);
+            this.textBoxPageNumber.Location = new System.Drawing.Point(332, 56);
             this.textBoxPageNumber.Name = "textBoxPageNumber";
-            this.textBoxPageNumber.Size = new System.Drawing.Size(135, 23);
+            this.textBoxPageNumber.Size = new System.Drawing.Size(112, 20);
             this.textBoxPageNumber.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(288, 69);
+            this.label5.Location = new System.Drawing.Point(240, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 19);
+            this.label5.Size = new System.Drawing.Size(120, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Page Number: ";
             // 
             // textBoxAssignmentNumber
             // 
             this.textBoxAssignmentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAssignmentNumber.Location = new System.Drawing.Point(173, 65);
+            this.textBoxAssignmentNumber.Location = new System.Drawing.Point(144, 56);
             this.textBoxAssignmentNumber.Name = "textBoxAssignmentNumber";
-            this.textBoxAssignmentNumber.Size = new System.Drawing.Size(101, 23);
+            this.textBoxAssignmentNumber.Size = new System.Drawing.Size(84, 20);
             this.textBoxAssignmentNumber.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 69);
+            this.label4.Location = new System.Drawing.Point(24, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 19);
+            this.label4.Size = new System.Drawing.Size(120, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Assignment Number: ";
             // 
             // textBoxUnitNumber
             // 
             this.textBoxUnitNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitNumber.Location = new System.Drawing.Point(173, 37);
+            this.textBoxUnitNumber.Location = new System.Drawing.Point(144, 32);
             this.textBoxUnitNumber.Name = "textBoxUnitNumber";
-            this.textBoxUnitNumber.Size = new System.Drawing.Size(101, 23);
+            this.textBoxUnitNumber.Size = new System.Drawing.Size(84, 20);
             this.textBoxUnitNumber.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 42);
+            this.label2.Location = new System.Drawing.Point(24, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 18);
+            this.label2.Size = new System.Drawing.Size(120, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Unit Number: ";
             // 
@@ -1094,9 +1087,9 @@ namespace BrowserApp
             this.groupBox1.Controls.Add(this.textBoxQuizFlashHeight);
             this.groupBox1.Controls.Add(this.textBoxQuizFlashFileName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Location = new System.Drawing.Point(576, 9);
+            this.groupBox1.Location = new System.Drawing.Point(480, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 116);
+            this.groupBox1.Size = new System.Drawing.Size(364, 100);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Flash Object Data for Quiz (before Javascript Data)";
@@ -1104,51 +1097,51 @@ namespace BrowserApp
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(24, 88);
+            this.label12.Location = new System.Drawing.Point(20, 76);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(206, 18);
+            this.label12.Size = new System.Drawing.Size(172, 16);
             this.label12.TabIndex = 20;
             this.label12.Text = "Flash Object Width: ";
             // 
             // textBoxQuizFlashWidth
             // 
             this.textBoxQuizFlashWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuizFlashWidth.Location = new System.Drawing.Point(235, 83);
+            this.textBoxQuizFlashWidth.Location = new System.Drawing.Point(196, 72);
             this.textBoxQuizFlashWidth.Name = "textBoxQuizFlashWidth";
-            this.textBoxQuizFlashWidth.Size = new System.Drawing.Size(91, 23);
+            this.textBoxQuizFlashWidth.Size = new System.Drawing.Size(76, 20);
             this.textBoxQuizFlashWidth.TabIndex = 21;
             // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(24, 60);
+            this.label11.Location = new System.Drawing.Point(20, 52);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(206, 18);
+            this.label11.Size = new System.Drawing.Size(172, 16);
             this.label11.TabIndex = 18;
             this.label11.Text = "Flash Object Height: ";
             // 
             // textBoxQuizFlashHeight
             // 
             this.textBoxQuizFlashHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuizFlashHeight.Location = new System.Drawing.Point(235, 55);
+            this.textBoxQuizFlashHeight.Location = new System.Drawing.Point(196, 48);
             this.textBoxQuizFlashHeight.Name = "textBoxQuizFlashHeight";
-            this.textBoxQuizFlashHeight.Size = new System.Drawing.Size(91, 23);
+            this.textBoxQuizFlashHeight.Size = new System.Drawing.Size(76, 20);
             this.textBoxQuizFlashHeight.TabIndex = 19;
             // 
             // textBoxQuizFlashFileName
             // 
             this.textBoxQuizFlashFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuizFlashFileName.Location = new System.Drawing.Point(235, 28);
+            this.textBoxQuizFlashFileName.Location = new System.Drawing.Point(196, 24);
             this.textBoxQuizFlashFileName.Name = "textBoxQuizFlashFileName";
-            this.textBoxQuizFlashFileName.Size = new System.Drawing.Size(154, 23);
+            this.textBoxQuizFlashFileName.Size = new System.Drawing.Size(128, 20);
             this.textBoxQuizFlashFileName.TabIndex = 17;
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(24, 32);
+            this.label10.Location = new System.Drawing.Point(20, 28);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(206, 19);
+            this.label10.Size = new System.Drawing.Size(172, 16);
             this.label10.TabIndex = 16;
             this.label10.Text = "Flash File Name (.swf): ";
             // 
@@ -1160,61 +1153,61 @@ namespace BrowserApp
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.comboBoxNaviFlashFileName);
-            this.groupBox2.Location = new System.Drawing.Point(576, 143);
+            this.groupBox2.Location = new System.Drawing.Point(480, 124);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(437, 115);
+            this.groupBox2.Size = new System.Drawing.Size(364, 100);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Flash Object Data for Page Navigation (bottom of page)";
             // 
             // comboBoxNaviFlashWidth
             // 
-            this.comboBoxNaviFlashWidth.Location = new System.Drawing.Point(230, 83);
+            this.comboBoxNaviFlashWidth.Location = new System.Drawing.Point(192, 72);
             this.comboBoxNaviFlashWidth.Name = "comboBoxNaviFlashWidth";
-            this.comboBoxNaviFlashWidth.Size = new System.Drawing.Size(92, 25);
+            this.comboBoxNaviFlashWidth.Size = new System.Drawing.Size(76, 21);
             this.comboBoxNaviFlashWidth.TabIndex = 25;
             this.comboBoxNaviFlashWidth.Text = "comboBox2";
             // 
             // comboBoxNaviFlashHeight
             // 
-            this.comboBoxNaviFlashHeight.Location = new System.Drawing.Point(230, 55);
+            this.comboBoxNaviFlashHeight.Location = new System.Drawing.Point(192, 48);
             this.comboBoxNaviFlashHeight.Name = "comboBoxNaviFlashHeight";
-            this.comboBoxNaviFlashHeight.Size = new System.Drawing.Size(92, 25);
+            this.comboBoxNaviFlashHeight.Size = new System.Drawing.Size(76, 21);
             this.comboBoxNaviFlashHeight.TabIndex = 24;
             this.comboBoxNaviFlashHeight.Text = "comboBox1";
             // 
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(19, 88);
+            this.label13.Location = new System.Drawing.Point(16, 76);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(207, 18);
+            this.label13.Size = new System.Drawing.Size(172, 16);
             this.label13.TabIndex = 20;
             this.label13.Text = "Flash Object Width: ";
             // 
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(19, 60);
+            this.label14.Location = new System.Drawing.Point(16, 52);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(207, 18);
+            this.label14.Size = new System.Drawing.Size(172, 16);
             this.label14.TabIndex = 18;
             this.label14.Text = "Flash Object Height: ";
             // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(19, 32);
+            this.label15.Location = new System.Drawing.Point(16, 28);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(207, 19);
+            this.label15.Size = new System.Drawing.Size(172, 16);
             this.label15.TabIndex = 23;
             this.label15.Text = "Flash File Name (.swf): ";
             // 
             // comboBoxNaviFlashFileName
             // 
-            this.comboBoxNaviFlashFileName.Location = new System.Drawing.Point(230, 28);
+            this.comboBoxNaviFlashFileName.Location = new System.Drawing.Point(192, 24);
             this.comboBoxNaviFlashFileName.Name = "comboBoxNaviFlashFileName";
-            this.comboBoxNaviFlashFileName.Size = new System.Drawing.Size(197, 25);
+            this.comboBoxNaviFlashFileName.Size = new System.Drawing.Size(164, 21);
             this.comboBoxNaviFlashFileName.TabIndex = 23;
             this.comboBoxNaviFlashFileName.Text = "comboBox1";
             this.comboBoxNaviFlashFileName.SelectedIndexChanged += new System.EventHandler(this.comboBoxNaviFlashFileName_SelectedIndexChanged);
@@ -1228,7 +1221,7 @@ namespace BrowserApp
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(872, 657);
+            this.panel1.Size = new System.Drawing.Size(914, 657);
             this.panel1.TabIndex = 3;
             // 
             // splitter1
@@ -1237,28 +1230,28 @@ namespace BrowserApp
             this.splitter1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitter1.Cursor = System.Windows.Forms.Cursors.HSplit;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 310);
+            this.splitter1.Location = new System.Drawing.Point(0, 357);
             this.splitter1.MinExtra = 5;
             this.splitter1.MinSize = 200;
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(872, 11);
+            this.splitter1.Size = new System.Drawing.Size(914, 9);
             this.splitter1.TabIndex = 91;
             this.splitter1.TabStop = false;
             // 
             // webBrowserInput
             // 
             this.webBrowserInput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.webBrowserInput.Location = new System.Drawing.Point(0, 321);
+            this.webBrowserInput.Location = new System.Drawing.Point(0, 366);
             this.webBrowserInput.Name = "webBrowserInput";
             this.webBrowserInput.ScriptErrorsSuppressed = true;
-            this.webBrowserInput.Size = new System.Drawing.Size(872, 336);
+            this.webBrowserInput.Size = new System.Drawing.Size(914, 291);
             this.webBrowserInput.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(872, 657);
+            this.ClientSize = new System.Drawing.Size(914, 657);
             this.Controls.Add(this.panel1);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
@@ -1765,6 +1758,7 @@ namespace BrowserApp
         /// </summary>
         private bool PromptForSaveChanges()
         {
+            if (!DataChanged) return true;
             DialogResult drResultSaveJs   = DialogResult.Yes;
             DialogResult drResultSaveHtml = DialogResult.Yes;
             DialogResult drResultSaveAll  = MessageBox.Show("Do you want to save the changes?", "Exercise Suite", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
@@ -1844,10 +1838,14 @@ namespace BrowserApp
                 ReadJsDataTemplate();
                 //tabControlData.SelectedTab = tabPageHtmlData;
             }
-
+            cQuiz.Changed += new CQuiz.ChangedEventHandler(DataChangedInGrid);
             RenderHtml();
         }
-
+        bool DataChanged = false;
+        public void DataChangedInGrid(bool changed)
+        {
+            DataChanged = changed;
+        }
 
         /// <summary>
         ///
@@ -1888,6 +1886,7 @@ namespace BrowserApp
                 RenderHtml();
 
                 DisplayQuizChooser();
+                DataChanged = false;
             }
         }
 

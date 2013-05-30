@@ -14,7 +14,7 @@ namespace BrowserApp
     public class CQuizMultipleChoice : CQuiz
 
     {
-        public CQuizMultipleChoice(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
+        public CQuizMultipleChoice(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
         {
             //
             // TODO: Add constructor logic here
@@ -30,12 +30,13 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override void InitializeGrid(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent)
+        public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
-
-            dataGridCurrent.DataSource = dTableCurrent;
-            dataGridCurrent.TableStyles.Clear();
+            dataGridCurrent.Columns.Clear();
+            dataGridCurrent.RowTemplate.Height = 35;
+            
+            //dataGridCurrent.TableStyles.Clear();
 
             // Add a GridTableStyle and set the MappingName 
             // to the name of the DataTable.
@@ -44,75 +45,119 @@ namespace BrowserApp
             dgdtblStyle.MappingName = dTableCurrent.TableName;
             dgdtblStyle.AllowSorting = false;
 
-
+            dataGridCurrent.RowHeadersVisible = false;
+            
 
             for (int i = 0;  i < 4;  i++) 
             {
                 dTableCurrent.Columns.Add("Column" + (i+1).ToString(), System.Type.GetType("System.String"));
             }
+            DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
+            gtbc1.HeaderText = "Question Phrase";
+            gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            gtbc1.DataPropertyName = "Column1";
+            //gtbc1.ValueType = typeof(string);
+            gtbc1.Width = 310;
+            gtbc1.DefaultCellStyle.NullValue = "<type question here>";
+            dataGridCurrent.Columns.Add(gtbc1);
 
             // Add a GridColumnStyle and set the MappingName 
             // to the name of a DataColumn in the DataTable. 
             // Set the HeaderText and Width properties. 
-            ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc1.MappingName = "Column1";
-            tbc1.TextBox.Multiline = true;
-            tbc1.MinimumHeight = 35;
-            tbc1.HeaderText = "Question Phrase";
-            tbc1.Width = 310;
-            tbc1.NullText = "<type question here>";
+            //ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
+            //tbc1.MappingName = "Column1";
+            //tbc1.TextBox.Multiline = true;
+            //tbc1.MinimumHeight = 35;
+            //tbc1.HeaderText = "Question Phrase";
+            //tbc1.Width = 310;
+            //tbc1.NullText = "<type question here>";
 
-            dgdtblStyle.GridColumnStyles.Add(tbc1);
+            //dgdtblStyle.GridColumnStyles.Add(tbc1);
+            DataGridViewTextBoxColumn gtbc2 = new DataGridViewTextBoxColumn();
+            gtbc2.HeaderText = "Choices";
+            gtbc2.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            ExtendedDataGridMultiLineTextBoxColumn tbc2 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc2.MappingName = "Column2";
-            tbc2.HeaderText = "Choices";
-            tbc2.TextBox.Multiline = true;
-            tbc2.MinimumHeight = 35;
-            tbc2.Width = 220;
-            tbc2.NullText = "<type choices here>";
+            gtbc2.DataPropertyName = "Column2";
+            //gtbc1.ValueType = typeof(string);
+            gtbc2.Width = 220;
+            gtbc2.DefaultCellStyle.NullValue = "<type choices here>";
+            dataGridCurrent.Columns.Add(gtbc2);
+            
+            //ExtendedDataGridMultiLineTextBoxColumn tbc2 = new ExtendedDataGridMultiLineTextBoxColumn();
+            //tbc2.MappingName = "Column2";
+            //tbc2.HeaderText = "Choices";
+            //tbc2.TextBox.Multiline = true;
+            //tbc2.MinimumHeight = 35;
+            //tbc2.Width = 220;
+            //tbc2.NullText = "<type choices here>";
 
-            dgdtblStyle.GridColumnStyles.Add(tbc2);
+            //dgdtblStyle.GridColumnStyles.Add(tbc2);
+            DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
+            gtbc3.HeaderText = "Feedback";
+            gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            ExtendedDataGridMultiLineTextBoxColumn tbc3 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc3.MappingName = "Column3";
-            tbc3.HeaderText = "Feedback";
-            tbc3.TextBox.Multiline = true;
-            tbc3.MinimumHeight = 35;
-            tbc3.Width = 310;
-            tbc3.NullText = "<type feedback here>";
+            gtbc3.DataPropertyName = "Column3";
+            //gtbc1.ValueType = typeof(string);
+            gtbc3.Width = 310;
+            gtbc3.DefaultCellStyle.NullValue = "<type feedback here>";
+            dataGridCurrent.Columns.Add(gtbc3);
 
-            dgdtblStyle.GridColumnStyles.Add(tbc3);
+            //ExtendedDataGridMultiLineTextBoxColumn tbc3 = new ExtendedDataGridMultiLineTextBoxColumn();
+            //tbc3.MappingName = "Column3";
+            //tbc3.HeaderText = "Feedback";
+            //tbc3.TextBox.Multiline = true;
+            //tbc3.MinimumHeight = 35;
+            //tbc3.Width = 310;
+            //tbc3.NullText = "<type feedback here>";
 
-            DataGridTextBoxColumn tbc4 = new DataGridTextBoxColumn();
-            tbc4.MappingName = "Column4";
-            tbc4.HeaderText = "Answer(a...d)";
-            tbc4.Width = 84;
-            tbc4.NullText = "<insert letter>";
+            //dgdtblStyle.GridColumnStyles.Add(tbc3);
+            DataGridViewTextBoxColumn gtbc4 = new DataGridViewTextBoxColumn();
+            gtbc4.HeaderText = "Answer(a...d)";
+            gtbc4.DataPropertyName = "Column4";
+            gtbc4.Width = 84;
+            gtbc4.DefaultCellStyle.NullValue = "<insert letter>";
+            dataGridCurrent.Columns.Add(gtbc4);
 
-            dgdtblStyle.GridColumnStyles.Add(tbc4);
+            //DataGridTextBoxColumn tbc4 = new DataGridTextBoxColumn();
+            //tbc4.MappingName = "Column4";
+            //tbc4.HeaderText = "Answer(a...d)";
+            //tbc4.Width = 84;
+            //tbc4.NullText = "<insert letter>";
+
+            //dgdtblStyle.GridColumnStyles.Add(tbc4);
 
             //
             // Tie our keypress handler to the textbox's KeyPress event.
             //
-            DataGridTextBoxColumn tbcHandler = (DataGridTextBoxColumn)dgdtblStyle.GridColumnStyles[3];
-            tbcHandler.TextBox.KeyPress += new KeyPressEventHandler(DatagridPositionKeyPress);
+            //DataGridTextBoxColumn tbcHandler = (DataGridTextBoxColumn)dgdtblStyle.GridColumnStyles[3];
+            //tbcHandler.TextBox.KeyPress += new KeyPressEventHandler(DatagridPositionKeyPress);
+            dataGridCurrent.EditingControlShowing +=
+new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
 
 
-            
+            foreach (DataGridViewColumn column in dataGridCurrent.Columns)
+            {
+                dataGridCurrent.Columns[column.Name].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             // Add the DataGridTableStyle instance to the GridTableStylesCollection. 
-            dataGridCurrent.TableStyles.Add(dgdtblStyle);
-
+            //dataGridCurrent.TableStyles.Add(dgdtblStyle);
+            dataGridCurrent.DataSource = dTableCurrent;
             dataGridCurrent.Visible = true;
         }
 
-
+        private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress +=
+                new KeyPressEventHandler(DatagridPositionKeyPress);
+        }
 
         /// <summary>
         /// Keypress handler for date values.
         /// </summary>
         public override void DatagridPositionKeyPress(object sender, KeyPressEventArgs e)
         {
+            if (dataGridCurrentMain.CurrentCell.ColumnIndex != 3) return;
             if (((e.KeyChar >= 'a') && (e.KeyChar <= 'd'))
                 ||  ((e.KeyChar >= 'A') && (e.KeyChar <= 'D'))
                 ||  (e.KeyChar == '\r')
@@ -133,7 +178,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override void FillGridWithJavascriptData(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
+        public override void FillGridWithJavascriptData(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
         {
 
             string sNumQuestions = GetLastMatchedString(sJavascriptData, "numQues=", ";");
@@ -223,7 +268,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override string ParseGridAndCreateJavascriptData(DataGrid dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
+        public override string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
         {
             string sReturnJavascript = sJsDataTemplate;
 
@@ -241,18 +286,18 @@ namespace BrowserApp
                 int iChoice = 1;
                 for (int row = 0;  row < cm.Count;  row += iChoice) {
 
-                    string   sQuestion = dataGridCurrent[row, 0].ToString();
-                    string   sAnswer   = dataGridCurrent[row, 3].ToString();
+                    string   sQuestion = dataGridCurrent[0,row].Value.ToString();
+                    string   sAnswer   = dataGridCurrent[3,row].Value.ToString();
                     string[] sChoices   = new string[4];
                     string[] sFeedback  = new string[4];
-                    sChoices[0]  = dataGridCurrent[row, 1].ToString();
-                    sFeedback[0] = dataGridCurrent[row, 2].ToString();
+                    sChoices[0]  = dataGridCurrent[1,row].Value.ToString();
+                    sFeedback[0] = dataGridCurrent[2,row].Value.ToString();
                     string sNextQuestion = "";
                     for (iChoice = 1;  (sNextQuestion.Length <= 0) && ((row + iChoice) < cm.Count);  iChoice++) {
-                        string sLookAhead = dataGridCurrent[row + iChoice, 0].ToString();
+                        string sLookAhead = dataGridCurrent[0,row + iChoice].Value.ToString();
                         if (sLookAhead.Length <= 0) {
-                            sChoices[iChoice]  = dataGridCurrent[row + iChoice, 1].ToString();
-                            sFeedback[iChoice] = dataGridCurrent[row + iChoice, 2].ToString();
+                            sChoices[iChoice]  = dataGridCurrent[1,row + iChoice].Value.ToString();
+                            sFeedback[iChoice] = dataGridCurrent[2,row + iChoice].Value.ToString();
                         } else {
                             sNextQuestion = sLookAhead;
                             // if this for loop breaks out from (row + iChoice) < cm.Count
