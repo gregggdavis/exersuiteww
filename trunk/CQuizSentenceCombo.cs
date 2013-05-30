@@ -55,7 +55,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
             gtbc1.HeaderText = "Section Header Text";
             gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc1.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc1.DataPropertyName = "Column1";
             //gtbc1.ValueType = typeof(string);
             gtbc1.Width = 140;
@@ -77,7 +77,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc2 = new DataGridViewTextBoxColumn();
             gtbc2.HeaderText = "Sentences to Combine";
             gtbc2.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc2.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc2.DataPropertyName = "Column2";
             //gtbc1.ValueType = typeof(string);
             gtbc2.Width = 400;
@@ -96,7 +96,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
             gtbc3.HeaderText = "Correct Answer Sentence";
             gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc3.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc3.DataPropertyName = "Column3";
             //gtbc1.ValueType = typeof(string);
             gtbc3.Width = 370;
@@ -114,7 +114,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc4 = new DataGridViewTextBoxColumn();
             gtbc4.HeaderText = "Width";
             gtbc4.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc4.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc4.DataPropertyName = "Column4";
             //gtbc1.ValueType = typeof(string);
             gtbc4.Width = 50;
@@ -134,7 +134,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc5 = new DataGridViewTextBoxColumn();
             gtbc5.HeaderText = "Height";
             gtbc5.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc5.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc5.DataPropertyName = "Column5";
             //gtbc1.ValueType = typeof(string);
             gtbc5.Width = 50;
@@ -150,7 +150,8 @@ namespace BrowserApp
             //tbc5.NullText = "<# of rows here>";
 
             //dgdtblStyle.GridColumnStyles.Add(tbc5);
-
+            dataGridCurrent.EditingControlShowing +=
+new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
             foreach (DataGridViewColumn column in dataGridCurrent.Columns)
             {
                 dataGridCurrent.Columns[column.Name].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -161,7 +162,26 @@ namespace BrowserApp
             dataGridCurrent.Visible = true;
         }
 
+        private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress +=
+                new KeyPressEventHandler(DatagridPositionKeyPress);
+        }
 
+        public override void DatagridPositionKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (dataGridCurrentMain.CurrentCell.ColumnIndex != 3 && dataGridCurrentMain.CurrentCell.ColumnIndex != 4) return;
+            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')))
+            {
+                e.Handled = false;
+                //DataGridColumnStyle dgc = dataGridQuestions.TableStyles[0].GridColumnStyles[1];
+                //dataGridQuestions.EndEdit(dgc, 0, false);
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
         /// <summary>
         ///
         /// </summary>

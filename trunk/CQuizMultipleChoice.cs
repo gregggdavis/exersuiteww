@@ -55,7 +55,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
             gtbc1.HeaderText = "Question Phrase";
             gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc1.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc1.DataPropertyName = "Column1";
             //gtbc1.ValueType = typeof(string);
             gtbc1.Width = 310;
@@ -77,7 +77,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc2 = new DataGridViewTextBoxColumn();
             gtbc2.HeaderText = "Choices";
             gtbc2.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc2.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc2.DataPropertyName = "Column2";
             //gtbc1.ValueType = typeof(string);
             gtbc2.Width = 220;
@@ -96,7 +96,7 @@ namespace BrowserApp
             DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
             gtbc3.HeaderText = "Feedback";
             gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            gtbc3.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc3.DataPropertyName = "Column3";
             //gtbc1.ValueType = typeof(string);
             gtbc3.Width = 310;
@@ -116,6 +116,7 @@ namespace BrowserApp
             gtbc4.HeaderText = "Answer(a...d)";
             gtbc4.DataPropertyName = "Column4";
             gtbc4.Width = 84;
+            gtbc4.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc4.DefaultCellStyle.NullValue = "<insert letter>";
             dataGridCurrent.Columns.Add(gtbc4);
 
@@ -159,11 +160,16 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
         {
             if (dataGridCurrentMain.CurrentCell.ColumnIndex != 3) return;
             if (((e.KeyChar >= 'a') && (e.KeyChar <= 'd'))
-                ||  ((e.KeyChar >= 'A') && (e.KeyChar <= 'D'))
-                ||  (e.KeyChar == '\r')
-                ||  (e.KeyChar == '\b')) 
+               || ((e.KeyChar >= 'A') && (e.KeyChar <= 'D'))
+               || (e.KeyChar == '\r')
+               || (e.KeyChar == '\b')) 
             {
                 e.Handled = false;
+                TextBox t = sender as TextBox;
+                if (t != null)
+                {
+                    t.Text = "";
+                }
                 //DataGridColumnStyle dgc = dataGridQuestions.TableStyles[0].GridColumnStyles[1];
                 //dataGridQuestions.EndEdit(dgc, 0, false);
             } 
