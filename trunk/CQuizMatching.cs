@@ -14,7 +14,7 @@ namespace BrowserApp
 	public class CQuizMatching : CQuiz
 
 	{
-		public CQuizMatching(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
+		public CQuizMatching(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent) : base(ref dataGridCurrent, ref dTableCurrent)
 		{
 			//
 			// TODO: Add constructor logic here
@@ -22,7 +22,7 @@ namespace BrowserApp
 
             sCurrentJsQuizType = "Matching";
 
-            InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
+            //InitializeGrid(ref dataGridCurrent, ref dTableCurrent);
 		}
 
 
@@ -30,12 +30,12 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override void InitializeGrid(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent)
+        public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
-
-            dataGridCurrent.DataSource = dTableCurrent;
-            dataGridCurrent.TableStyles.Clear();
+            dataGridCurrent.Columns.Clear();
+            dataGridCurrent.RowTemplate.Height = 35;
+            //dataGridCurrent.TableStyles.Clear();
 
             // Add a GridTableStyle and set the MappingName 
             // to the name of the DataTable.
@@ -44,57 +44,61 @@ namespace BrowserApp
             dgdtblStyle.MappingName = dTableCurrent.TableName;
             dgdtblStyle.AllowSorting = false;
 
-
+            dataGridCurrent.RowHeadersVisible = false;
+            
 
             for (int i = 0;  i < 3;  i++) 
             {
                 dTableCurrent.Columns.Add("Column" + (i+1).ToString(), System.Type.GetType("System.String"));
             }
-
+            
             // Add a GridColumnStyle and set the MappingName 
             // to the name of a DataColumn in the DataTable. 
             // Set the HeaderText and Width properties. 
-            ExtendedDataGridMultiLineTextBoxColumn tbc1 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc1.MappingName = "Column1";
-            tbc1.TextBox.Multiline = true;
-            tbc1.MinimumHeight = 35;
-            tbc1.HeaderText = "Beginning Phrase";
-            tbc1.Width = 400;
-            tbc1.NullText = "<type phrase here>";
-
-            dgdtblStyle.GridColumnStyles.Add(tbc1);
-
-            DataGridTextBoxColumn tbc2 = new DataGridTextBoxColumn();
-            tbc2.MappingName = "Column2";
-            tbc2.HeaderText = "Position (a...z)";
-            tbc2.Width = 100;
-            tbc2.NullText = "<insert letter>";
-
-            dgdtblStyle.GridColumnStyles.Add(tbc2);
-
-            ExtendedDataGridMultiLineTextBoxColumn tbc3 = new ExtendedDataGridMultiLineTextBoxColumn();
-            tbc3.MappingName = "Column3";
-            tbc3.HeaderText = "Ending Phrase";
-            tbc3.TextBox.Multiline = true;
-            tbc3.MinimumHeight = 35;
-            tbc3.Width = 400;
-            tbc3.NullText = "<type phrase here>";
-
-            dgdtblStyle.GridColumnStyles.Add(tbc3);
-
-            //
-            // Tie our keypress handler to the textbox's KeyPress event.
-            //
-            DataGridTextBoxColumn tbcHandler = (DataGridTextBoxColumn)dgdtblStyle.GridColumnStyles[1];
-            tbcHandler.TextBox.KeyPress += new KeyPressEventHandler(DatagridPositionKeyPress);
-
+            DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
+            gtbc1.HeaderText = "Beginning Phrase";
+            gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            
+            gtbc1.DataPropertyName = "Column1";
+            //gtbc1.ValueType = typeof(string);
+            gtbc1.Width = 400;
+            gtbc1.DefaultCellStyle.NullValue = "<type phrase here>";
+            dataGridCurrent.Columns.Add(gtbc1);
 
             
-            // Add the DataGridTableStyle instance to the GridTableStylesCollection. 
-            dataGridCurrent.TableStyles.Add(dgdtblStyle);
+            DataGridViewTextBoxColumn gtbc2 = new DataGridViewTextBoxColumn();
+            gtbc2.HeaderText = "Position (a...z)";
+            gtbc2.DataPropertyName = "Column2";
+            gtbc2.Width = 100;
+            gtbc2.DefaultCellStyle.NullValue = "<insert letter>";
+            dataGridCurrent.Columns.Add(gtbc2);
 
+            DataGridViewTextBoxColumn gtbc3 = new DataGridViewTextBoxColumn();
+            gtbc3.HeaderText = "Ending Phrase";
+            gtbc3.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            gtbc3.DataPropertyName = "Column3";
+            //gtbc1.ValueType = typeof(string);
+            gtbc3.Width = 400;
+            gtbc3.DefaultCellStyle.NullValue = "<type phrase here>";
+            dataGridCurrent.Columns.Add(gtbc3);
+
+            
+            dataGridCurrent.EditingControlShowing += 
+new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
+
+            foreach (DataGridViewColumn column in dataGridCurrent.Columns)
+            {
+                dataGridCurrent.Columns[column.Name].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             dataGridCurrent.Visible = true;
+            dataGridCurrent.DataSource = dTableCurrent;
         }
+
+    private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+{
+    e.Control.KeyPress +=
+        new KeyPressEventHandler(DatagridPositionKeyPress);
+}
 
 
 
@@ -103,6 +107,7 @@ namespace BrowserApp
         /// </summary>
         public override void DatagridPositionKeyPress(object sender, KeyPressEventArgs e)
         {
+            if(dataGridCurrentMain.CurrentCell.ColumnIndex != 1) return;
             if (((e.KeyChar >= 'a') && (e.KeyChar <= 'z'))
                 ||  ((e.KeyChar >= 'A') && (e.KeyChar <= 'Z'))
                 ||  (e.KeyChar == '\r')
@@ -123,7 +128,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override void FillGridWithJavascriptData(ref DataGrid dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
+        public override void FillGridWithJavascriptData(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
         {
             string sMatchQuestionsLength = "questions.length=";
             int    iQuestionsLength = sJavascriptData.LastIndexOf(sMatchQuestionsLength);
@@ -176,7 +181,7 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        public override string ParseGridAndCreateJavascriptData(DataGrid dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
+        public override string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
         {
             string sReturnJavascript = sJsDataTemplate;
 
@@ -193,9 +198,9 @@ namespace BrowserApp
 
                 for (int row = 0;  row < cm.Count;  row++) 
                 {
-                    string sQuestion = dataGridCurrent[row, 0].ToString();
-                    string sPosition = dataGridCurrent[row, 1].ToString();
-                    string sAnswer   = dataGridCurrent[row, 2].ToString();
+                    string sQuestion = dataGridCurrent[0, row].Value.ToString();
+                    string sPosition = dataGridCurrent[1, row].Value.ToString();
+                    string sAnswer   = dataGridCurrent[2, row].Value.ToString();
 
                     if ((sQuestion.Length > 0) && (sPosition.Length > 0) && (sAnswer.Length > 0)) 
                     {
