@@ -204,6 +204,7 @@ namespace BrowserApp
         /// </summary>
         public override string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData)
         {
+            AcceptChanges(dataGridCurrent);
             string sReturnJavascript = sJsDataTemplate;
 
             if (dataGridCurrent.DataSource != null) {

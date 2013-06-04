@@ -356,6 +356,7 @@ namespace BrowserApp
             this.dataGridQuestions.RowHeadersVisible = false;
             this.dataGridQuestions.Size = new System.Drawing.Size(906, 230);
             this.dataGridQuestions.TabIndex = 1;
+            this.dataGridQuestions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridQuestions_CellContentClick);
             // 
             // buttonPreview
             // 
@@ -1258,6 +1259,7 @@ namespace BrowserApp
             this.Text = "Exercise Suite";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.formExit_Click);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuestions)).EndInit();
             this.tabControlData.ResumeLayout(false);
             this.tabPageJsData.ResumeLayout(false);
@@ -1631,6 +1633,8 @@ namespace BrowserApp
             sw.Write(sFileData);
             sw.Close();
             file.Close();
+
+            DataChanged = false;
         }
 
 
@@ -1660,7 +1664,9 @@ namespace BrowserApp
                     SaveFile(sJsFileSavedAsName, cQuiz.ParseGridAndCreateJavascriptData(dataGridQuestions, sJsDataTemplate, this, tabControlData));
                 } else {
                     sHtmlFileSavedAsName = saveFileDialog1.FileName;
+                    cQuiz.AcceptChanges(dataGridQuestions);
                     SaveFile(sHtmlFileSavedAsName, CreateHtml());
+                    
                 }
             }
 
@@ -1888,6 +1894,7 @@ namespace BrowserApp
 
                 DisplayQuizChooser();
                 DataChanged = false;
+                WireUpControls();
             }
         }
 
@@ -1918,8 +1925,9 @@ namespace BrowserApp
                     }
                     LoadNewQuiz(sFileType, sJsQuizType, sFileData);
                 }
-
+                DataChanged = false;
                 buttonPreview.Text = "Render data for :  " + cQuiz.GetQuizType();
+                WireUpControls();
             }
         }
 
@@ -1961,6 +1969,7 @@ namespace BrowserApp
         /// </summary>
         private void menuSaveAs_Click(object sender, System.EventArgs e)
         {
+            this.ActiveControl = null;
             // Not needed right now since easier for user to understand always just saving everything in the html
             //PromptSaveFile("JS");
             PromptSaveFile("HTML");
@@ -2034,6 +2043,63 @@ namespace BrowserApp
                 RegistrySave();
                 e.Cancel = false;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void WireUpControls()
+        {
+            foreach (TabPage page in tabControlData.TabPages)
+            {
+
+                foreach (Control c in page.Controls)
+                {
+
+                    WireupChilds(c);
+                    if (c is GroupBox || c is Panel)
+                    {
+                        foreach (Control d in c.Controls)
+                        {
+                            WireupChilds(d);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void WireupChilds(Control c)
+        {
+            if (c is TextBox)
+            {
+                (c as TextBox).TextChanged += new EventHandler(ItemValueChanged);
+            }
+            else if (c is ComboBox)
+            {
+                (c as ComboBox).SelectedValueChanged += new EventHandler(ItemValueChanged);
+                (c as ComboBox).TextChanged += new EventHandler(ItemValueChanged);
+            }
+            else if (c is RadioButton)
+            {
+                (c as RadioButton).CheckedChanged += new EventHandler(ItemValueChanged);
+            }
+            else if (c is CheckBox)
+            {
+                (c as CheckBox).CheckedChanged += new EventHandler(ItemValueChanged);
+            }
+        }
+
+        private void ItemValueChanged(object sender, EventArgs e)
+        {
+            DataChanged = true;
+        }
+
+        private void dataGridQuestions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 

@@ -172,9 +172,30 @@ namespace BrowserApp
         /// </summary>
         public virtual string ParseGridAndCreateJavascriptData(DataGridView dataGridCurrent, string sJsDataTemplate, Form cMainForm, TabControl tabData) {
             string sReturnJavascript = sJsDataTemplate;
+            dataGridCurrent.EndEdit();
             return (sReturnJavascript);
         }
 
+        public void AcceptChanges(DataGridView dataGridCurrent)
+        {
+            
+            if (dataGridCurrent.IsCurrentCellDirty || dataGridCurrent.IsCurrentRowDirty)
+            {
+                dataGridCurrent.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                
+            }
+            dataGridCurrent.EndEdit();
+            //dataGridCurrent.is
+            //DataTable table = dataGridCurrent.DataSource as DataTable;
+            //if (table.GetChanges() != null)
+            //{
+            //    foreach (DataRow row in table.Rows)
+            //    {
+            //        row.AcceptChanges();
+            //    }
+            //}
+            
+        }
     }
 }
 
