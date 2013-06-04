@@ -32,6 +32,8 @@ namespace BrowserApp
         /// </summary>
         public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
+
+            RemoveClickEvent(dataGridCurrent);
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
             dataGridCurrent.Columns.Clear();
             dataGridCurrent.RowTemplate.Height = 52;

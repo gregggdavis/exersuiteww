@@ -2,6 +2,9 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections;
+using System.Reflection;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace BrowserApp
 {
@@ -194,6 +197,26 @@ namespace BrowserApp
             //        row.AcceptChanges();
             //    }
             //}
+            
+        }
+        public static List<DataGridViewEditingControlShowingEventHandler> cShowingEventHandlers = new List<DataGridViewEditingControlShowingEventHandler>();
+        public static void RemoveClickEvent(DataGridView b)
+        {
+            ClearDelegate();
+        }
+
+        private static void ClearDelegate()
+        {
+            for (int i = 0; i < cShowingEventHandlers.Count; i++)
+            {
+                DataGridViewEditingControlShowingEventHandler delg = cShowingEventHandlers[i];
+                Delegate[] delegates = delg.GetInvocationList();
+                foreach (Delegate d in delegates)
+                {
+                    delg -= (DataGridViewEditingControlShowingEventHandler)d;
+                }
+            }
+            cShowingEventHandlers.Clear();
             
         }
     }

@@ -32,6 +32,7 @@ namespace BrowserApp
         /// </summary>
         public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
+            RemoveClickEvent(dataGridCurrent);
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
             dataGridCurrent.Columns.Clear();
             dataGridCurrent.RowTemplate.Height = 35;
@@ -84,9 +85,9 @@ namespace BrowserApp
             gtbc3.DefaultCellStyle.NullValue = "<type phrase here>";
             dataGridCurrent.Columns.Add(gtbc3);
 
-            
-            dataGridCurrent.EditingControlShowing += 
-new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
+            DataGridViewEditingControlShowingEventHandler dlg = new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
+            cShowingEventHandlers.Add(dlg);
+            dataGridCurrent.EditingControlShowing += dlg;
 
             foreach (DataGridViewColumn column in dataGridCurrent.Columns)
             {

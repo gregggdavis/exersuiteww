@@ -32,6 +32,7 @@ namespace BrowserApp
         /// </summary>
         public override void InitializeGrid(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent)
         {
+            RemoveClickEvent(dataGridCurrent);
             dTableCurrent = new DataTable ("DataTable" + GetQuizType());
             dataGridCurrent.Columns.Clear();
             dataGridCurrent.RowTemplate.Height = 35;
@@ -133,8 +134,9 @@ namespace BrowserApp
             //
             //DataGridTextBoxColumn tbcHandler = (DataGridTextBoxColumn)dgdtblStyle.GridColumnStyles[3];
             //tbcHandler.TextBox.KeyPress += new KeyPressEventHandler(DatagridPositionKeyPress);
-            dataGridCurrent.EditingControlShowing +=
-new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
+            DataGridViewEditingControlShowingEventHandler dlg = new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlShowing);
+            cShowingEventHandlers.Add(dlg);
+            dataGridCurrent.EditingControlShowing += dlg;
 
 
             foreach (DataGridViewColumn column in dataGridCurrent.Columns)

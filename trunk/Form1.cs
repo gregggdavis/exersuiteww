@@ -1848,6 +1848,26 @@ namespace BrowserApp
             cQuiz.Changed += new CQuiz.ChangedEventHandler(DataChangedInGrid);
             RenderHtml();
         }
+
+        private void InitGrid()
+        {
+            this.dataGridQuestions = new DataGridView();
+            // 
+            // dataGridQuestions
+            // 
+            this.dataGridQuestions.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridQuestions.Location = new System.Drawing.Point(0, 0);
+            this.dataGridQuestions.Name = "dataGridQuestions";
+            this.dataGridQuestions.RowHeadersVisible = false;
+            this.dataGridQuestions.Size = new System.Drawing.Size(906, 230);
+            this.dataGridQuestions.TabIndex = 1;
+            this.dataGridQuestions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridQuestions_CellContentClick);
+            this.tabPageJsData.Controls.Clear();
+            this.tabPageJsData.Controls.Add(this.dataGridQuestions); 
+
+        }
         bool DataChanged = false;
         public void DataChangedInGrid(bool changed)
         {
@@ -1885,9 +1905,9 @@ namespace BrowserApp
         private void menuNew_Click(object sender, System.EventArgs e)
         {
             if (PromptForSaveChanges()) {
-
+                
                 ClearCurrentData();
-
+                InitGrid();
                 buttonPreview.Text = "Render data for :  " + cQuiz.GetQuizType();
                 ClearHtml();
                 RenderHtml();
@@ -1907,7 +1927,7 @@ namespace BrowserApp
             if (PromptForSaveChanges()) {
 
                 ClearCurrentData();
-
+                InitGrid();
                 string sFileData = "";
                 string sFileType = "";
                 DialogResult drResultOpen = PromptOpenFile("JS", ref sFileData, ref sFileType);
