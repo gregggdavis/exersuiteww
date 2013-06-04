@@ -187,6 +187,7 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
         /// </summary>
         public override void FillGridWithJavascriptData(ref DataGridView dataGridCurrent, ref DataTable dTableCurrent, string sJavascriptData, TabControl tabData)
         {
+            AcceptChanges(dataGridCurrent);
             string sQuestionsLength = GetLastMatchedString(sJavascriptData, "questions[", "]");
 
             for (int i = 0;  (sQuestionsLength.Length > 0) && (i < (Convert.ToInt32(sQuestionsLength) + 1));  i++) {
