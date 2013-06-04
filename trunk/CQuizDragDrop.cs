@@ -196,12 +196,14 @@ namespace BrowserApp {
                 sReturnJavascript = sReturnJavascript.Insert(iQuestionsEnd, sQuestionLines + "\r\n" + sAnswerLines + "\r\n");
 
                 // Get Options to write
-                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsDd", false)[0]).Controls.GetEnumerator();
+                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsDd", false)[0]).Controls.GetEnumerator();
 
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                string strCardFontSize = ((ComboBox)ieTabPage.Current).Text;
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //string strCardFontSize = ((ComboBox)ieTabPage.Current).Text;
+                Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsDd", false)[0].Controls;
 
+               string strCardFontSize  =  ((ComboBox)ocTabPageJsOptions.Find("comboBoxDdCardFontSize", false)[0]).Text;
                 sReturnJavascript += "\r\noptionCardFontSize=\"" + strCardFontSize + "\";\r\n";
             }
             return (sReturnJavascript);
