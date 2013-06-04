@@ -136,6 +136,7 @@
     <Compile Include="CQuizSentenceCombo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="cEventHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
