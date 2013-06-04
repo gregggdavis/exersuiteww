@@ -334,20 +334,31 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
                 sReturnJavascript = sReturnJavascript.Insert(iHeadersEnd, sHeaderLines + "\r\n" + sQuestionLines + "\r\n" + sAnswerLines + "\r\n" + sColsLines + "\r\n" + sRowsLines + "\r\n");
 
                 // Get Options to write
-                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
+                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
 
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                string sShowQuestionNumbers = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                ieTabPage.MoveNext();
-                string sMouseOverRight = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //string sShowQuestionNumbers = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
+                //ieTabPage.MoveNext();
+                //string sMouseOverRight = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //string sOnePerPage = "false";
+                //if (((RadioButton)ieTabPage.Current).Checked) 
+                //{
+                //    sOnePerPage = "true";
+                //}
+
+                Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsSc", false)[0].Controls;
+
+                string sShowQuestionNumbers = ((CheckBox)ocTabPageJsOptions.Find("checkBoxScShowNumbers", false)[0]).Checked ? "true" : "false" ;
+                string sMouseOverRight =      ((CheckBox)ocTabPageJsOptions.Find("checkBoxScMouseoverRight", false)[0]).Checked ? "true" : "false";
                 string sOnePerPage = "false";
-                if (((RadioButton)ieTabPage.Current).Checked) 
+                if (((RadioButton)ocTabPageJsOptions.Find("radioButtonScQuestionOne", false)[0]).Checked)
                 {
                     sOnePerPage = "true";
                 }
+                
 
                 sReturnJavascript += "\r\nbOnePerPage=" + sOnePerPage + ";\r\n";
                 sReturnJavascript += "\r\nbMouseOverPlaceRight=" + sMouseOverRight + ";\r\n";
