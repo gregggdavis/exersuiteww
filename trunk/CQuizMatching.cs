@@ -174,14 +174,21 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
             string sRows      = sJavascriptData.Substring(iRowsBegin + sRowsMatch.Length, iRowsEnd - (iRowsBegin + sRowsMatch.Length));
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
+            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
 
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ((TextBox)ieTabPage.Current).Text = sColumns;
-            ieTabPage.MoveNext();
-            ((TextBox)ieTabPage.Current).Text = sRows;
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //((TextBox)ieTabPage.Current).Text = sColumns;
+            //ieTabPage.MoveNext();
+            //((TextBox)ieTabPage.Current).Text = sRows;
+
+
+            Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMa", false)[0].Controls;
+
+            ((TextBox)ocTabPageJsOptions.Find("textBoxMaResultsCols", false)[0]).Text = sColumns;
+            ((TextBox)ocTabPageJsOptions.Find("textBoxMaResultsRows", false)[0]).Text = sRows;
+
         }
 
 
