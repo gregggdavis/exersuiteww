@@ -258,14 +258,19 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
 
 
                 // Get Options to write
-                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
+                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
 
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                string sNumCols = ((TextBox)ieTabPage.Current).Text;
-                ieTabPage.MoveNext();
-                string sNumRows = ((TextBox)ieTabPage.Current).Text;
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //string sNumCols = ((TextBox)ieTabPage.Current).Text;
+                //ieTabPage.MoveNext();
+                //string sNumRows = ((TextBox)ieTabPage.Current).Text;
+
+                Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMa", false)[0].Controls;
+
+                string sNumCols = ((TextBox)ocTabPageJsOptions.Find("textBoxMaResultsCols", false)[0]).Text;
+                string sNumRows = ((TextBox)ocTabPageJsOptions.Find("textBoxMaResultsRows", false)[0]).Text;
 
                 sReturnJavascript += "\r\niResultsWidth=" + sNumCols + ";\r\n";
                 sReturnJavascript += "\r\niResultsHeight=" + sNumRows + ";\r\n";

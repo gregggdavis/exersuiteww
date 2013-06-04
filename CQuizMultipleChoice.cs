@@ -423,30 +423,44 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
                 int iFeedbackEnd   = sReturnJavascript.IndexOf("//FEEDBACKEND");
                 sReturnJavascript = sReturnJavascript.Insert(iFeedbackEnd, sFeedbackLines + "\r\n");
 
-                string sOnePerPage = "false";
+                //string sOnePerPage = "false";
 
                 // Get Options to write
-                IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
+                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
 
-                ieTabPage.MoveNext();
-                string sCheckAnswersButton       = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                ieTabPage.MoveNext();
-                string sFeedbackDisplayInResults = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                string sFeedbackDisplayInPopup   = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                ieTabPage.MoveNext();
-                if (((RadioButton)ieTabPage.Current).Checked) {
+                //ieTabPage.MoveNext();
+                //string sCheckAnswersButton       = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
+                //ieTabPage.MoveNext();
+                //string sFeedbackDisplayInResults = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //string sFeedbackDisplayInPopup   = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
+                //ieTabPage.MoveNext();
+                //if (((RadioButton)ieTabPage.Current).Checked) {
+                //    sOnePerPage = "true";
+                //}
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //ieTabPage.MoveNext();
+                //string sNumCols = ((TextBox)ieTabPage.Current).Text;
+                //ieTabPage.MoveNext();
+                //string sNumRows = ((TextBox)ieTabPage.Current).Text;
+
+
+                Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMc", false)[0].Controls;
+                string sCheckAnswersButton = ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcCheckAnswersButton", false)[0]).Checked ? "true" : "false";
+                string sFeedbackDisplayInResults = ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcFeedbackInResults", false)[0]).Checked ? "true" : "false";
+                string sFeedbackDisplayInPopup = ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcFeedbackInPopup", false)[0]).Checked ? "true" : "false";
+                string sOnePerPage = "false";
+                if (((RadioButton)ocTabPageJsOptions.Find("radioButtonMcQuestionOne", false)[0]).Checked)
+                {
                     sOnePerPage = "true";
                 }
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                ieTabPage.MoveNext();
-                string sNumCols = ((TextBox)ieTabPage.Current).Text;
-                ieTabPage.MoveNext();
-                string sNumRows = ((TextBox)ieTabPage.Current).Text;
+                string sNumCols = ((TextBox)ocTabPageJsOptions.Find("textBoxMtResultsCols", false)[0]).Text;
+                string sNumRows = ((TextBox)ocTabPageJsOptions.Find("textBoxMtResultsRows", false)[0]).Text;
+
 
                 sReturnJavascript += "\r\niResultsWidth="             + sNumCols + ";\r\n";
                 sReturnJavascript += "\r\niResultsHeight="            + sNumRows + ";\r\n";
