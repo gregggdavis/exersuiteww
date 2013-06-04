@@ -242,32 +242,51 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
             string sCheckAnswersButton      =GetLastMatchedString(sJavascriptData, "bCheckAnswersButton=", ";");
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
+            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
 
-            ieTabPage.MoveNext();
-            ((CheckBox)ieTabPage.Current).Checked = sCheckAnswersButton.Equals("true");
-            ieTabPage.MoveNext();
-            ((CheckBox)ieTabPage.Current).Checked = sFeedbackDisplayInResults.Equals("true");
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ((CheckBox)ieTabPage.Current).Checked = sFeedbackDisplayInPopup.Equals("true");
-            ieTabPage.MoveNext();
-            if (sArrangement.Equals("true")) {
-                ((RadioButton)ieTabPage.Current).Checked = true;
-                ieTabPage.MoveNext();
-                ((RadioButton)ieTabPage.Current).Checked = false;
-            } else {
-                ((RadioButton)ieTabPage.Current).Checked = false;
-                ieTabPage.MoveNext();
-                ((RadioButton)ieTabPage.Current).Checked = true;
+            //ieTabPage.MoveNext();
+            //((CheckBox)ieTabPage.Current).Checked = sCheckAnswersButton.Equals("true");
+            //ieTabPage.MoveNext();
+            //((CheckBox)ieTabPage.Current).Checked = sFeedbackDisplayInResults.Equals("true");
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //((CheckBox)ieTabPage.Current).Checked = sFeedbackDisplayInPopup.Equals("true");
+            //ieTabPage.MoveNext();
+            //if (sArrangement.Equals("true")) {
+            //    ((RadioButton)ieTabPage.Current).Checked = true;
+            //    ieTabPage.MoveNext();
+            //    ((RadioButton)ieTabPage.Current).Checked = false;
+            //} else {
+            //    ((RadioButton)ieTabPage.Current).Checked = false;
+            //    ieTabPage.MoveNext();
+            //    ((RadioButton)ieTabPage.Current).Checked = true;
+            //}
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //((TextBox)ieTabPage.Current).Text = sColumns;
+            //ieTabPage.MoveNext();
+            //((TextBox)ieTabPage.Current).Text = sRows;
+
+            Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMc", false)[0].Controls;
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcCheckAnswersButton", false)[0]).Checked = sCheckAnswersButton.Equals("true");
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcFeedbackInResults", false)[0]).Checked = sFeedbackDisplayInResults.Equals("true");
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcFeedbackInPopup", false)[0]).Checked = sFeedbackDisplayInPopup.Equals("true");
+            if (sArrangement.Equals("true"))
+            {
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonMcQuestionOne", false)[0]).Checked = true;
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonMcQuestionAll", false)[0]).Checked = false;
             }
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ((TextBox)ieTabPage.Current).Text = sColumns;
-            ieTabPage.MoveNext();
-            ((TextBox)ieTabPage.Current).Text = sRows;
+            else
+            {
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonMcQuestionOne", false)[0]).Checked = false;
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonMcQuestionAll", false)[0]).Checked = true;
+            }
+            ((TextBox)ocTabPageJsOptions.Find("textBoxMtResultsCols", false)[0]).Text = sColumns;
+            ((TextBox)ocTabPageJsOptions.Find("textBoxMtResultsRows", false)[0]).Text = sRows;
+            
+
         }
 
 

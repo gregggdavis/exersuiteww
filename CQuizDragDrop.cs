@@ -137,12 +137,17 @@ namespace BrowserApp {
             string sCard      = sJavascriptData.Substring(iCardBegin + sCardMatch.Length, iCardEnd - (iCardBegin + sCardMatch.Length));
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsDd", false)[0]).Controls.GetEnumerator();
+            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsDd", false)[0]).Controls.GetEnumerator();
 
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            ((ComboBox)ieTabPage.Current).Text = sCard;
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //((ComboBox)ieTabPage.Current).Text = sCard;
 
+
+            Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsDd", false)[0].Controls;
+
+            ((ComboBox)ocTabPageJsOptions.Find("comboBoxDdCardFontSize", false)[0]).Text = sCard;
+            
         }
 
 

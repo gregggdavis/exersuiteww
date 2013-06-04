@@ -212,28 +212,45 @@ new DataGridViewEditingControlShowingEventHandler(dataGridView_EditingControlSho
             string sShowQuestionNumbers = GetLastMatchedString(sJavascriptData, "bShowQuestionNumbers=", ";");
 
             // Set Options on Js Options Tab Page
-            IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
+            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
 
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
 
-            //GAD - Assigning Enumerator and Iterating through via Move next can be removed and replaced with just something like this foreach control:
-            //((CheckBox)tabData.Controls.Find("checkBoxScShowNumbers", false)[0]).Checked = sShowQuestionNumbers.Equals("true");
+            ////GAD - Assigning Enumerator and Iterating through via Move next can be removed and replaced with just something like this foreach control:
+            ////((CheckBox)tabData.Controls.Find("checkBoxScShowNumbers", false)[0]).Checked = sShowQuestionNumbers.Equals("true");
 
-            ((CheckBox)ieTabPage.Current).Checked = sShowQuestionNumbers.Equals("true");
-            ieTabPage.MoveNext();
-            ((CheckBox)ieTabPage.Current).Checked = sMouseOverRight.Equals("true");
-            ieTabPage.MoveNext();
-            ieTabPage.MoveNext();
-            if (sArrangement.Equals("true")) {
-                ((RadioButton)ieTabPage.Current).Checked = true;
-                ieTabPage.MoveNext();
-                ((RadioButton)ieTabPage.Current).Checked = false;
-            } else {
-                ((RadioButton)ieTabPage.Current).Checked = false;
-                ieTabPage.MoveNext();
-                ((RadioButton)ieTabPage.Current).Checked = true;
+            //((CheckBox)ieTabPage.Current).Checked = sShowQuestionNumbers.Equals("true");
+            //ieTabPage.MoveNext();
+            //((CheckBox)ieTabPage.Current).Checked = sMouseOverRight.Equals("true");
+            //ieTabPage.MoveNext();
+            //ieTabPage.MoveNext();
+            //if (sArrangement.Equals("true")) {
+            //    ((RadioButton)ieTabPage.Current).Checked = true;
+            //    ieTabPage.MoveNext();
+            //    ((RadioButton)ieTabPage.Current).Checked = false;
+            //} else {
+            //    ((RadioButton)ieTabPage.Current).Checked = false;
+            //    ieTabPage.MoveNext();
+            //    ((RadioButton)ieTabPage.Current).Checked = true;
+            //}
+
+            Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsSc", false)[0].Controls;
+
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxScShowNumbers", false)[0]).Checked = sShowQuestionNumbers.Equals("true");
+            ((CheckBox)ocTabPageJsOptions.Find("checkBoxScMouseoverRight", false)[0]).Checked = sMouseOverRight.Equals("true");
+            if (sArrangement.Equals("true"))
+            {
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonScQuestionOne", false)[0]).Checked = true;
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonScQuestionAll", false)[0]).Checked = false;
             }
+            else
+            {
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonScQuestionOne", false)[0]).Checked = true;
+                ((RadioButton)ocTabPageJsOptions.Find("radioButtonScQuestionAll", false)[0]).Checked = false;
+            }
+            
+
         }
 
 
