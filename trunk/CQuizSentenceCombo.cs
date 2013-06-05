@@ -216,29 +216,7 @@ namespace BrowserApp
             string sMouseOverRight      = GetLastMatchedString(sJavascriptData, "bMouseOverPlaceRight=", ";");
             string sShowQuestionNumbers = GetLastMatchedString(sJavascriptData, "bShowQuestionNumbers=", ";");
 
-            // Set Options on Js Options Tab Page
-            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
-
-            //ieTabPage.MoveNext();
-            //ieTabPage.MoveNext();
-
-            ////GAD - Assigning Enumerator and Iterating through via Move next can be removed and replaced with just something like this foreach control:
-            ////((CheckBox)tabData.Controls.Find("checkBoxScShowNumbers", false)[0]).Checked = sShowQuestionNumbers.Equals("true");
-
-            //((CheckBox)ieTabPage.Current).Checked = sShowQuestionNumbers.Equals("true");
-            //ieTabPage.MoveNext();
-            //((CheckBox)ieTabPage.Current).Checked = sMouseOverRight.Equals("true");
-            //ieTabPage.MoveNext();
-            //ieTabPage.MoveNext();
-            //if (sArrangement.Equals("true")) {
-            //    ((RadioButton)ieTabPage.Current).Checked = true;
-            //    ieTabPage.MoveNext();
-            //    ((RadioButton)ieTabPage.Current).Checked = false;
-            //} else {
-            //    ((RadioButton)ieTabPage.Current).Checked = false;
-            //    ieTabPage.MoveNext();
-            //    ((RadioButton)ieTabPage.Current).Checked = true;
-            //}
+           
 
             Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsSc", false)[0].Controls;
 
@@ -338,21 +316,7 @@ namespace BrowserApp
                 int iHeadersEnd   = sReturnJavascript.IndexOf("//HEADERSEND");
                 sReturnJavascript = sReturnJavascript.Insert(iHeadersEnd, sHeaderLines + "\r\n" + sQuestionLines + "\r\n" + sAnswerLines + "\r\n" + sColsLines + "\r\n" + sRowsLines + "\r\n");
 
-                // Get Options to write
-                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsSc", false)[0]).Controls.GetEnumerator();
-
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //string sShowQuestionNumbers = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                //ieTabPage.MoveNext();
-                //string sMouseOverRight = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //string sOnePerPage = "false";
-                //if (((RadioButton)ieTabPage.Current).Checked) 
-                //{
-                //    sOnePerPage = "true";
-                //}
+             
 
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsSc", false)[0].Controls;
 

@@ -137,13 +137,6 @@ namespace BrowserApp {
             int iCardEnd      = sJavascriptData.IndexOf("\"", iCardBegin + sCardMatch.Length);
             string sCard      = sJavascriptData.Substring(iCardBegin + sCardMatch.Length, iCardEnd - (iCardBegin + sCardMatch.Length));
 
-            // Set Options on Js Options Tab Page
-            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsDd", false)[0]).Controls.GetEnumerator();
-
-            //ieTabPage.MoveNext();
-            //ieTabPage.MoveNext();
-            //((ComboBox)ieTabPage.Current).Text = sCard;
-
 
             Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsDd", false)[0].Controls;
 
@@ -197,12 +190,6 @@ namespace BrowserApp {
                 int iQuestionsEnd = sReturnJavascript.IndexOf("//QUESTIONSEND");
                 sReturnJavascript = sReturnJavascript.Insert(iQuestionsEnd, sQuestionLines + "\r\n" + sAnswerLines + "\r\n");
 
-                // Get Options to write
-                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsDd", false)[0]).Controls.GetEnumerator();
-
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //string strCardFontSize = ((ComboBox)ieTabPage.Current).Text;
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsDd", false)[0].Controls;
 
                string strCardFontSize  =  ((ComboBox)ocTabPageJsOptions.Find("comboBoxDdCardFontSize", false)[0]).Text;
