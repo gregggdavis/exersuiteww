@@ -175,16 +175,7 @@ namespace BrowserApp
             int iRowsEnd      = sJavascriptData.IndexOf(";", iRowsBegin + sRowsMatch.Length);
             string sRows      = sJavascriptData.Substring(iRowsBegin + sRowsMatch.Length, iRowsEnd - (iRowsBegin + sRowsMatch.Length));
 
-            // Set Options on Js Options Tab Page
-            //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
-
-            //ieTabPage.MoveNext();
-            //ieTabPage.MoveNext();
-            //ieTabPage.MoveNext();
-            //((TextBox)ieTabPage.Current).Text = sColumns;
-            //ieTabPage.MoveNext();
-            //((TextBox)ieTabPage.Current).Text = sRows;
-
+            
 
             Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMa", false)[0].Controls;
 
@@ -259,15 +250,7 @@ namespace BrowserApp
                 sReturnJavascript = sReturnJavascript.Insert(iQuestionsEnd, sQuestionLines);
 
 
-                // Get Options to write
-                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMa", false)[0]).Controls.GetEnumerator();
-
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //string sNumCols = ((TextBox)ieTabPage.Current).Text;
-                //ieTabPage.MoveNext();
-                //string sNumRows = ((TextBox)ieTabPage.Current).Text;
+               
 
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMa", false)[0].Controls;
 
