@@ -20,4 +20,3 @@ answers[3]="works for XYZ, your subsidiary in London.";
 answers[4]="because you are organizing the delegation.";
 //QUESTIONSEND
 //ANSWERSEND
-optionCardFontSize="large";

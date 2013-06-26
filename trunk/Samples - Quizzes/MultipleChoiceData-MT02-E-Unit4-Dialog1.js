@@ -128,16 +128,3 @@ feedback[9][1]="feedback-why Terry asked you to contact her.";
 feedback[9][2]="feedback-that there will be a standards conference in Europe.";
 feedback[9][3]="feedback-both a and b above.";
 //FEEDBACKEND
-
-iResultsWidth=47;
-
-iResultsHeight=13;
-
-bOnePerPage=true;
-
-bFeedbackDisplayInPopup=true;
-
-bFeedbackDisplayInResults=true;
-
-bCheckAnswersButton=true;
-
