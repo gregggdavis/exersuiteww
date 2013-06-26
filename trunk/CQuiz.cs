@@ -107,15 +107,13 @@ namespace BrowserApp
             
         }
 
-        private void dataGridCurrent_CellValueChanged(
-    object sender, DataGridViewCellEventArgs e)
+        private void dataGridCurrent_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             // Update the balance column whenever the value of any cell changes.
             OnChanged(true);
         }
 
-        private void dataGridCurrent_EditingControlShowing(
-    object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void dataGridCurrent_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             // Update the balance column whenever the value of any cell changes.
             TextBox txtBox = e.Control as TextBox;
@@ -132,17 +130,19 @@ namespace BrowserApp
             OnChanged(true);
         }
 
-        private void dataGridCurrent_KeyDown(
-    object sender, KeyEventArgs e)
+        private void dataGridCurrent_KeyDown(object sender, KeyEventArgs e)
         {
             // Update the balance column whenever the value of any cell changes.
-            if(e.KeyData  ==  Keys.Delete)
+            if(e.KeyData == Keys.Delete)
             {
                 if (dataGridCurrentMain.SelectedCells.Count > 0)
                 {
                     int selectedIndex = dataGridCurrentMain.SelectedCells[0].RowIndex;
 
-                    dataGridCurrentMain.Rows.RemoveAt(selectedIndex);
+                    if (selectedIndex < (dataGridCurrentMain.RowCount - 1))
+                    {
+                        dataGridCurrentMain.Rows.RemoveAt(selectedIndex);
+                    }
                     
                 }
                 OnChanged(true);
