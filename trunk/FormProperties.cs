@@ -20,6 +20,7 @@ namespace BrowserApp
         private System.Windows.Forms.Button buttonHtmlTemplatesPath;
         public System.Windows.Forms.TextBox textBoxJsQuizPath;
         public CheckBox checkBoxShowJavascriptErrors;
+        private GroupBox groupBoxProperties;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -68,12 +69,13 @@ namespace BrowserApp
             this.textBoxHtmlTemplatesPath = new System.Windows.Forms.TextBox();
             this.buttonHtmlTemplatesPath = new System.Windows.Forms.Button();
             this.checkBoxShowJavascriptErrors = new System.Windows.Forms.CheckBox();
+            this.groupBoxProperties = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // buttonOk
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Location = new System.Drawing.Point(359, 138);
+            this.buttonOk.Location = new System.Drawing.Point(359, 210);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(105, 28);
             this.buttonOk.TabIndex = 6;
@@ -82,7 +84,7 @@ namespace BrowserApp
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(522, 138);
+            this.buttonCancel.Location = new System.Drawing.Point(522, 210);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(106, 28);
             this.buttonCancel.TabIndex = 7;
@@ -90,7 +92,7 @@ namespace BrowserApp
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(14, 78);
+            this.label2.Location = new System.Drawing.Point(24, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 19);
             this.label2.TabIndex = 9;
@@ -98,14 +100,14 @@ namespace BrowserApp
             // 
             // textBoxJsQuizPath
             // 
-            this.textBoxJsQuizPath.Location = new System.Drawing.Point(197, 74);
+            this.textBoxJsQuizPath.Location = new System.Drawing.Point(207, 101);
             this.textBoxJsQuizPath.Name = "textBoxJsQuizPath";
             this.textBoxJsQuizPath.Size = new System.Drawing.Size(585, 22);
             this.textBoxJsQuizPath.TabIndex = 2;
             // 
             // buttonJsTemplatesPath
             // 
-            this.buttonJsTemplatesPath.Location = new System.Drawing.Point(792, 74);
+            this.buttonJsTemplatesPath.Location = new System.Drawing.Point(802, 101);
             this.buttonJsTemplatesPath.Name = "buttonJsTemplatesPath";
             this.buttonJsTemplatesPath.Size = new System.Drawing.Size(96, 23);
             this.buttonJsTemplatesPath.TabIndex = 3;
@@ -114,7 +116,7 @@ namespace BrowserApp
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(14, 28);
+            this.label3.Location = new System.Drawing.Point(24, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 18);
             this.label3.TabIndex = 8;
@@ -122,14 +124,14 @@ namespace BrowserApp
             // 
             // textBoxHtmlTemplatesPath
             // 
-            this.textBoxHtmlTemplatesPath.Location = new System.Drawing.Point(197, 23);
+            this.textBoxHtmlTemplatesPath.Location = new System.Drawing.Point(207, 50);
             this.textBoxHtmlTemplatesPath.Name = "textBoxHtmlTemplatesPath";
             this.textBoxHtmlTemplatesPath.Size = new System.Drawing.Size(585, 22);
             this.textBoxHtmlTemplatesPath.TabIndex = 0;
             // 
             // buttonHtmlTemplatesPath
             // 
-            this.buttonHtmlTemplatesPath.Location = new System.Drawing.Point(792, 23);
+            this.buttonHtmlTemplatesPath.Location = new System.Drawing.Point(802, 50);
             this.buttonHtmlTemplatesPath.Name = "buttonHtmlTemplatesPath";
             this.buttonHtmlTemplatesPath.Size = new System.Drawing.Size(96, 23);
             this.buttonHtmlTemplatesPath.TabIndex = 1;
@@ -139,18 +141,29 @@ namespace BrowserApp
             // checkBoxShowJavascriptErrors
             // 
             this.checkBoxShowJavascriptErrors.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxShowJavascriptErrors.Location = new System.Drawing.Point(12, 121);
+            this.checkBoxShowJavascriptErrors.Location = new System.Drawing.Point(22, 168);
             this.checkBoxShowJavascriptErrors.Name = "checkBoxShowJavascriptErrors";
-            this.checkBoxShowJavascriptErrors.Size = new System.Drawing.Size(203, 18);
+            this.checkBoxShowJavascriptErrors.Size = new System.Drawing.Size(203, 29);
             this.checkBoxShowJavascriptErrors.TabIndex = 10;
             this.checkBoxShowJavascriptErrors.Text = "Show Javascript Errors";
+            // 
+            // groupBoxProperties
+            // 
+            this.groupBoxProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxProperties.Location = new System.Drawing.Point(16, 16);
+            this.groupBoxProperties.Name = "groupBoxProperties";
+            this.groupBoxProperties.Size = new System.Drawing.Size(900, 130);
+            this.groupBoxProperties.TabIndex = 11;
+            this.groupBoxProperties.TabStop = false;
+            this.groupBoxProperties.Text = "DON\'T MODIFY";
             // 
             // FormProperties
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+            this.AutoSize = true;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(758, 168);
+            this.ClientSize = new System.Drawing.Size(934, 255);
             this.Controls.Add(this.checkBoxShowJavascriptErrors);
             this.Controls.Add(this.buttonHtmlTemplatesPath);
             this.Controls.Add(this.textBoxHtmlTemplatesPath);
@@ -160,6 +173,7 @@ namespace BrowserApp
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
+            this.Controls.Add(this.groupBoxProperties);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -199,5 +213,6 @@ namespace BrowserApp
                 textBoxHtmlTemplatesPath.Text = dlgFolder.SelectedPath;
             }
         }
+
 	}
 }
