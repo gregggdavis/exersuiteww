@@ -2,8 +2,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections;
-
-using Leadit.ExtendedDataGrid;
+using System.Text.RegularExpressions;
 
 
 namespace BrowserApp {
@@ -187,8 +186,11 @@ namespace BrowserApp {
                     }
                 }
 
-                int iQuestionsEnd = sReturnJavascript.IndexOf("//QUESTIONSEND");
-                sReturnJavascript = sReturnJavascript.Insert(iQuestionsEnd, sQuestionLines + "\r\n" + sAnswerLines + "\r\n");
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//QUESTIONSBEGIN(.*)//QUESTIONSEND",
+                                                  "//QUESTIONSBEGIN\r\n//ANSWERSBEGIN" + sQuestionLines + "\r\n" + sAnswerLines + "\r\n//QUESTIONSEND",
+                                                  RegexOptions.Singleline);
+
 
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsDd", false)[0].Controls;
 

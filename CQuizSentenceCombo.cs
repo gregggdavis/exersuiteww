@@ -2,8 +2,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections;
-
-using Leadit.ExtendedDataGrid;
+using System.Text.RegularExpressions;
 
 
 namespace BrowserApp 
@@ -313,10 +312,12 @@ namespace BrowserApp
                     }
                 }
 
-                int iHeadersEnd   = sReturnJavascript.IndexOf("//HEADERSEND");
-                sReturnJavascript = sReturnJavascript.Insert(iHeadersEnd, sHeaderLines + "\r\n" + sQuestionLines + "\r\n" + sAnswerLines + "\r\n" + sColsLines + "\r\n" + sRowsLines + "\r\n");
-
-             
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//HEADERSBEGIN(.*)//HEADERSEND",
+                                                  "//HEADERSBEGIN\r\n//QUESTIONSBEGIN\r\n//ANSWERSBEGIN\r\n//WIDTHBEGIN\r\n//HEIGHTBEGIN"
+                                                      + sHeaderLines + "\r\n" + sQuestionLines + "\r\n" + sAnswerLines + "\r\n"
+                                                      + sColsLines + "\r\n" + sRowsLines + "\r\n" + "//HEADERSEND",
+                                                  RegexOptions.Singleline);
 
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsSc", false)[0].Controls;
 
