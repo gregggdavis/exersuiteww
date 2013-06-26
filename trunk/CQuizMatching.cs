@@ -2,8 +2,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections;
-
-using Leadit.ExtendedDataGrid;
+using System.Text.RegularExpressions;
 
 
 namespace BrowserApp
@@ -232,25 +231,17 @@ namespace BrowserApp
                         sQuestionLines = sQuestionLines + sTempQuestionsLine;
                     }
                 }
-                sAnswerLines = sAnswerLines + "\r\nanswers.length=" + iQuestionsCount.ToString() + ";\r\n";
-                sQuestionLines = sQuestionLines + "\r\nquestions.length=" + iQuestionsCount.ToString() + ";\r\n";
+                sAnswerLines = sAnswerLines + "\r\nanswers.length=" + iQuestionsCount.ToString() + ";";
+                sQuestionLines = sQuestionLines + "\r\nquestions.length=" + iQuestionsCount.ToString() + ";";
 
-                string sAnswersBegin   = "//ANSWERSBEGIN";
-                string sAnswersEnd     = "//ANSWERSEND";
-                string sQuestionsBegin = "//QUESTIONSBEGIN";
-                string sQuestionsEnd   = "//QUESTIONSEND";
-                int iAnswersBegin = sReturnJavascript.IndexOf(sAnswersBegin) + sAnswersBegin.Length;
-                int iAnswersEnd   = sReturnJavascript.IndexOf(sAnswersEnd);
-
-                sReturnJavascript = sReturnJavascript.Insert(iAnswersEnd, sAnswerLines);
-
-                int iQuestionsBegin = sReturnJavascript.IndexOf(sQuestionsBegin) + sQuestionsBegin.Length;
-                int iQuestionsEnd   = sReturnJavascript.IndexOf(sQuestionsEnd);
-
-                sReturnJavascript = sReturnJavascript.Insert(iQuestionsEnd, sQuestionLines);
-
-
-               
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//ANSWERSBEGIN(.*)//ANSWERSEND",
+                                                  "//ANSWERSBEGIN" + sAnswerLines + "\r\n//ANSWERSEND",
+                                                  RegexOptions.Singleline);
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//QUESTIONSBEGIN(.*)//QUESTIONSEND",
+                                                  "//QUESTIONSBEGIN" + sQuestionLines + "\r\n//QUESTIONSEND",
+                                                  RegexOptions.Singleline);
 
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMa", false)[0].Controls;
 

@@ -2,8 +2,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections;
-
-using Leadit.ExtendedDataGrid;
+using System.Text.RegularExpressions;
 
 
 namespace BrowserApp
@@ -54,7 +53,7 @@ namespace BrowserApp
                 dTableCurrent.Columns.Add("Column" + (i+1).ToString(), System.Type.GetType("System.String"));
             }
             DataGridViewTextBoxColumn gtbc1 = new DataGridViewTextBoxColumn();
-            gtbc1.HeaderText = "Question Phrase";
+            gtbc1.HeaderText = "Question Phrase [Only top line for each question, next 3 are blank]";
             gtbc1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             gtbc1.SortMode = DataGridViewColumnSortMode.NotSortable;
             gtbc1.DataPropertyName = "Column1";
@@ -114,7 +113,7 @@ namespace BrowserApp
 
             //dgdtblStyle.GridColumnStyles.Add(tbc3);
             DataGridViewTextBoxColumn gtbc4 = new DataGridViewTextBoxColumn();
-            gtbc4.HeaderText = "Answer(a...d)";
+            gtbc4.HeaderText = "Answer(a...d) - [Only top line for each question, next 3 are blank]";
             gtbc4.DataPropertyName = "Column4";
             gtbc4.Width = 84;
             gtbc4.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -342,10 +341,12 @@ namespace BrowserApp
                 }
 
                 string sNewSizeVars = "numQues=" + iQuestionsCount + ";\r\n"
-                                    + "numChoi=" + iChoicesCount   + ";\r\n";
+                                    + "numChoi=" + iChoicesCount   + ";";
 
-                int iSizeVarsEnd  = sReturnJavascript.IndexOf("//SIZEVARSEND");
-                sReturnJavascript = sReturnJavascript.Insert(iSizeVarsEnd, sNewSizeVars);
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                  "//SIZEVARSBEGIN(.*)//SIZEVARSEND",
+                                  "//SIZEVARSBEGIN\r\n" + sNewSizeVars + "\r\n//SIZEVARSEND",
+                                  RegexOptions.Singleline);
 
                 string  sMatchingQuestionsLine = "\r\nquestions[NNN][OOO]=\"QQQ\";";
                 string  sMatchingAnswersLine   = "\r\nanswers[NNN]=\"AAA\";";
@@ -390,40 +391,20 @@ namespace BrowserApp
 
                 }
 
-                int iQuestionsEnd   = sReturnJavascript.IndexOf("//QUESTIONSEND");
-                sReturnJavascript = sReturnJavascript.Insert(iQuestionsEnd, sQuestionLines + "\r\n");
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//QUESTIONSBEGIN(.*)//QUESTIONSEND",
+                                                  "//QUESTIONSBEGIN" + sQuestionLines + "\r\n//QUESTIONSEND",
+                                                  RegexOptions.Singleline);
 
-                int iAnswersEnd   = sReturnJavascript.IndexOf("//ANSWERSEND");
-                sReturnJavascript = sReturnJavascript.Insert(iAnswersEnd, sAnswerLines + "\r\n");
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//ANSWERSBEGIN(.*)//ANSWERSEND",
+                                                  "//ANSWERSBEGIN" + sAnswerLines + "\r\n//ANSWERSEND",
+                                                  RegexOptions.Singleline);
 
-                int iFeedbackEnd   = sReturnJavascript.IndexOf("//FEEDBACKEND");
-                sReturnJavascript = sReturnJavascript.Insert(iFeedbackEnd, sFeedbackLines + "\r\n");
-
-                //string sOnePerPage = "false";
-
-                // Get Options to write
-                //IEnumerator ieTabPage = ((TabPage)tabData.Controls.Find("tabPageJsOptionsMc", false)[0]).Controls.GetEnumerator();
-
-                //ieTabPage.MoveNext();
-                //string sCheckAnswersButton       = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                //ieTabPage.MoveNext();
-                //string sFeedbackDisplayInResults = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //string sFeedbackDisplayInPopup   = ((CheckBox)ieTabPage.Current).Checked ? "true" : "false";
-                //ieTabPage.MoveNext();
-                //if (((RadioButton)ieTabPage.Current).Checked) {
-                //    sOnePerPage = "true";
-                //}
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //ieTabPage.MoveNext();
-                //string sNumCols = ((TextBox)ieTabPage.Current).Text;
-                //ieTabPage.MoveNext();
-                //string sNumRows = ((TextBox)ieTabPage.Current).Text;
-
+                sReturnJavascript = Regex.Replace(sReturnJavascript,
+                                                  "//FEEDBACKBEGIN(.*)//FEEDBACKEND",
+                                                  "//FEEDBACKBEGIN" + sFeedbackLines + "\r\n//FEEDBACKEND",
+                                                  RegexOptions.Singleline);
 
                 Control.ControlCollection ocTabPageJsOptions = tabData.Controls.Find("tabPageJsOptionsMc", false)[0].Controls;
                 string sCheckAnswersButton = ((CheckBox)ocTabPageJsOptions.Find("checkBoxMcCheckAnswersButton", false)[0]).Checked ? "true" : "false";
