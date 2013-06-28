@@ -32,6 +32,7 @@ namespace BrowserApp
         private string  sHtmlTemplate          = "";
         private string  sJsQuizBasePath        = Environment.CurrentDirectory + "\\Never Open - Templates - Javascript\\";
         private string  sHtmlTemplatesBasePath = Environment.CurrentDirectory + "\\Never Open - Templates - Html\\";
+        //private string  sUserDirectoryBasePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         private string  sRegistryKeyLocation   = "Software\\WhalesWeb\\ExerciseSuite";
         private string  sJsFileSavedAsName   = "";
         private string  sHtmlFileSavedAsName = "";
@@ -133,6 +134,7 @@ namespace BrowserApp
         private Splitter splitter1;
         public WebBrowser webBrowserInput;
         private CheckBox checkBoxFiTypeQuiz;
+        private MenuItem menuOpenSample;
         private IContainer components;
 
 
@@ -331,6 +333,7 @@ namespace BrowserApp
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.webBrowserInput = new System.Windows.Forms.WebBrowser();
+            this.menuOpenSample = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuestions)).BeginInit();
             this.tabControlData.SuspendLayout();
             this.tabPageJsData.SuspendLayout();
@@ -380,6 +383,7 @@ namespace BrowserApp
             this.menuFile.Index = 0;
             this.menuFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuNew,
+            this.menuOpenSample,
             this.menuOpen,
             this.menuClose,
             this.menuItem1,
@@ -400,7 +404,7 @@ namespace BrowserApp
             // 
             // menuOpen
             // 
-            this.menuOpen.Index = 1;
+            this.menuOpen.Index = 2;
             this.menuOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO;
             this.menuOpen.Text = "Open Js or Html";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
@@ -408,20 +412,20 @@ namespace BrowserApp
             // menuClose
             // 
             this.menuClose.Enabled = false;
-            this.menuClose.Index = 2;
+            this.menuClose.Index = 3;
             this.menuClose.Text = "Close";
             this.menuClose.Visible = false;
             this.menuClose.Click += new System.EventHandler(this.menuClose_Click);
             // 
             // menuItem1
             // 
-            this.menuItem1.Index = 3;
+            this.menuItem1.Index = 4;
             this.menuItem1.Text = "-";
             // 
             // menuSave
             // 
             this.menuSave.Enabled = false;
-            this.menuSave.Index = 4;
+            this.menuSave.Index = 5;
             this.menuSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
             this.menuSave.Text = "Save (old)";
             this.menuSave.Visible = false;
@@ -429,30 +433,30 @@ namespace BrowserApp
             // 
             // menuSaveAs
             // 
-            this.menuSaveAs.Index = 5;
+            this.menuSaveAs.Index = 6;
             this.menuSaveAs.Text = "Save Html";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // menuItem4
             // 
-            this.menuItem4.Index = 6;
+            this.menuItem4.Index = 7;
             this.menuItem4.Text = "-";
             // 
             // menuProperties
             // 
-            this.menuProperties.Index = 7;
+            this.menuProperties.Index = 8;
             this.menuProperties.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
             this.menuProperties.Text = "Properties";
             this.menuProperties.Click += new System.EventHandler(this.menuProperties_Click);
             // 
             // menuItem5
             // 
-            this.menuItem5.Index = 8;
+            this.menuItem5.Index = 9;
             this.menuItem5.Text = "-";
             // 
             // menuExit
             // 
-            this.menuExit.Index = 9;
+            this.menuExit.Index = 10;
             this.menuExit.Text = "Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -1247,6 +1251,12 @@ namespace BrowserApp
             this.webBrowserInput.Size = new System.Drawing.Size(914, 336);
             this.webBrowserInput.TabIndex = 0;
             // 
+            // menuOpenSample
+            // 
+            this.menuOpenSample.Index = 1;
+            this.menuOpenSample.Text = "Open Sample";
+            this.menuOpenSample.Click += new System.EventHandler(this.menuOpenSample_Click);
+            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
@@ -1329,8 +1339,13 @@ namespace BrowserApp
             } else {
                 keyWrite.SetValue("HtmlTemplatesBasePath", sHtmlTemplatesBasePath);
             }
+            //if ((keyRead.GetValue("UserDirectoryBasePath") != null)
+            //    && (Directory.Exists((string)keyRead.GetValue("UserDirectoryBasePath")))) {
+            //    sUserDirectoryBasePath = (string)keyRead.GetValue("UserDirectoryBasePath");
+            //} else {
+            //    keyWrite.SetValue("UserDirectoryBasePath", sUserDirectoryBasePath);
+            //}
         }
-
 
         /// <summary>
         ///
@@ -1643,8 +1658,10 @@ namespace BrowserApp
         private DialogResult PromptSaveFile(string sType)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.InitialDirectory = Environment.CurrentDirectory;
-            if (sType == "JS") {
+            //saveFileDialog1.InitialDirectory = Path.GetFullPath(sUserDirectoryBasePath); // Environment.CurrentDirectory;
+            saveFileDialog1.RestoreDirectory = false;
+            if (sType == "JS")
+            {
                 saveFileDialog1.Filter           = "Javascript Data File (*.js)|*.js";
                 saveFileDialog1.FileName         = sJsFileSavedAsName;
                 saveFileDialog1.Title            = "Save Javascript File";
@@ -1693,13 +1710,16 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
-        private DialogResult PromptOpenFile(string sType, ref string sReturnFile, ref string sFileType)
+        private DialogResult PromptOpenFile(string sType, string sDirectory, ref string sReturnFile, ref string sFileType)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             if (sType == "JS") {
                 openFileDialog1.Filter           = "Exercise Suite Files (*.js;*.html)|*.js;*.html|Javascript File (*.js)|*.js|Html File (*.html)|*.html";
-                openFileDialog1.InitialDirectory = Environment.CurrentDirectory;
-                openFileDialog1.Title            = "Open a Javascript or Html File Created with the Exercise Suite";
+                if (sDirectory != "") {
+                    openFileDialog1.InitialDirectory = Path.GetFullPath(sDirectory);
+                }
+                openFileDialog1.RestoreDirectory = false;
+                openFileDialog1.Title = "Open a Javascript or Html File Created with the Exercise Suite";
             }
 
             DialogResult drReturnResult = openFileDialog1.ShowDialog();
@@ -1921,6 +1941,43 @@ namespace BrowserApp
         /// <summary>
         ///
         /// </summary>
+        private void menuOpenSample_Click(object sender, EventArgs e)
+        {
+            if (PromptForSaveChanges()) {
+
+                ClearCurrentData();
+                InitGrid();
+                string sFileData = "";
+                string sFileType = "";
+                DialogResult drResultOpen = PromptOpenFile("JS", Environment.CurrentDirectory + "\\Samples - Quizzes\\", ref sFileData, ref sFileType);
+
+                if (drResultOpen == DialogResult.OK)
+                {
+
+                    string sJsQuizType = "None";
+                    if (sFileType == "JS")
+                    {
+                        Match cMatch = Regex.Match(sFileData, "//JSQUIZTYPE=(.*)//JSQUIZTYPEEND", RegexOptions.Singleline);
+                        sJsQuizType = cMatch.Success ? cMatch.Result("$1") : "None";
+                    }
+                    else
+                    {
+                        sHtmlTemplate = sFileData;
+                        sJsQuizType = ParseHtmlIntoVariablesAndGetJavascriptData(sHtmlTemplate);
+                        sFileData = "";
+                    }
+                    LoadNewQuiz(sFileType, sJsQuizType, sFileData);
+                }
+                DataChanged = false;
+                buttonPreview.Text = "Render data for :  " + cQuiz.GetQuizType();
+                WireUpControls();
+            }
+        }
+
+        
+        /// <summary>
+        ///
+        /// </summary>
         private void menuOpen_Click(object sender, System.EventArgs e)
         {
             if (PromptForSaveChanges()) {
@@ -1929,7 +1986,7 @@ namespace BrowserApp
                 InitGrid();
                 string sFileData = "";
                 string sFileType = "";
-                DialogResult drResultOpen = PromptOpenFile("JS", ref sFileData, ref sFileType);
+                DialogResult drResultOpen = PromptOpenFile("JS", "", ref sFileData, ref sFileType);
 
                 if (drResultOpen == DialogResult.OK) {
 
@@ -2145,7 +2202,7 @@ ClearCurrentData();
 
 string sJavascriptData = "";
 string sFileType = "";
-DialogResult drResultOpenJs = PromptOpenFile("JS", ref sJavascriptData, ref sFileType);
+DialogResult drResultOpenJs = PromptOpenFile("JS", Environment.CurrentDirectory, ref sJavascriptData, ref sFileType);
 
 if (drResultOpenJs == DialogResult.OK) {
 
@@ -2170,7 +2227,7 @@ if (PromptForSaveChanges()) {
 ClearCurrentData();
 
 string sFileType = "";
-DialogResult drResultOpenHtml = PromptOpenFile("HTML", ref sHtmlTemplate, ref sFileType);
+DialogResult drResultOpenHtml = PromptOpenFile("HTML", Environment.CurrentDirectory, ref sHtmlTemplate, ref sFileType);
 
 if (drResultOpenHtml == DialogResult.OK) {
 
